@@ -1,0 +1,642 @@
+/* Custom CSS Variables for Luxury Look (Lighter Theme) */
+:root {
+    --primary-color: #774333; /* Dark Brown - Used for Text and subtle accents */
+    --secondary-color: #FFFFFF; /* Crisp White/Off-White */
+    --accent-color: #D7CCC8; /* Light Taupe/Beige for subtle borders */
+    --text-color: #333;
+    --font-family-serif: 'Georgia', 'Times New Roman', serif;
+    --font-family-sans: 'Arial', sans-serif;
+    --navbar-height: 80px;
+}
+
+/* Base Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family-sans);
+    background-color: var(--secondary-color); /* Dominant white background */
+}
+
+/* --- Luxury Navbar Styling --- */
+.luxury-navbar {
+    width: 100%;
+    height: var(--navbar-height);
+    background-color: var(--secondary-color); /* White/Cream Navbar Background */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); /* Very light shadow */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--accent-color); /* Subtle, clean border */
+}
+
+.navbar-container {
+    max-width: 1300px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo */
+.navbar-logo img {
+    display: block;
+    max-height: calc(var(--navbar-height) - 1px);
+}
+
+/* Desktop Main Links (Center) */
+.navbar-links {
+    flex-grow: 1;
+    display: none;
+    text-align: center;
+}
+
+.navbar-links ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Increased gap for a spacious, luxurious feel */
+}
+
+.navbar-links a {
+    text-decoration: none;
+    color: var(--primary-color); /* Dark Brown Text */
+    font-family: var(--font-family-serif);
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 10px 0;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+.navbar-links a:hover {
+    color: var(--text-color); /* Hover to regular black/dark text */
+    border-bottom: 2px solid var(--primary-color); /* Dark brown underline accent */
+}
+
+/* Dropdown Styling */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    /* FIX 1: Shuru mein chhupa rahe */
+    visibility: hidden; 
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s ease;
+    
+    position: absolute;
+    top: 100%; 
+    
+    /* Vertical Stacking */
+    display: flex; 
+    flex-direction: column; 
+
+    background-color: var(--secondary-color);
+    min-width: 200px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
+    z-index: 100; 
+    list-style: none;
+    padding: 10px 0;
+    border: 1px solid var(--accent-color);
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: left;
+}
+
+/* FIX 2: Hover par dikhe, aur vertical rahe */
+.dropdown:hover .dropdown-content {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Dropdown link styling */
+.dropdown-content li a {
+    padding: 8px 15px;
+    display: block; 
+    white-space: nowrap;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--text-color);
+    border-bottom: none;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--accent-color); 
+    border-bottom: none;
+}
+
+.dropdown-content .divider {
+    height: 1px;
+    background-color: var(--accent-color);
+    margin: 5px 0;
+}
+
+/* Search Bar (Right) */
+.navbar-search {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-search input[type="search"] {
+    padding: 8px 15px;
+    border: 1px solid var(--accent-color);
+    border-right: none; 
+    border-radius: 20px 0 0 20px;
+    background: transparent;
+    font-size: 1rem;
+    color: var(--text-color);
+    outline: none;
+    width: 150px;
+}
+
+.navbar-search button {
+    background-color: var(--secondary-color); 
+    color: var(--primary-color); 
+    border: 1px solid var(--accent-color);
+    border-left: none; 
+    padding: 9px 12px;
+    border-radius: 0 20px 20px 0;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-search button:hover {
+    background-color: var(--accent-color);
+    color: var(--secondary-color); 
+}
+
+/* --- Hamburger Menu (Mobile Only) --- */
+.hamburger-menu {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 1001;
+}
+
+.hamburger-menu .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+/* --- Mobile Menu Links (Off-Canvas/The 'cherden' links) --- */
+.mobile-menu-links {
+    position: fixed;
+    top: var(--navbar-height);
+    left: 0;
+    width: 300px; /* Wider for premium feel */
+    height: 100%;
+    background-color: var(--primary-color); /* Dark Brown background */
+    transform: translateX(-100%); 
+    transition: transform 0.4s ease-in-out;
+    padding: 25px 0 15px 0;
+    box-shadow: 3px 0 15px rgba(0, 0, 0, 0.6); /* Deeper shadow for luxury */
+    z-index: 999;
+    overflow-y: auto; 
+}
+
+.menu-content-wrapper {
+    padding: 0 25px; /* Side padding increase */
+}
+
+.mobile-menu-links.is-open {
+    transform: translateX(0);
+}
+
+.divider-line {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 20px 0;
+}
+
+/* --- Block 1: ESSENTIAL PAGES (Minimalist List) --- */
+.essential-pages ul {
+    list-style: none;
+}
+
+.essential-pages a {
+    display: block;
+    padding: 12px 0;
+    color: var(--secondary-color); /* White text */
+    text-decoration: none;
+    font-size: 1.15rem;
+    font-weight: 500;
+    transition: color 0.2s;
+    border-bottom: 1px solid transparent;
+}
+
+.essential-pages a:hover {
+    color: var(--accent-color);
+    border-bottom: 1px solid var(--accent-color); /* Subtle hover underline */
+}
+
+/* --- Block 2: HIGH-IMPACT RESOURCES (Tile Design) --- */
+.block-title {
+    color: var(--accent-color); 
+    font-size: 0.85rem; /* Heading size thoda chota kiya */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px; /* Letter spacing increase ki taaki classy lage */
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.tiles-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Gap thoda kam kiya for tighter group */
+}
+
+.resource-tile {
+    display: flex;
+    align-items: center;
+    padding: 18px 15px; /* Vertical padding increase ki taaki bade lagein */
+    background-color: rgba(255, 255, 255, 0.1); /* Background color thoda dark kiya */
+    border-radius: 10px; /* Thoda zyada rounded corners */
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.05); /* Subtle border for definition */
+    transition: background-color 0.2s, transform 0.2s, border-color 0.2s;
+}
+
+.resource-tile:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px); 
+    border-color: var(--accent-color); /* Hover par border highlight */
+}
+
+.resource-tile .icon {
+    font-size: 1.8rem; /* Icon size bada kiya */
+    margin-right: 15px;
+    line-height: 1;
+}
+
+.resource-tile .text {
+    color: var(--secondary-color);
+    font-weight: 500;
+    font-size: 1.05rem; /* Text thoda bada kiya */
+}
+
+
+/* --- Block 3: CALL TO ACTION (CTA) --- */
+.cta-footer {
+    margin-top: 40px; 
+    padding-bottom: 20px; /* Bottom padding diya */
+    text-align: center;
+}
+
+.cta-link-mobile {
+    display: block;
+    background-color: var(--secondary-color); /* Crisp White CTA Button */
+    color: var(--primary-color); /* Dark Brown text */
+    font-weight: 700;
+    font-size: 1.25rem; /* Font size aur bada kiya */
+    padding: 18px 10px; /* Padding increase ki */
+    border-radius: 8px; /* Standard radius rakha */
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    /* Luxury Shadow effect */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); 
+    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.cta-link-mobile:hover {
+    background-color: var(--accent-color); /* Light Taupe on hover */
+    transform: translateY(-1px); /* Slight lift */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow thoda kam kiya on hover */
+}
+
+/* --- Mobile View Adjustments (Default) --- */
+@media (max-width: 992px) {
+    /* Mobile Layout: Hamburger Left, Logo Center, Search Right */
+    .navbar-container {
+        justify-content: space-between;
+    }
+
+    .navbar-logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .navbar-links {
+        display: none;
+    }
+
+    .navbar-search input[type="search"] {
+        width: 80px; /* Slimmer on mobile */
+        padding: 8px 10px;
+    }
+    
+    .navbar-search button {
+        padding: 9px 10px;
+    }
+
+    /* Hamburger animation */
+    .hamburger-menu.is-active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger-menu.is-active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger-menu.is-active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+
+/* --- Desktop View Adjustments --- */
+@media (min-width: 993px) {
+    /* Desktop Layout: Logo Left, Links Center, Search Right */
+    .navbar-links {
+        display: block;
+    }
+
+    .hamburger-menu,
+    .mobile-menu-links {
+        display: none;
+    }
+
+    .navbar-search input[type="search"] {
+        width: 200px;
+    }
+}
+
+/* hero section */
+
+
+/* --- HERO SECTION STYLING (Split-Screen Elegance) --- */
+
+
+.hero {
+    min-height: 90vh; 
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    z-index: 1; 
+    
+    /* 1. PRIMARY BACKGROUND: Deep Dark Brown */
+    background-color: var(--primary-color); 
+     background-blend-mode: multiply;
+    /* Subtle Texture/Background Image (Optional but recommended for wood feel) */
+    background-image: url('./images/barmatic.jpg'); 
+    background-size: cover;
+    background-position: center 25%;
+    background-attachment: fixed; 
+}
+
+/* 2. CUSTOM OVERLAY: Rich Dark Brown Overlay (100% saturation, lower opacity) */
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(83, 52, 36, 0.55),
+        rgba(63, 39, 27, 0.55)
+    );
+    z-index: -1;
+}
+
+.hero-container {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    min-height: 90vh;
+    padding: 0 40px; 
+}
+
+/* --- LEFT CONTENT (Text: White on Dark) --- */
+.hero-left {
+    flex: 1.2; /* Text block ko thoda zyada space diya */
+    padding: 80px 40px 80px 0; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    /* Animation (Same, but smooth) */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s, transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s;
+}
+.hero-left.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    color: var(--accent-color); /* Light Taupe accent */
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 3px; 
+    margin-bottom: 15px;
+}
+
+.hero-left h1 {
+    font-family: var(--font-family-serif);
+    font-size: 5rem; 
+    line-height: 1.1;
+    margin-bottom: 25px;
+    color: #F7F3EE; /* Crisp White */
+}
+
+.hero-left .timber-world {
+    color: var(--secondary-color); 
+    font-weight: 700;
+}
+
+.hero-left .mart-tag {
+    display: block;
+    font-family: var(--font-family-sans);
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--accent-color); 
+    margin-top: 5px;
+}
+
+.hero-left .desc {
+    font-size: 1.3rem;
+    line-height: 1.6;
+      color: rgba(247, 243, 238, 0.88);
+    max-width: 550px;
+    margin-bottom: 50px;
+}
+
+/* --- BUTTONS (High Contrast White) --- */
+/* --- BUTTONS (High Contrast White) --- */
+.hero-buttons {
+    display: flex;
+    gap: 25px; 
+    margin-top: 20px;
+}
+
+.hero-buttons .btn {
+    padding: 16px 35px; 
+    text-decoration: none;
+    font-size: 1.05rem;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+    opacity: 0;
+    transform: translateY(10px);
+}
+.hero-buttons .btn-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Outlined Primary Button: Default Text White */
+.btn-primary-outline {
+    background-color: transparent;
+    color: var(--secondary-color); /* <--- TEXT COLOR IS WHITE */
+    border: 2px solid var(--secondary-color);
+}
+.btn-primary-outline:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color); /* Hover: Text dark ho jayega white background par */
+}
+
+/* Solid CTA Button: Default Text White (Using a light accent background) */
+.btn-solid-cta {
+    background-color: var(--accent-color); /* Light Taupe background */
+    color: #F7F3EE; /* <--- TEXT COLOR IS WHITE/LIGHT ACCENT */
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 5px 15px rgba(87, 86, 86, 0.5); 
+}
+.btn-solid-cta:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: var(--primary-color); /* Hover: Text dark ho jayega white background par */
+}
+
+/* --- MOBILE PERFECTION (Adjustment) --- */
+@media (max-width: 992px) {
+    /* ... existing mobile styles ... */
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .hero-buttons .btn {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* --- RIGHT IMAGE (Small size, Bordered, Artwork look) --- */
+.hero-right {
+    flex: 0.8; /* Desktop par chota size diya */
+    overflow: hidden;
+    position: relative;
+    
+    /* 3. BORDER & BOX DESIGN */
+    border: 5px solid var(--accent-color); /* Light Taupe Border */
+    background-color: var(--accent-color); /* Border ke peeche color */
+    border-radius: 10px; 
+    box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.2), /* Offset shadow (Right and Bottom) */
+                0 10px 30px rgba(0, 0, 0, 0.4); 
+    
+    /* Animation */
+    opacity: 0;
+    transform: translateX(50px) scale(0.95);
+    transition: opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s, transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s;
+}
+.hero-right.visible {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+}
+
+.image-wrapper {
+    height: 100%;
+    width: 100%;
+}
+
+.hero-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    
+    /* Ken Burns Effect */
+    transform: scale(1.03); 
+    transition: transform 12s ease-out; 
+}
+
+.hero-right.visible img {
+    transform: scale(1); 
+}
+
+
+/* --- MOBILE PERFECTION (Text Above Image) --- */
+@media (max-width: 992px) {
+    .hero {
+        background-attachment: scroll; 
+        min-height: auto;
+        padding-top: calc(var(--navbar-height) + 20px);
+    }
+    .hero-container {
+        flex-direction: column;
+        min-height: auto;
+        padding: 0 20px; 
+        padding-bottom: 50px;
+    }
+    
+    /* Mobile Order: TEXT UP, IMAGE DOWN */
+    .hero-left {
+        padding: 20px 0 40px 0;
+        order: 1; 
+        flex: auto; /* Reset flex */
+        opacity: 1; 
+        transform: none;
+    }
+    
+    .hero-right {
+        order: 2; 
+        height: 350px; /* Sizable image height */
+        flex: auto; /* Reset flex */
+        transform: none; 
+        opacity: 1; 
+        transition: none;
+        width: 100%;
+        max-width: 100%;
+        
+        /* Mobile: Border/Shadow ko chota karna */
+        border: 3px solid var(--accent-color); 
+        box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.2), 
+                    0 5px 15px rgba(0, 0, 0, 0.4); 
+    }
+    
+    .hero-left h1 {
+        font-size: 2.5rem;
+    }
+    .hero-left .mart-tag {
+        font-size: 1.3rem;
+    }
+    .hero-left .desc {
+        font-size: 1.05rem;
+    }
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .hero-buttons .btn {
+        opacity: 1;
+        transform: none;
+    }
+}

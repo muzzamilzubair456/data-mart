@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You</title>
+  <style>
+    /* Body setup */
+    body {
+      margin: 0;
+      padding: 0;
+      background: #0a0a0c;
+      color: #e9e9e9;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    /* Container box */
+    .thankyou-box {
+      background: #111115;
+      padding: 40px 25px;
+      border-radius: 16px;
+      max-width: 400px;   /* Limits width for large screens */
+      width: 90%;         /* Responsive for mobile */
+      box-sizing: border-box;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+
+    /* Heading */
+    .thankyou-box h1 {
+      font-size: 28px;
+      color: #00eaff;
+      margin: 0 0 15px 0;
+    }
+
+    /* Paragraph */
+    .thankyou-box p {
+      font-size: 16px;
+      color: #9fa3a7;
+      margin: 0;
+    }
+
+    /* Button */
+    .thankyou-box a {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 20px;
+      background: #00eaff;
+      color: #000;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .thankyou-box a:hover {
+      opacity: 0.85;
+    }
+
+    /* Responsive adjustments */
+    @media(max-width: 480px) {
+      .thankyou-box h1 { font-size: 24px; }
+      .thankyou-box p { font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="thankyou-box">
+    <h1>Thank You! 🎉</h1>
+    <p>Your message has been sent successfully.</p>
+    <a href="./index.html">Go Back Home</a>
+  </div>
+
+</body>
+</html>
