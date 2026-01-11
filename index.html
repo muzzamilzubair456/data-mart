@@ -105,153 +105,6 @@
   
 
 </header>
-<div class="mobile-nav-wrapper">
-    <nav class="mobile-bottom-nav">
-        <div class="nav-container">
-            
-            <a href="./arrival.html" class="nav-item  ">
-                <div class="icon-bubble">
-                    <i class="fas fa-truck-loading nav-icon"></i>
-                </div>
-                <span class="nav-text active-text">Arrivals</span>
-            </a>
-
-            <a href="./gallery.html" class="nav-item">
-                <i class="fas fa-images nav-icon"></i>
-                <span class="nav-text">Gallery</span>
-            </a>
-            
-            
-
-            <a href="./index.html" class="nav-item active-nav">
-                <i class="fas fa-home nav-icon"></i>
-                <span class="nav-text">Home</span>
-            </a>
-            
-            
-
-        </div>
-    </nav>
-</div>
-<style>
-/* ROOT VARIABLES for Wood Theme */
-:root {
-    --wood-green-dark: #1A5439; 
-    --wood-green-light: #CFE0D3; 
-    --color-default-icon: #606060; 
-    --color-text-default: #444444; 
-    --nav-height: 70px; 
-}
-
-/* -----------------------------------------------------------------------------------
-   VISIBILITY & BLUR CONTROL (Mobile Only)
-   ----------------------------------------------------------------------------------- */
-.mobile-nav-wrapper {
-    display: none; 
-}
-
-/* Show only on screens up to 600px wide (Mobile Size) */
-@media (max-width: 600px) {
-    .mobile-nav-wrapper {
-        display: block; 
-        position: fixed; 
-        bottom: 0;
-        left: 0;
-        right: 0;
-        z-index: 1000; 
-        padding: 5px 0;
-        
-        /* BLUR EFFECT APPLIED HERE */
-        background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
-        backdrop-filter: blur(10px); 
-        -webkit-backdrop-filter: blur(10px); /* Safari support */
-        
-        box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1);
-        font-family: Arial, sans-serif;
-    }
-}
-
-
-/* -----------------------------------------------------------------------------------
-   LAYOUT AND STYLING (RESPONSIVENESS FIXED)
-   ----------------------------------------------------------------------------------- */
-.nav-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center; 
-    height: var(--nav-height);
-    padding-top: 5px; 
-}
-
-.nav-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    cursor: pointer;
-    
-    /* FIX: Max-width removed and flex-grow: 1/5th to ensure equal distribution */
-    flex-grow: 1; 
-    flex-basis: 0; /* Ensures items share space equally */
-    
-    position: relative;
-    padding: 0 2px; 
-}
-
-/* --- Default Item Styling (Inactive) --- */
-.nav-item:not(.active-nav) .nav-icon {
-    font-size: 1.5rem;
-    color: var(--color-default-icon);
-    margin-bottom: 2px;
-    padding-top: 5px; 
-    transition: color 0.3s ease;
-}
-
-.nav-item:not(.active-nav) .nav-text {
-    font-size: 0.75rem; 
-    color: var(--color-text-default);
-    font-weight: 500;
-    white-space: nowrap;
-    line-height: 1.2; 
-}
-
-
-/* --- ACTIVE ITEM STYLING (The pill/bubble look) --- */
-.active-nav .icon-bubble {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    width: 65px; 
-    height: 38px; 
-    border-radius: 999px; 
-    
-    background-color: var(--wood-green-light); 
-    
-    margin-bottom: 4px; 
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
-}
-
-.active-nav .active-icon {
-    font-size: 1.3rem; 
-    color: var(--wood-green-dark); 
-    transition: color 0.3s ease;
-}
-
-.active-nav .nav-text.active-text {
-    color: var(--wood-green-dark); 
-    font-weight: 600;
-}
-
-/* Hover Feedback for inactive items */
-.nav-item:hover:not(.active-nav) .nav-icon {
-    color: #1a1a1a;
-}
-.nav-item:hover:not(.active-nav) .nav-text {
-    color: #1a1a1a;
-}
-</style>
 <script>
     // Simple JavaScript for mobile menu toggling
     const hamburger = document.querySelector('.hamburger-menu');
@@ -264,6 +117,37 @@
         mainNav.classList.toggle('mobile-menu-active');
     });
 </script>
+
+
+<!-- nagivation  bottom navbar -->
+<div class="mobile-nav-wrapper">
+    <nav class="mobile-bottom-nav">
+        <div class="nav-container">
+            
+            <a href="./arrival.html" class="nav-item"> 
+                <i class="fas fa-truck-loading nav-icon"></i>
+                <span class="nav-text">Arrivals</span> </a>
+
+            <a href="./gallery.html" class="nav-item">
+                <i class="fas fa-images nav-icon"></i>
+                <span class="nav-text">Gallery</span>
+            </a>
+            
+            <a href="./index.html" class="nav-item active-nav">
+                <div class="icon-bubble"> 
+                    <i class="fas fa-home active-icon"></i> 
+                </div>
+                <span class="nav-text active-text">Home</span>
+            </a>
+            
+          
+          
+
+        </div>
+    </nav>
+</div>
+
+
 
 
 
