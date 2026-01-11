@@ -95,3 +95,4 @@ document.addEventListener('DOMContentLoaded', function() {
         // The JS click/tap handles the mobile/touch scenario.
     });
 });
+
