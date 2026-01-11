@@ -385,7 +385,7 @@ body {
 .hero {
     min-height: 90vh; 
     display: flex;
-    align-items: center;
+    align-items: left;
     overflow: hidden;
     position: relative;
     z-index: 1; 
@@ -419,7 +419,8 @@ body {
     margin: 0 auto;
     display: flex;
     min-height: 90vh;
-    padding: 0 40px; 
+    padding: 0 40px;
+    text-align: center; 
 }
 
 /* --- LEFT CONTENT (Text: White on Dark) --- */
@@ -441,7 +442,7 @@ body {
 }
 
 .hero-subtitle {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     color: var(--accent-color); /* Light Taupe accent */
     font-weight: 500;
     text-transform: uppercase;
@@ -451,7 +452,7 @@ body {
 
 .hero-left h1 {
     font-family: var(--font-family-serif);
-    font-size: 5rem; 
+    font-size: 5.5rem; 
     line-height: 1.1;
     margin-bottom: 25px;
     color: #F7F3EE; /* Crisp White */
@@ -464,7 +465,7 @@ body {
 
 .hero-left .mart-tag {
     display: block;
-    font-family: var(--font-family-sans);
+     font-family: var(--font-family-serif);
     font-size: 2.5rem;
     font-weight: 300;
     color: var(--accent-color); 
@@ -595,6 +596,7 @@ body {
         min-height: auto;
         padding: 0 20px; 
         padding-bottom: 50px;
+
     }
     
     /* Mobile Order: TEXT UP, IMAGE DOWN */
@@ -623,10 +625,10 @@ body {
     }
     
     .hero-left h1 {
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
     .hero-left .mart-tag {
-        font-size: 1.3rem;
+        font-size: 2rem;
     }
     .hero-left .desc {
         font-size: 1.05rem;
@@ -639,4 +641,634 @@ body {
         opacity: 1;
         transform: none;
     }
+}
+
+
+/* img slider  */
+
+/* Center the slider vertically and horizontally on the page */
+.slider-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Takes up the full height of the viewport */
+    background-color: #f8f9fa; /* Light background color */
+    padding: 20px;
+}
+
+/* Define the overall size and styling of the carousel */
+#woodSlider {
+    max-width: 800px; /* Adjust slider width as needed */
+    width: 90%; /* Responsive width */
+    border-radius: 15px; /* Subtle rounded corners */
+    overflow: hidden; /* Important to contain the image and its border-radius */
+}
+
+/* Professional Shadow Effect */
+.custom-shadow {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15), 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.custom-shadow:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2), 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Styling */
+.slider-img {
+    height: 500px; /* Fixed height for consistency, adjust as needed */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    border-radius: 15px; /* Apply to match the carousel container */
+}
+
+/* Image Animation (Zoom-in effect) */
+.carousel-item .animated-item {
+    transform: scale(1.0);
+    transition: transform 5s ease-in-out; /* Slow, professional transition */
+}
+
+.carousel-item.active .animated-item {
+    transform: scale(1.05); /* Zoom in effect on the active image */
+}
+
+/* Customizing Controls for better visibility */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 3rem; 
+    height: 3rem;
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+    border-radius: 50%; /* Circle shape */
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 8%; /* Increase the clickable area */
+}
+
+/* Optional: Make the transition smoother */
+.carousel-item {
+    transition: transform 1s ease-in-out !important; 
+}
+/* -------------------------------------------
+   1. PREMIUM THEME BASE STYLES
+   ------------------------------------------- */
+
+.premium-feature-section {
+    /* Background animation ko thoda effect dene ke liye, thoda padding */
+    position: relative;
+    z-index: 1; /* Ensure this section is above the -1 background */
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.section-heading {
+    color: #4B3832; /* Deep Brown Heading */
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+/* --- Premium Card Base --- */
+.premium-card {
+    background-color: #FAF6F3; /* Creamy Off-White */
+    border-radius: 12px;
+    padding: 40px 30px;
+    text-align: center;
+    min-height: 250px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.27); /* Smooth hover */
+    will-change: transform, box-shadow; /* Performance boost for animation */
+    /* Add perspective for 3D tilt effect */
+    perspective: 1000px; 
+}
+
+/* Card Hover Animation (Simple Lift) */
+.premium-card:hover {
+    box-shadow: 0 20px 40px rgba(80, 50, 30, 0.2);
+    transform: translateY(-5px);
+}
+
+/* --- Icon Styling --- */
+.icon-box {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #A0522D, #8B4513); /* Mahogany Gradient */
+    margin-bottom: 25px;
+    box-shadow: 0 0 0 8px rgba(139, 69, 19, 0.1);
+}
+
+.icon-gold {
+    color: #FFD700; /* Gold Icon Color */
+    font-size: 30px;
+}
+
+/* --- Typography Styling --- */
+.card-title-premium {
+    color: #583321; /* Dark Coffee Brown */
+    font-weight: 700;
+    margin-bottom: 12px;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.card-text-premium {
+    color: #705B50; /* Muted Brown Text */
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* -------------------------------------------
+   2. BACKGROUND FIX (Ensure full-screen background)
+   ------------------------------------------- */
+/* Yeh code zaroori hai agar aapne full-screen background use kiya hai */
+#animated-background {
+    /* ... (Yahan aapka existing #animated-background code aayega) ... */
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; 
+}
+
+/* -------------------------------------------
+   3. JAVASCRIPT ANIMATION HOOK (Tilt Effect)
+   ------------------------------------------- */
+/* JS se yeh class add hogi on mouse move */
+.premium-card.tilt-active {
+    /* This class will be managed by JS for the 3D effect */
+}
+
+
+/* =======================================================
+   GLOBAL RESETS & STRUCTURE
+   ======================================================= */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif; /* Ya koi professional font use karein */
+    color: #4B3832; /* Default dark brown text */
+}
+
+/* Ensure all content is above the fixed background */
+.main-content-wrapper {
+    position: relative; 
+    z-index: 0; 
+    overflow-x: hidden; /* Prevent horizontal scrollbar from animations */
+}
+
+
+/* =======================================================
+   BACKGROUND ANIMATION STYLES (Fixed Layer)
+   ======================================================= */
+#animated-background {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; 
+    background: linear-gradient(to bottom right, #4B3832, #A0522D); /* Richer Brown Gradient */
+}
+
+/* Floating Squares/Particles */
+#animated-background::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none; 
+    
+    box-shadow: 
+        10vw 20vh 0 0 rgba(255, 255, 255, 0.1), /* Lighter, more subtle particles */
+        25vw 70vh 0 0 rgba(255, 255, 255, 0.08),
+        80vw 10vh 0 0 rgba(255, 255, 255, 0.12),
+        50vw 90vh 0 0 rgba(255, 255, 255, 0.15),
+        65vw 45vh 0 0 rgba(255, 255, 255, 0.07),
+        30vw 15vh 0 0 rgba(255, 255, 255, 0.1),
+        95vw 85vh 0 0 rgba(255, 255, 255, 0.06),
+        5vw 95vh 0 0 rgba(255, 255, 255, 0.15);
+    
+    animation: moveBackground 25s linear infinite; 
+}
+
+/* The animation keyframes */
+@keyframes moveBackground {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    100% {
+        transform: translate(150px, 150px) rotate(360deg); 
+    }
+}
+
+
+/* =======================================================
+   1. LEGACY ARCHITECTURAL GRID STYLES (DATA TIMBER WORLD)
+   ======================================================= */
+
+/* =======================================================
+   GLOBAL RESETS & STRUCTURE (Existing/Assumed)
+   ======================================================= */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+    color: #4B3832;
+}
+
+.main-content-wrapper {
+    position: relative; 
+    z-index: 0; 
+    overflow-x: hidden;
+}
+/* =======================================================
+   1. LEGACY ARCHITECTURAL GRID STYLES (DYNAMIC OVERHAUL)
+   ======================================================= */
+
+.legacy-grid-section {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    /* Stronger shadow for premium look */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); 
+}
+
+/* --- DYNAMIC LEGACY BLOCK (Text + Image/Gradient) --- */
+.legacy-block {
+    padding: 60px 50px;
+    height: 100%;
+    display: flex;
+    align-items: center; /* Vertically center content */
+    justify-content: center;
+}
+
+.legacy-bg-image {
+    /* BACKGROUND SETUP */
+    background: 
+        /* 1. Dark Overlay Gradient for better text readability */
+        linear-gradient(to right, rgba(60, 42, 30, 0.9) 0%, rgba(60, 42, 30, 0.6) 70%, rgba(60, 42, 30, 0.3) 100%),
+        /* 2. Placeholder Image - ***CHANGE THIS PATH*** */
+        url('images/shopfront.jpg'); 
+    
+    background-size: cover;
+    background-position: center;
+    color: #F8F4F0; /* Creamy White text */
+}
+
+.legacy-content {
+    max-width: 450px;
+    position: relative;
+    z-index: 5; 
+}
+
+.legacy-title {
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: #FFD700; /* Gold Highlight */
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.legacy-established {
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin-bottom: 25px;
+}
+
+.legacy-divider {
+    border-top: 4px solid #FFD700; /* Thicker Gold Divider */
+    width: 80px;
+    margin-bottom: 30px;
+}
+
+.legacy-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 40px;
+}
+
+.btn-legacy-outline {
+    color: #F8F4F0;
+    border: 1px solid #FFD700;
+    padding: 12px 25px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: inline-block;
+}
+
+.btn-legacy-outline:hover {
+    background-color: #FFD700;
+    color: #3C2A1E; 
+}
+
+/* --- Stat Grid Container (Slim: only 2 boxes) --- */
+.stat-grid-container-slim {
+    background-color: #2E2018; /* Darker base color for contrast */
+    padding: 0;
+}
+
+.stat-tile {
+    padding: 50px 30px;
+    text-align: center;
+    transition: transform 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #F8F4F0;
+    height: 100%; 
+}
+
+/* --- DYNAMIC TILE STYLING (Backgrounds) --- */
+.dynamic-tile-1 {
+    background: linear-gradient(180deg, #4B3832 0%, #6D564A 100%);
+}
+.dynamic-tile-2 {
+    background: linear-gradient(180deg, #6D564A 0%, #4B3832 100%);
+}
+
+/* --- Hover Effect (3D press/lift) --- */
+.stat-tile:hover {
+    z-index: 10;
+    transform: translateY(-5px) scale(1.03); 
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6); 
+    background: linear-gradient(180deg, #6D564A 0%, #8B6E60 100%);
+}
+
+.icon-gold {
+    font-size: 3rem; 
+    margin-bottom: 15px;
+    color: #FFD700; 
+}
+
+.stat-number-large {
+    font-size: 4rem; 
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 5px;
+    color: #FFFFFF; 
+}
+
+.stat-label-large {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+
+/* =======================================================
+   RESPONSIVE ADJUSTMENTS (Legacy Grid)
+   ======================================================= */
+
+/* Desktop (lg) */
+@media (min-width: 992px) {
+    /* Legacy block height is aligned with the two stacked stat tiles (50% each) */
+    .legacy-block {
+        height: 440px; 
+    }
+    .stat-tile {
+        /* On desktop, tiles should split the available height */
+        height: 50%;
+    }
+}
+
+/* Mobile/Tablet (max-width: 991px) */
+@media (max-width: 991px) {
+    /* Legacy Block is full width, stacked on top */
+    .col-lg-5.col-md-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    
+    .legacy-bg-image {
+        padding: 40px 20px;
+        height: 300px; /* Fixed height for image background on smaller screens */
+        text-align: center;
+    }
+    .legacy-content {
+        margin: auto;
+    }
+    .legacy-divider {
+        margin: 20px auto;
+    }
+    .legacy-title {
+        font-size: 2rem;
+    }
+
+    /* Stat Tiles: 2 per row (col-sm-6) */
+    .col-md-6.col-sm-6 {
+        flex: 0 0 50%; 
+        max-width: 50%;
+    }
+    
+    .stat-tile {
+        /* Mobile par padding aur font size adjust */
+        padding: 30px 15px;
+        height: auto;
+    }
+    
+    .stat-number-large {
+        font-size: 3rem;
+    }
+}
+/* -------------------------------------------------------
+   2. MOBILE OPTIMIZED 3D FLIP CARD STYLES (MODIFIED)
+   ------------------------------------------------------- */
+
+.mobile-feature-section {
+    position: relative;
+    z-index: 1;
+}
+
+.bg-light-creamy {
+    background-color: #FDFBFA;
+}
+
+.section-heading {
+    color: #4B3832; 
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+/* --- Card Container (CRITICAL for 3D perspective) --- */
+.flip-card-container {
+    background-color: transparent;
+    width: 100%;
+    /* Adjusted height for 2-per-line mobile layout */
+    height: 180px; 
+    perspective: 1000px; 
+}
+
+.flip-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s; 
+    transform-style: preserve-3d; 
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+}
+
+/* Flipping the card on hover (desktop) or .flipped class (mobile tap) */
+.flip-card-container:hover .flip-card,
+.flip-card-container.flipped .flip-card { 
+    transform: rotateY(180deg);
+}
+
+/* Front and Back common styles */
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; 
+    border-radius: 12px;
+    padding: 15px; /* Reduced padding for smaller cards */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- NEW: FRONT FACE GRADIENT STYLING --- */
+.bg-brown-gradient {
+    /* Rich, professional gradient from Dark Coffee to Mahogany */
+    background: linear-gradient(135deg, #583321 0%, #aa8061 100%);
+    color: #F8F4F0; 
+}
+
+/* --- FRONT FACE TYPOGRAPHY --- */
+/* Reduced size to fit 2-per-line on mobile */
+.front-icon {
+    font-size: 2.5rem; 
+    color: #FFD700; 
+    margin-bottom: 5px;
+}
+
+.front-title {
+    font-size: 1rem; 
+    font-weight: 700;
+    margin-bottom: 3px;
+    line-height: 1.2;
+}
+
+.front-subtitle {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+}
+
+/* --- BACK FACE STYLING (White Theme) --- */
+.bg-light-white {
+    background-color: #F8F4F0; 
+    color: #4B3832;
+    transform: rotateY(180deg); 
+    text-align: left;
+    padding: 15px; /* Reduced padding */
+}
+
+.back-title {
+    font-size: 1rem; 
+    font-weight: 700;
+    color: #8B4513; 
+    margin-bottom: 5px;
+}
+
+.back-text {
+    font-size: 0.8rem; 
+    line-height: 1.4;
+}
+
+
+/* =======================================================
+   RESPONSIVE ADJUSTMENTS (CRITICAL FIXES)
+   ======================================================= */
+
+/* Desktop (lg) - default 5/7 split */
+@media (min-width: 992px) {
+    .legacy-block {
+        height: 520px;
+    }
+}
+
+/* Tablet (md) - Flip cards are 2 per row */
+@media (min-width: 768px) and (max-width: 991px) {
+    .legacy-block {
+        padding: 40px 30px;
+        height: auto; 
+    }
+    
+    .col-lg-6.col-md-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    
+    .flip-card-container {
+        height: 220px; /* Bigger height on tablets */
+    }
+}
+
+/* Mobile (sm/xs) - FORCE 2 FLIP CARDS PER LINE */
+@media (max-width: 767px) {
+    /* Legacy Block is full width */
+    .col-lg-5.col-md-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    
+    .legacy-block {
+        padding: 40px 20px;
+        height: auto;
+    }
+    
+    .legacy-title {
+        font-size: 1.8rem;
+    }
+
+    /* Stat Tiles remain 2 per row for visual impact */
+    .col-md-6.col-sm-6 {
+        flex: 0 0 50%; 
+        max-width: 50%;
+    }
+    
+    /* === CRITICAL MOBILE FLIP CARD FIX: 2 per line === */
+    .col-lg-6.col-md-6.col-sm-12 {
+        /* Overriding col-sm-12 to be 50% on mobile */
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    
+    /* Adding padding adjustments to prevent cards from touching */
+    .mobile-feature-section .row > div {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    
+    /* FINAL CARD HEIGHT: 180px */
+    .flip-card-container {
+        height: 180px;
+    }
+
+    /* Final Font size adjustments for small space */
+    .front-title { font-size: 0.9rem; }
+    .back-text { font-size: 0.75rem; }
 }
