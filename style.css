@@ -2481,3 +2481,286 @@ botttom navbar */
 .nav-item:hover:not(.active-nav) .nav-text {
     color: #1a1a1a;
 }
+
+
+/* --- 🎨 FOOTER COLOR VARIABLES --- */
+:root {
+    --footer-bg: #3E2723; /* Deep Dark Brown (Primary Footer BG) */
+    --footer-text: #EFEBE9; /* Light Beige/Off-White Text */
+    --footer-accent: #CC9966; /* Gold/Wood Accent */
+    --footer-link-hover: #ffffff; /* Pure White on Hover */
+}
+
+/* --- FOOTER GENERAL STYLES --- */
+.site-footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 40px 20px 0;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 30px;
+}
+
+.footer-column {
+    padding: 0 15px;
+    margin-bottom: 30px;
+    box-sizing: border-box;
+}
+
+.footer-heading {
+    color: var(--footer-accent);
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+/* Company Info / Logo */
+.footer-logo {
+    font-size: 1.5rem;
+    color: var(--footer-text);
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.company-tagline {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+/* Contact Details */
+.contact-details p {
+    font-style: normal;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 8px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.contact-details i {
+    color: var(--footer-accent);
+    margin-right: 10px;
+    width: 15px; /* Alignment fix */
+}
+
+
+/* --- NEWSLETTER SIGNUP --- */
+.newsletter-signup {
+    padding-top: 15px;
+}
+
+.newsletter-title {
+    color: var(--footer-accent);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.signup-form {
+    display: flex;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.signup-form input {
+    flex-grow: 1;
+    padding: 10px;
+    border: none;
+    font-size: 0.9rem;
+    color: var(--footer-bg);
+}
+
+.subscribe-btn {
+    background-color: var(--footer-accent);
+    color: var(--footer-bg);
+    border: none;
+    padding: 10px 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.subscribe-btn:hover {
+    background-color: #DDAA77; /* Slightly lighter accent */
+}
+
+/* --- SOCIAL MEDIA ICONS --- */
+.social-links-footer {
+    margin-top: 30px;
+}
+
+.social-icons a {
+    color: var(--footer-text);
+    font-size: 1.5rem;
+    margin-right: 15px;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.social-icons a:hover {
+    color: var(--footer-accent);
+    transform: scale(1.1);
+}
+
+/* --- ACCORDION LINK STYLES (MOBILE/TABLET) --- */
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--footer-text);
+    transition: color 0.2s;
+}
+
+.accordion-header:hover {
+    color: var(--footer-accent);
+}
+
+.accordion-arrow {
+    transition: transform 0.3s ease;
+}
+
+.accordion-header.is-active .accordion-arrow {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    list-style: none;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+}
+
+.footer-links li a {
+    display: block;
+    padding: 8px 0;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.footer-links li a:hover {
+    color: var(--footer-link-hover);
+}
+
+/* --- FOOTER BOTTOM (Copyright) --- */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 15px 20px;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0;
+}
+
+
+/* --- MEDIA QUERIES (RESPONSIVENESS) --- */
+
+/* Desktop Layout (768px and up) */
+@media (min-width: 768px) {
+    .footer-container {
+        justify-content: space-between;
+    }
+
+    .footer-column {
+        padding: 0 20px;
+    }
+
+    /* Column Widths */
+    .company-info {
+        flex-basis: 35%; 
+        max-width: 35%;
+    }
+    .links-wrapper {
+        display: flex;
+        flex-basis: 40%;
+        max-width: 40%;
+        /* Desktop: Show links normally (No accordion header/footer-heading required) */
+    }
+    .contact-social {
+        flex-basis: 25%;
+        max-width: 25%;
+    }
+
+    /* Desktop Links: Convert accordion structure to normal columns */
+    .accordion-item {
+        flex-basis: 33.33%;
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+    .accordion-header {
+        display: none; /* Hide toggle header */
+    }
+    .accordion-content {
+        max-height: none !important; /* Always open on desktop */
+    }
+    
+    /* Show standard headings for desktop link columns */
+    .accordion-item:nth-child(1) .footer-links::before {
+        content: "Quick Links";
+        display: block;
+        color: var(--footer-accent);
+        font-size: 1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+        letter-spacing: 0.5px;
+    }
+    .accordion-item:nth-child(2) .footer-links::before {
+        content: "Our Services";
+        display: block;
+        color: var(--footer-accent);
+        font-size: 1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+        letter-spacing: 0.5px;
+    }
+    .accordion-item:nth-child(3) .footer-links::before {
+        content: "Helpful Info";
+        display: block;
+        color: var(--footer-accent);
+        font-size: 1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+        letter-spacing: 0.5px;
+    }
+}
+
+/* Mobile Layout (Less than 768px) */
+@media (max-width: 767px) {
+    .footer-column {
+        flex-basis: 100%;
+        max-width: 100%;
+        padding: 0;
+    }
+    .links-wrapper {
+        order: 3; /* Move links to the bottom, below contact */
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 30px;
+    }
+    .company-info {
+        order: 1;
+    }
+    .contact-social {
+        order: 2;
+    }
+}
