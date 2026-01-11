@@ -105,8 +105,153 @@
   
 
 </header>
+<div class="mobile-nav-wrapper">
+    <nav class="mobile-bottom-nav">
+        <div class="nav-container">
+            
+            <a href="./arrival.html" class="nav-item  ">
+                <div class="icon-bubble">
+                    <i class="fas fa-truck-loading nav-icon"></i>
+                </div>
+                <span class="nav-text active-text">Arrivals</span>
+            </a>
+
+            <a href="./gallery.html" class="nav-item">
+                <i class="fas fa-images nav-icon"></i>
+                <span class="nav-text">Gallery</span>
+            </a>
+            
+            
+
+            <a href="./index.html" class="nav-item active-nav">
+                <i class="fas fa-home nav-icon"></i>
+                <span class="nav-text">Home</span>
+            </a>
+            
+            
+
+        </div>
+    </nav>
+</div>
+<style>
+/* ROOT VARIABLES for Wood Theme */
+:root {
+    --wood-green-dark: #1A5439; 
+    --wood-green-light: #CFE0D3; 
+    --color-default-icon: #606060; 
+    --color-text-default: #444444; 
+    --nav-height: 70px; 
+}
+
+/* -----------------------------------------------------------------------------------
+   VISIBILITY & BLUR CONTROL (Mobile Only)
+   ----------------------------------------------------------------------------------- */
+.mobile-nav-wrapper {
+    display: none; 
+}
+
+/* Show only on screens up to 600px wide (Mobile Size) */
+@media (max-width: 600px) {
+    .mobile-nav-wrapper {
+        display: block; 
+        position: fixed; 
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000; 
+        padding: 5px 0;
+        
+        /* BLUR EFFECT APPLIED HERE */
+        background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+        backdrop-filter: blur(10px); 
+        -webkit-backdrop-filter: blur(10px); /* Safari support */
+        
+        box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1);
+        font-family: Arial, sans-serif;
+    }
+}
 
 
+/* -----------------------------------------------------------------------------------
+   LAYOUT AND STYLING (RESPONSIVENESS FIXED)
+   ----------------------------------------------------------------------------------- */
+.nav-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center; 
+    height: var(--nav-height);
+    padding-top: 5px; 
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+    
+    /* FIX: Max-width removed and flex-grow: 1/5th to ensure equal distribution */
+    flex-grow: 1; 
+    flex-basis: 0; /* Ensures items share space equally */
+    
+    position: relative;
+    padding: 0 2px; 
+}
+
+/* --- Default Item Styling (Inactive) --- */
+.nav-item:not(.active-nav) .nav-icon {
+    font-size: 1.5rem;
+    color: var(--color-default-icon);
+    margin-bottom: 2px;
+    padding-top: 5px; 
+    transition: color 0.3s ease;
+}
+
+.nav-item:not(.active-nav) .nav-text {
+    font-size: 0.75rem; 
+    color: var(--color-text-default);
+    font-weight: 500;
+    white-space: nowrap;
+    line-height: 1.2; 
+}
+
+
+/* --- ACTIVE ITEM STYLING (The pill/bubble look) --- */
+.active-nav .icon-bubble {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    width: 65px; 
+    height: 38px; 
+    border-radius: 999px; 
+    
+    background-color: var(--wood-green-light); 
+    
+    margin-bottom: 4px; 
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+.active-nav .active-icon {
+    font-size: 1.3rem; 
+    color: var(--wood-green-dark); 
+    transition: color 0.3s ease;
+}
+
+.active-nav .nav-text.active-text {
+    color: var(--wood-green-dark); 
+    font-weight: 600;
+}
+
+/* Hover Feedback for inactive items */
+.nav-item:hover:not(.active-nav) .nav-icon {
+    color: #1a1a1a;
+}
+.nav-item:hover:not(.active-nav) .nav-text {
+    color: #1a1a1a;
+}
+</style>
 <script>
     // Simple JavaScript for mobile menu toggling
     const hamburger = document.querySelector('.hamburger-menu');
@@ -618,14 +763,14 @@ window.addEventListener("load", () => {
             
             <div class="contact-card shop-card">
                 <i class="fas fa-store icon-shop"></i>
-                <h3>DATA TIMBER HOUSE (Main Branch)</h3>
-                <p>M.A. Jinnah Road, Timber Market, Karachi</p>
-                <a href="tel:+922134567890" class="contact-link"><i class="fas fa-phone-alt"></i> (021) 34567890</a>
+                <h3>DATA & SON'S (Main Branch)</h3>
+                <p>Plot # 6/14 Siddique wahab road Old haji camp Karachi, Pakistan.</p>
+                <a href="tel:+922132728053" class="contact-link"><i class="fas fa-phone-alt"></i> 021 32728053</a>
             </div>
 
             <div class="contact-card shop-card">
                 <i class="fas fa-cut icon-shop"></i>
-                <h3>DATA PVC & CUTTING UNIT</h3>
+                <h3></h3>
                 <p>Street 5, Site Area, Karachi</p>
                 <a href="tel:+922134567891" class="contact-link"><i class="fas fa-phone-alt"></i> (021) 34567891</a>
             </div>
@@ -639,76 +784,100 @@ window.addEventListener("load", () => {
             
         </div>
         
-        <div class="contact-action-area">
-            <a href="mailto:support@datatimbermart.co" class="email-link">
-                <i class="fas fa-envelope"></i> support@datatimbermart.co
+       <div class="contact-action-area">
+  <a href="mailto:support@datatimbermart.co" class="email-link-prominent">
+            <i class="fas fa-envelope"></i> Email: dataoneenterprises1986@gmail.com
+        </a>
+        
+        <div class="call-toggle-container">
+            
+            <a href="javascript:void(0)" class="btn-read-more" id="callToggleBtn">
+                VIEW ALL CONTACTS ↓
             </a>
             
-            <div class="call-dropdown">
-                <button class="btn-call-us" id="callUsBtn">
-                    Call Our Sales Team <i class="fas fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content" id="numberDropdown">
-                    <p>Muhammad Asif: <a href="tel:+923331234567">(0333) 1234567</a></p>
-                    <p>Zubair Khan: <a href="tel:+923001234567">(0300) 1234567</a></p>
-                    <p>Main Office: <a href="tel:+922134567890">(021) 34567890</a></p>
-                    <p>Export Desk: <a href="tel:+922134567892">(021) 34567892</a></p>
-                    <p>PVC Sales: <a href="tel:+923451234567">(0345) 1234567</a></p>
+            <div class="toggle-content call-details-wrapper" id="callHiddenContent">
+                
+                <h3 class="sales-team-heading">Call Us for Business Inquiries</h3>
+
+                <div class="sales-contact-grid">
+                    
+                    <div class="sales-card">
+                        <i class="fas fa-user-tie icon-sales"></i>
+                     <h4>Muhamamd <strong>Arif Data </strong> </h4>
+                        <a href="tel:+923331234567" class="sales-link">(0333) 1234567</a>
+                    </div>
+
+                    <div class="sales-card">
+                        <i class="fa-solid fa-circle-user  icon-sales"></i>
+                        <h4> Muhamamd Arafat Doosani </h4>
+                        <a href="tel:+923001234567" class="sales-link">(0300) 1234567</a>
+                    </div>
+
+                    <div class="sales-card card-main-office">
+                        <i class="fa-solid fa-circle-user  icon-sales"></i>
+                        <h4>Muhamamd Yasir Doosani </h4>
+                        <a href="tel:+922134567890" class="sales-link">(021) 34567890</a>
+                    </div>
+
+                    <div class="sales-card">
+                        <i class="fa-solid fa-circle-user  icon-sales"></i>
+                        <h4>  Muhamamd Mustafa Doosani </h4>
+                        <a href="tel:+922134567892" class="sales-link">(021) 34567892</a>
+                    </div>
+                    
+                    <!-- <div class="sales-card card-pvc-sales">
+                        <i class="fas fa-umbrella icon-sales"></i>
+                        <h4>PVC Sales Specialist</h4>
+                        <a href="tel:+923451234567" class="sales-link">(0345) 1234567</a>
+                    </div> -->
+
                 </div>
             </div>
         </div>
     </div>
-    <div class="map-container">
+  <div class="map-container">
     <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3618.918991206103!2d67.01428587373895!3d24.900989343360216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33f4fa0c598d1%3A0x868997a38982f6f1!2sM.A.%20Jinnah%20Road%2C%20Karachi!5e0!3m2!1sen!2s!4v1678881234567!5m2!1sen!2s" 
-        width="100%" 
-        height="500" 
-        style="border:0;" 
-        allowfullscreen="" 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3618.918991206103!2d67.01428587373895!3d24.900989343360216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33f4fa0c598d1%3A0x868997a38982f6f1!2sM.A.%20Jinnah%20Road%2C%20Karachi!5e0!3m2!1sen!2s!4v1678881234567!5m2!1sen!2s"
         loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen
+    ></iframe>
 </div>
 </section>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const callButton = document.getElementById('callUsBtn');
-        const dropdown = document.getElementById('numberDropdown');
-        const callDropdownContainer = document.querySelector('.call-dropdown'); // Naya selector
+document.addEventListener('DOMContentLoaded', function() {
+    // ... (Existing Read More/Less JS code for About section will run here) ...
 
-        if (callButton && dropdown && callDropdownContainer) {
-            
-            // Step 1: Add a click handler to the button
-            callButton.addEventListener('click', function(e) {
-                // Click event ko yahan rokna zaroori hai taaki yeh document level tak na jaaye
-                e.stopPropagation(); 
-                
-                const isShowing = dropdown.classList.toggle('show-dropdown');
-                
-                const icon = callButton.querySelector('i');
-                if (isShowing) {
-                    icon.classList.remove('fa-caret-down');
-                    icon.classList.add('fa-caret-up');
-                } else {
-                    icon.classList.remove('fa-caret-up');
-                    icon.classList.add('fa-caret-down');
-                }
-            });
+    // NEW LOGIC: For Call Button (using Read More logic)
+    const callButton = document.getElementById('callToggleBtn');
+    const callContent = document.getElementById('callHiddenContent');
 
-            // Step 2: Close dropdown when clicking outside
-            document.addEventListener('click', function(e) {
-                // Agar click callDropdown container ke bahar hua hai, toh band kar do
-                if (!callDropdownContainer.contains(e.target)) {
-                    if (dropdown.classList.contains('show-dropdown')) {
-                         dropdown.classList.remove('show-dropdown');
-                         callButton.querySelector('i').classList.remove('fa-caret-up');
-                         callButton.querySelector('i').classList.add('fa-caret-down');
-                    }
-                }
-            });
-        }
-    }); 
+    if (callButton && callContent) {
+        callButton.addEventListener('click', function(e) {
+            e.preventDefault(); // Stop default action
+
+            if (callContent.classList.contains('show')) {
+                // Hide content
+                callContent.classList.remove('show');
+                callButton.innerHTML = 'VIEW ALL CONTACTS ↓';
+            } else {
+                // Show content
+                callContent.classList.add('show');
+                callButton.innerHTML = 'VIEW ALL CONTACTS  ↑'; // Change arrow direction
+            }
+        });
+        
+        // Optional: Close dropdown if user clicks outside of the button/content area
+        document.addEventListener('click', function(e) {
+             const isClickInside = callButton.contains(e.target) || callContent.contains(e.target);
+             if (!isClickInside && callContent.classList.contains('show')) {
+                 callContent.classList.remove('show');
+                 callButton.innerHTML = 'VIEW ALL CONTACTS ↓';
+             }
+        });
+    }
+});
 </script>
 
 
@@ -725,6 +894,7 @@ window.addEventListener("load", () => {
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
+    
 </body>
+<script src="script.js"></script>
 </html>

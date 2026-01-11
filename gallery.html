@@ -1,0 +1,901 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Our Gallery</title>
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+ 
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+<style>
+/* -----------------------------------------------------------------------------------
+   RESET & BASE STYLES (NEW PROFESSIONAL THEME)
+   ----------------------------------------------------------------------------------- */
+:root {
+    /* Color Palette: Earthy, Modern, Professional */
+    --color-primary: #8B4513; /* Saddle Brown / Timber */
+    --color-secondary: #D2B48C; /* Tan / Wood Accent */
+    --color-text: #3C2A1E; /* Dark Brown */
+    --color-subtle: #6F6F6F; /* Muted Grey */
+    --color-bg: #F9F7F5; /* Off-White Background */
+    --color-card-bg: #FFFFFF;
+    --color-shadow: rgba(40, 25, 10, 0.08); /* Subtle shadow color */
+    --radius: 10px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body {
+    margin: 0;
+    font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--color-bg);
+    color: var(--color-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.5;
+}
+a { text-decoration: none; color: var(--color-primary); }
+
+/* -----------------------------------------------------------------------------------
+   HERO SECTION (CLEAN & MODERN)
+   ----------------------------------------------------------------------------------- */
+.hero {
+    position: relative;
+    min-height: 65vh; /* Taller hero */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 20px;
+    overflow: hidden;
+    border-bottom: 5px solid var(--color-secondary); /* Strong bottom border */
+    background-color: #3C2A1E; /* Dark background fallback */
+}
+.hero__bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('./images/pexels-photo-129731.webp'); /* Assuming image path */
+    background-size: cover;
+    background-position: center 60%;
+    transform: scale(1.0);
+    filter: brightness(0.8) contrast(1.05); /* Enhanced wood look */
+    z-index: 0;
+    transition: transform 0.8s ease-out;
+}
+/* Stronger overlay for better text contrast */
+.hero::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(60, 42, 30, 0.75), rgba(60, 42, 30, 0.55));
+    z-index: 1;
+}
+
+.container { position: relative; z-index: 2; max-width: 1200px; width: 100% }
+
+.hero__title {
+    font-weight: 900;
+    letter-spacing: -1.5px;
+    font-size: clamp(4rem, 8vw, 6rem); /* Responsive font size */
+    line-height: 1;
+    color: #FFFFFF; /* White for contrast */
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    margin-bottom: 15px;
+}
+.hero__subtitle {
+    max-width: 800px;
+    margin: 12px auto 0 !important;
+    color: #F0F0F0; /* Light text */
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+/* -----------------------------------------------------------------------------------
+   FILTERS / TABS (NEW CHIP DESIGN)
+   ----------------------------------------------------------------------------------- */
+.filters2 {
+    margin: 35px auto 10px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    z-index: 3;
+    flex-wrap: wrap;
+}
+.chip2 {
+    background: var(--color-card-bg);
+    border-radius: 999px;
+    padding: 12px 24px;
+    font-weight: 600;
+    border: 2px solid var(--color-secondary);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    color: var(--color-text);
+    transition: all .2s ease;
+}
+.chip2:hover { 
+    background: var(--color-secondary);
+    color: var(--color-text);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+.chip2 .line { 
+    color: inherit; 
+    text-decoration: none; 
+}
+
+/* -----------------------------------------------------------------------------------
+   CARDS GRID (PROFESSIONAL LAYOUT)
+   ----------------------------------------------------------------------------------- */
+.grid {
+    max-width: 1400px; /* Wider grid for more space */
+    margin: 50px auto 100px;
+    padding: 0 35px;
+    display: grid;
+    /* Desktop: 4 columns */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
+}
+.card {
+    background: var(--color-card-bg);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 15px 40px var(--color-shadow);
+    transform-origin: center;
+    transition: transform .35s cubic-bezier(.2,.9,.25,1), box-shadow .35s;
+    border: 1px solid rgba(0,0,0,0.05);
+    position: relative;
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+}
+.card:hover { 
+    transform: translateY(-10px) scale(1.01); 
+    box-shadow: 0 25px 50px rgba(40, 25, 10, 0.2); 
+}
+.card:hover .card__img { transform: scale(1.08); }
+
+/* Card Image Area */
+.card__img {
+    height: 180px; /* Taller images */
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    position: relative;
+    transition: transform 0.8s ease;
+}
+
+/* Badge (Top Left Corner) */
+.badge {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    background: var(--color-primary);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    color: white;
+    font-size: 13px;
+    z-index: 3;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Card Body */
+.card__body {
+    padding: 20px 20px 60px; /* Space for the floating button */
+}
+.card__title {
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 5px;
+    font-size: 1.4rem;
+    font-family: 'Georgia', serif;
+}
+.card__desc {
+    font-size: 0.95rem;
+    color: var(--color-subtle);
+    line-height: 1.4;
+    margin-bottom: 15px;
+    min-height: 50px; /* Ensure consistency */
+}
+.tag {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--color-secondary);
+    font-weight: 700;
+    padding: 4px 0;
+}
+
+/* View Details Button (Floating Bottom Right) */
+.view-details {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    font-size: 14px;
+    border-radius: 999px;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+.view-details:hover {
+    background: #6B3F2B; /* Slightly darker primary color */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+/* Animations */
+.inview { opacity:1 !important; transform:none !important; transition: all 900ms cubic-bezier(.2,.9,.25,1) !important; }
+
+/* -----------------------------------------------------------------------------------
+   RESPONSIVE
+   ----------------------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+    .grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+@media (max-width: 768px) {
+    .hero { min-height: 45vh; padding: 60px 15px; }
+    .hero__title { font-size: 3rem; }
+    .hero__subtitle { font-size: 1rem; }
+    .grid { padding: 0 20px; gap: 25px; }
+    .card__img { height: 160px; }
+}
+@media (max-width: 480px) {
+    .grid { grid-template-columns: 1fr; }
+    .card__body { padding: 15px 15px 50px; }
+    .view-details { padding: 6px 14px; font-size: 13px; bottom: 15px; right: 15px; }
+}
+</style>
+ <section class="hero" id="hero">
+    <div class="hero__bg" id="heroBg" aria-hidden="true"></div>
+
+    <div class="container">
+        <h1 class="hero__title" id="titleMain">
+            The Craft of Timber
+        </h1>
+
+        <p class="hero__subtitle" id="heroSubtitle">
+            Discover a curated collection of premium woods. Each piece is sourced for exceptional stability, rich character, and enduring quality for your most demanding projects.
+        </p>
+
+        <div class="filters2">
+            <div class="chip2"><a class="line" href="#hard">All Products</a></div>
+            <div class="chip2"><a class="line" href="#hard">Hardwood</a></div>
+            <div class="chip2"><a class="line" href="#pvcslide"><strong>PVC</strong></a></div>
+        </div>
+    </div>
+</section>
+
+<main>
+    <section id="hard" class="grid-section">
+        <div class="grid" id="grid">
+            <div><a class="line" href="barmateak.html"><article class="card" style="--delay:0s">
+                <div class="badge">Hardwood</div>
+                <div class="card__img" style="background-image: url('./images/barmatic.jpg');"></div>
+                <div class="card__body">
+                    <h3 class="card__title">Burma Teak Wood</h3>
+                    <p class="card__desc">Beautiful quarter-sawn teak with a distinctive, elegant grain and deep honey tones.</p>
+                    <div class="tag">96" × 8" × 2"</div>
+                    <span class="view-details">View details</span>
+                </div>
+            </article></a></div>
+
+            <div><a class="line" href="./africanteak.html"><article class="card" style="--delay:.06s">
+                <div class="badge">Hardwood</div>
+                <div class="card__img" style="background-image: url('./images/africanteak.jpg');"></div>
+                <div class="card__body">
+                    <h3 class="card__title">African Teak Wood</h3>
+                    <p class="card__desc">Rich, dark wood with swirling grain patterns and natural character.</p>
+                    <div class="tag">84" × 10" × 2"</div>
+                    <span class="view-details">View details</span>
+                </div>
+            </article></a></div>
+
+            <div><a class="line" href="sapheli.html"><article class="card" style="--delay:.12s">
+                <div class="badge">Hardwood</div>
+                <div class="card__img" style="background-image: url('./images/saphelicontainer.jpeg');"></div>
+                <div class="card__body">
+                    <h3 class="card__title">Sapele Wood</h3>
+                    <p class="card__desc">Warm reddish-brown wood with fine straight grain — elegant and stable.</p>
+                    <div class="tag">72" × 9" × 2"</div>
+                    <span class="view-details">View details</span>
+                </div>
+            </article></a></div> 
+
+            <div><a class="line" href="./ashwood.html"><article class="card" style="--delay:.18s">
+                <div class="badge">Hardwood</div>
+                <div class="card__img" style="background-image: url('./images/ashlord3.jpg');"></div>
+                <div class="card__body">
+                    <h3 class="card__title">Ash Wood</h3>
+                    <p class="card__desc">Historic barn beam look with strong grain and natural patina.</p>
+                    <div class="tag">120" × 18" × 8"</div>
+                    <span class="view-details">View details</span>
+                </div>
+            </article></a></div>
+
+            <div><a class="line" href="./goldenteak.html"><article class="card" style="--delay:.24s">
+                <div class="badge">Hardwood</div>
+                <div class="card__img" style="background-image: url('./images/goldenteaksubhan.jpg');"></div>
+                <div class="card__body">
+                    <h3 class="card__title">Golden Teak Wood</h3>
+                    <p class="card__desc">Golden tones and durable selection suitable for fine joinery and flooring.</p>
+                    <div class="tag">120" × 8" × 8"</div>
+                    <span class="view-details">View details</span>
+                </div>
+            </article></a></div>
+            
+            <div><a class="line" href="./redmaranti-light.html"><article class="card" style="--delay:.30s">
+                <div class="badge">Hardwood</div>
+                <div class="card__img" style="background-image: url('./images/redmarantiad2.jpg')"></div>
+                <div class="card__body">
+                    <h3 class="card__title">Red Maranti (Light) Wood</h3>
+                    <p class="card__desc">Light-weight Red Maranti with warm reddish hues — great for interior paneling and elegant finishes.</p>
+                    <div class="tag">72" × 9" × 2"</div>
+                    <span class="view-details">View details</span>
+                </div>
+            </article></a></div>
+
+            <div><a class="line" href="./redoak.html"><article class="card" style="--delay:.36s">
+                <div class="badge">Hardwood</div>
+                <div class="card__img" style="background-image: url('./images/redoak.jpg');"></div>
+                <div class="card__body">
+                    <h3 class="card__title">Red Oak Wood</h3>
+                    <p class="card__desc">Popular oak with definitive ray fleck. Timeless and sturdy.</p>
+                    <div class="tag">96" × 8" × 2"</div>
+                    <span class="view-details">View details</span>
+                </div>
+            </article></a></div>
+
+            <div><a class="line" href="./mahoganykd.html"><article class="card" style="--delay:.42s">
+                <div class="badge">Hardwood</div>
+                <div class="card__img" style="background-image: url('./images/mahongnykd.jpg');"></div>
+                <div class="card__body">
+                    <h3 class="card__title">Mahogany (KD) Wood</h3>
+                    <p class="card__desc">Classic reddish-brown with exceptional stability and finish.</p>
+                    <div class="tag">72" × 9" × 2"</div>
+                    <span class="view-details">View details</span>
+                </div>
+            </article></a></div>
+            
+            <div><a class="line" href="./redmaranti.html"><article class="card" style="--delay:.48s">
+                <div class="badge">Hardwood</div>
+                <div class="card__img" style="background-image: url('./images/redmarantilordaltaf.jpeg');"></div>
+                <div class="card__body">
+                    <h3 class="card__title">Red Maranti (Dark) Wood</h3>
+                    <p class="card__desc">Darker Red Maranti with deeper tones and strong, straight grain — ideal for premium furniture and trims.</p>
+                    <div class="tag">72" × 9" × 2"</div>
+                    <span class="view-details">View details</span>
+                </div>
+            </article></a></div>
+            
+            <div><a class="line" href="./diyar.html"><article class="card" style="--delay:.54s">
+                <div class="badge">Hardwood</div>
+                <div class="card__img" style="background-image: url('./images/diyarlord.jpg');"></div>
+                <div class="card__body">
+                    <h3 class="card__title">Diyar Wood (Turkey) Wood</h3>
+                    <p class="card__desc">Warm golden-brown Turkey wood with fine grain and stable seasoning — suited for decorative joinery and flooring.</p>
+                    <div class="tag">70" × 9" × 2"</div>
+                    <span class="view-details">View details</span>
+                </div>
+            </article></a></div>
+            
+            <div><a class="line" href="./mahogany a.d.html"><article class="card" style="--delay:.60s">
+                <div class="badge">Hardwood</div>
+                <div class="card__img" style="background-image: url('./images/mahoganymuzz.jpeg');"></div>
+                <div class="card__body">
+                    <h3 class="card__title">Mahogany A.D Wood</h3>
+                    <p class="card__desc">Mahogany A.D — rich reddish-brown timber prized for fine cabinetry and high-end furniture. Excellent workability and finish.</p>
+                    <div class="tag">84" × 10" × 2"</div>
+                    <span class="view-details">View details</span>
+                </div>
+            </article></a></div>
+            
+            <div><a class="line" href="./pine.html"><article class="card" style="--delay:.66s">
+                <div class="badge">Softwood</div>
+                <div class="card__img" style="background-image: url('./images/partal.jpg');"></div>
+                <div class="card__body">
+                    <h3 class="card__title">(Partal) Pine Wood</h3>
+                    <p class="card__desc">Partal Pine — light, straight-grained pine perfect for framing, cladding and economical interior applications.</p>
+                    <div class="tag">96" × 8" × 2"</div>
+                    <span class="view-details">View details</span>
+                </div>
+            </article></a></div>
+            
+            <div><a class="line" href="./yellowpine.html"><article class="card" style="--delay:.72s">
+                <div class="badge">Softwood</div>
+                <div class="card__img" style="background-image: url('./images/yellow\ pinealtaf.jpg');"></div>
+                <div class="card__body">
+                    <h3 class="card__title">Yellow Pine Wood</h3>
+                    <p class="card__desc">Warm light tones with a pleasant straight grain; great for general construction.</p>
+                    <div class="tag">96" × 8" × 2"</div>
+                    <span class="view-details">View details</span>
+                </div>
+            </article></a></div>
+
+            <div><a class="line" href="./blackwalnut.html"><article class="card" style="--delay:.78s">
+                <div class="badge">Hardwood</div>
+                <div class="card__img" style="background-image: url('./images/africanwalnut1.jpeg');"></div>
+                <div class="card__body">
+                    <h3 class="card__title">African Walnut Wood</h3>
+                    <p class="card__desc">African Walnut is a warm golden-brown hardwood with a smooth, elegant grain.</p>
+                    <div class="tag">10" × 8" × 2"</div>
+                    <span class="view-details">View details</span>
+                </div>
+            </article></a></div>
+
+            <div><a class="line" href="./cherrywood.html"><article class="card" style="--delay:.84s">
+                <div class="badge">Hardwood</div>
+                <div class="card__img" style="background-image: url('./images/cherrywood.jpeg');"></div>
+                <div class="card__body">
+                    <h3 class="card__title">Cherry Wood</h3>
+                    <p class="card__desc">Cherry wood is a rich reddish-brown hardwood known for its smooth grain and naturally deepening color.</p>
+                    <div class="tag">12" × 8" × 2"</div>
+                    <span class="view-details">View details</span>
+                </div>
+            </article></a></div>
+
+        </div>
+    </section>
+</main>
+
+
+<script>
+/* ---------- SIMPLE HELPER: HERO & CARD REVEAL ---------- */
+document.addEventListener('DOMContentLoaded', ()=>{
+
+    // 1. Hero Reveal (Simpler animation)
+    const hero = document.getElementById('hero');
+    const title = document.getElementById('titleMain');
+    const subtitle = document.getElementById('heroSubtitle');
+
+    setTimeout(() => {
+        title.classList.add('inview');
+    }, 240);
+    setTimeout(() => {
+        subtitle.classList.add('inview');
+    }, 440);
+
+    // 2. Cards Reveal with IntersectionObserver
+    const cards = document.querySelectorAll('.card');
+    // Reveal cards when they are 8% visible (threshold: 0.08)
+    const conf = { root:null, rootMargin:'0px 0px -10%', threshold: 0.08 }; 
+
+    const obs = new IntersectionObserver((entries, o)=>{
+        entries.forEach(entry=>{
+            if(entry.isIntersecting){
+                const el = entry.target;
+                // Stagger delay based on CSS variable
+                const delay = parseFloat(getComputedStyle(el).getPropertyValue('--delay')) || 0;
+                setTimeout(()=> {
+                    el.classList.add('inview');
+                }, delay*700); // Animation speed adjusted for new design
+                o.unobserve(el);
+            }
+        });
+    }, conf);
+
+    cards.forEach(c => obs.observe(c));
+
+    // 3. Small Parallax effect on hero bg when scrolling
+    const heroBg = document.getElementById('heroBg');
+    window.addEventListener('scroll', ()=>{
+        const rect = hero.getBoundingClientRect();
+        // Compute progress of hero leaving viewport
+        const progress = Math.min(1, Math.max(0, -rect.top / (rect.height + 0.001)));
+        // Subtle transform and translateY for depth
+        heroBg.style.transform = `scale(${1 + progress*0.03}) translateY(${progress * 18}px)`; 
+    }, {passive:true});
+
+    // 4. Set copyright year (if footer is present)
+    const yearEl = document.getElementById('year');
+    if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+    }
+});
+
+/* Accessibility: reduce motion respects */
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+if(reduce.matches){
+    document.documentElement.style.setProperty('--reduce-motion','1');
+    document.querySelectorAll('*').forEach(el=>{
+        el.style.transitionDuration = '120ms';
+    });
+}
+</script>
+   <section class="pvc-detail-section" id="pvcslide">
+    <div class="container-wide">
+        
+        <h2 class="pvc-heading">Premium PVC Roofing Solutions</h2>
+        <p class="pvc-subheading">Durability Meets Design: Lightweight, high-performance PVC sheets for all weather applications.</p>
+        
+        <div class="pvc-visual-banner">
+            <p>Engineered for Extreme Conditions</p>
+        </div>
+        
+        <div class="pvc-grid-wrapper">
+            
+            <div class="pvc-feature-grid">
+                
+                <div class="pvc-feature-card">
+                    <i class="fas fa-water icon-feature"></i>
+                    <h4>100% Waterproof Integrity</h4>
+                    <p>Designed for absolute water resistance, offering a leak-proof barrier against heavy rain and moisture.</p>
+                </div>
+                
+                <div class="pvc-feature-card">
+                    <i class="fas fa-sun icon-feature"></i>
+                    <h4>UV & Weather Resistant</h4>
+                    <p>High-grade PVC formulation ensures protection against UV degradation, cracking, and color fading over time.</p>
+                </div>
+                
+                <div class="pvc-feature-card">
+                    <i class="fas fa-flask icon-feature"></i>
+                    <h4>Chemical Corrosion Shield</h4>
+                    <p>Ideal for industrial environments due to high resistance against acidic and alkaline corrosive agents.</p>
+                </div>
+                
+            </div>
+            
+            <h3 class="pvc-section-title">Technical Specifications & Structure</h3>
+            
+            <div class="pvc-tech-container wide-layout">
+                
+                <div class="pvc-structure-view no-image">
+                    <h4>Multi-Layer Protection (Structure)</h4>
+                    <p class="structure-description">Our uPVC sheets feature a multi-layered co-extruded design. The top layer is infused with **Anti-UV Stabilizers** for longevity, while the internal layers provide **rigidity and thermal stability** against deflection and expansion.</p>
+                    <ul class="structure-layers-list">
+                        <li>UV Protective Top Layer</li>
+                        <li>High-Density Core Layer</li>
+                        <li>Color-Fast Base Layer</li>
+                    </ul>
+                </div>
+
+                <div class="pvc-types-list">
+                    <h4>Available Profiles & Finishes:</h4>
+                    <ul>
+                        <li><i class="fas fa-caret-right"></i> **Corrugated Sheets:** High load-bearing capacity for large spans.</li>
+                        <li><i class="fas fa-caret-right"></i> **Trapezoidal Profiles:** Modern design, excellent rain run-off.</li>
+                        <li><i class="fas fa-caret-right"></i> **Opaque Colors:** Full light blockage for cooler interiors.</li>
+                        <li><i class="fas fa-caret-right"></i> **Translucent/Clear:** For natural daylight integration (skylights).</li>
+                    </ul>
+                </div>
+                
+                <table class="pvc-spec-table">
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Value / Standard</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Material Composition</td>
+                            <td>Unplasticized Polyvinyl Chloride (uPVC)</td>
+                        </tr>
+                        <tr>
+                            <td>Standard Thickness</td>
+                            <td>1.0 mm to 3.0 mm (Customizable)</td>
+                        </tr>
+                        <tr>
+                            <td>Fire Rating</td>
+                            <td>Self-extinguishing (Class B1)</td>
+                        </tr>
+                        <tr>
+                            <td>Thermal Conductivity</td>
+                            <td>Low (Aids in basic insulation)</td>
+                        </tr>
+                        <tr>
+                            <td>Temperature Range</td>
+                            <td>$-20^\circ\text{C}$ to $+60^\circ\text{C}$</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+            <div class="pvc-cta">
+                <p>For custom lengths, specific profiles, or bulk pricing, contact our PVC Sales Specialist directly.</p>
+                <a href="tel:+923451234567" class="btn-pvc-contact">
+                    <i class="fas fa-phone-alt"></i> Call PVC Sales Specialist <br>
+                     Muhammad Mustafa : (0345) 1234567
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+<style>
+/* -----------------------------------------------------------------------------------
+   ASSUMED ROOT VARIABLES (Aapki file se liya gaya)
+   ----------------------------------------------------------------------------------- */
+:root {
+    --color-primary: #8B4513; /* Saddle Brown / Timber */
+    --color-secondary: #D2B48C; /* Tan / Wood Accent */
+    --color-text: #3C2A1E; /* Dark Brown */
+    --color-subtle: #6F6F6F; /* Muted Grey */
+    --color-bg: #F9F7F5; /* Off-White Background */
+    --color-card-bg: #FFFFFF;
+    --color-accent-dark: #6B3F2B;
+    --radius: 10px;
+}
+
+/* -----------------------------------------------------------------------------------
+   PVC DETAIL SECTION STYLING
+   ----------------------------------------------------------------------------------- */
+.pvc-detail-section {
+    padding: 60px 20px;
+    background-color: var(--color-bg);
+    line-height: 1.5;
+}
+
+.container-wide {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pvc-heading {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: 5px;
+    font-family: 'Georgia', serif;
+}
+
+.pvc-subheading {
+    font-size: 1.2rem;
+    color: var(--color-subtle);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    font-weight: 300;
+}
+
+/* NEW: Visual Banner (Image ki jagah strong visual line) */
+.pvc-visual-banner {
+    background-color: var(--color-accent-dark);
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border-radius: var(--radius);
+    margin-bottom: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Feature Grid */
+.pvc-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.pvc-feature-card {
+    background-color: var(--color-card-bg);
+    padding: 30px;
+    border-radius: var(--radius);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    /* Clean border-bottom ki jagah */
+    border-bottom: 4px solid var(--color-secondary);
+    transition: all 0.3s ease;
+}
+
+.pvc-feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    border-bottom-color: var(--color-primary);
+}
+
+.icon-feature {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: 15px;
+    /* Icon background/circle */
+    background-color: #ffe; 
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.pvc-feature-card h4 {
+    font-size: 1.35rem;
+    color: var(--color-text);
+    margin-top: 0;
+}
+
+.pvc-feature-card p {
+    font-size: 1rem;
+    color: var(--color-subtle);
+}
+
+/* Technical & Types Section */
+.pvc-section-title {
+    font-size: 2rem;
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 800;
+}
+
+.pvc-tech-container.wide-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+/* NEW: Structure View (Text Focus) */
+.pvc-structure-view.no-image {
+    padding: 30px;
+    background-color: #fff8f5; /* Lighter shade of background */
+    border-radius: var(--radius);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--color-secondary);
+}
+
+.pvc-structure-view h4 {
+    color: var(--color-text);
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    border-left: 4px solid var(--color-primary);
+    padding-left: 10px;
+}
+
+.structure-description {
+    font-size: 1rem;
+    color: var(--color-text);
+    margin-bottom: 20px;
+}
+
+.structure-layers-list {
+    list-style: none;
+    padding: 0;
+    font-size: 0.95rem;
+}
+
+.structure-layers-list li {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="%238B4513"/></svg>') no-repeat left center;
+    background-size: 8px;
+    padding-left: 18px;
+    margin-bottom: 5px;
+}
+
+
+.pvc-types-list, .pvc-spec-table {
+    background-color: var(--color-card-bg);
+    padding: 25px;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+}
+
+.pvc-types-list {
+    grid-column: 1 / -1; 
+}
+
+.pvc-types-list h4 {
+    color: var(--color-primary);
+    border-bottom: 2px solid var(--color-secondary);
+    padding-bottom: 5px;
+    margin-top: 0;
+}
+
+.pvc-types-list ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 10px 20px;
+}
+
+.pvc-types-list li {
+    font-size: 1rem;
+    line-height: 1.4;
+    color: var(--color-text);
+}
+
+.pvc-types-list li i {
+    color: var(--color-secondary);
+    margin-right: 8px;
+}
+
+/* Spec Table */
+.pvc-spec-table {
+    width: 100%;
+    border-collapse: collapse;
+    grid-column: span 2; /* Table spanning both columns for readability */
+}
+
+.pvc-spec-table th, .pvc-spec-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    font-size: 0.95rem;
+}
+
+.pvc-spec-table thead th {
+    background-color: var(--color-primary);
+    color: white;
+    font-weight: 600;
+    border-bottom: none;
+}
+
+.pvc-spec-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.pvc-spec-table tbody tr:hover {
+    background-color: #f2f2f2;
+}
+
+/* CTA */
+.pvc-cta {
+    text-align: center;
+    padding: 30px;
+    background-color: var(--color-secondary);
+    border-radius: var(--radius);
+    margin-top: 40px;
+    border: 1px solid #c9a482;
+}
+
+.pvc-cta p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 20px;
+}
+
+.btn-pvc-contact {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 999px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+    display: inline-block;
+}
+
+.btn-pvc-contact:hover {
+    background-color: var(--color-accent-dark);
+    transform: translateY(-2px);
+}
+
+.btn-pvc-contact i {
+    margin-right: 8px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 900px) {
+    .pvc-tech-container.wide-layout {
+        grid-template-columns: 1fr; 
+    }
+    .pvc-types-list ul {
+        grid-template-columns: 1fr;
+    }
+    .pvc-types-list, .pvc-spec-table, .pvc-structure-view.no-image {
+        grid-column: auto;
+    }
+}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
+
+ 
+
+
+
+
+
