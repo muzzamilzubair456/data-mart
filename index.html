@@ -534,49 +534,62 @@ document.addEventListener('DOMContentLoaded', function() {
     </section>
 </div>
 
-
-
-
-
-    <div class="slider-container">
-        
-        <div id="woodSlider" class="carousel slide custom-shadow" data-bs-ride="carousel">
-            
-            <div class="carousel-inner">
-
-                <div class="carousel-item active" data-bs-interval="4000">
-                    <img src="./images/shopfront.jpg" class="slider-img d-block w-100 animated-item" alt="Shop Front">
+<section class="inventory-slider-section">
+    <div class="container">
+        <div class="premium-slider-wrapper">
+            <div id="woodInventoryCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                
+                <div class="carousel-indicators luxury-indicators">
+                    <button type="button" data-bs-target="#woodInventoryCarousel" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#woodInventoryCarousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#woodInventoryCarousel" data-bs-slide-to="2"></button>
+                    <button type="button" data-bs-target="#woodInventoryCarousel" data-bs-slide-to="3"></button>
                 </div>
 
-                <div class="carousel-item" data-bs-interval="4000">
-                    <img src="./images/unbergoddown1.jpg" class="slider-img d-block w-100 animated-item" alt="Under Goddown 1">
+                <div class="carousel-inner shadow-lg">
+                    <div class="carousel-item active">
+                        <div class="slide-content-grid">
+                            <div class="img-zoom-container">
+                                <img src="./images/shopfront.jpg" class="d-block w-100 slide-img" alt="Burma Teak">
+                            </div>
+                            <div class="dynamic-caption">
+                                <h6 class="category-title">PREMIUM COLLECTION</h6>
+                                <h3>Legendary Burma Teak</h3>
+                                <p>Hand-picked, seasoned timber for high-end luxury furniture and yacht decking.</p>
+                                <div class="caption-footer">
+                                    <span class="stock-status">Available in Stock</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="slide-content-grid">
+                            <div class="img-zoom-container">
+                                <img src="./images/unbergoddown1.jpg" class="d-block w-100 slide-img" alt="Inventory">
+                            </div>
+                            <div class="dynamic-caption">
+                                <h6 class="category-title">INFRASTRUCTURE</h6>
+                                <h3>Modern Godown Facility</h3>
+                                <p>Pakistan's most organized timber storage with moisture-controlled environments.</p>
+                                <div class="caption-footer">
+                                    <span class="stock-status">24/7 Logistics</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="carousel-item" data-bs-interval="4000">
-                    <img src="./images/zamzamenterprise.jpg" class="slider-img d-block w-100 animated-item" alt="Zamzam Enterprise">
-                </div>
-
-                <div class="carousel-item" data-bs-interval="4000">
-                    <img src="./images/goddown1.jpg" class="slider-img d-block w-100 animated-item" alt="Goddown 1">
-                </div>
-
+                <button class="carousel-control-prev" type="button" data-bs-target="#woodInventoryCarousel" data-bs-slide="prev">
+                    <span class="control-icon"><i class="fas fa-chevron-left"></i></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#woodInventoryCarousel" data-bs-slide="next">
+                    <span class="control-icon"><i class="fas fa-chevron-right"></i></span>
+                </button>
             </div>
-
-            <button class="carousel-control-prev" type="button" data-bs-target="#woodSlider" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-
-            <button class="carousel-control-next" type="button" data-bs-target="#woodSlider" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-            
         </div>
     </div>
-   </div>
-
-
+</section>
 
 
 <section class="premium-legacy-section">
@@ -790,108 +803,52 @@ document.addEventListener('DOMContentLoaded', function() {
    
     </section>
 
-
-  <div class="corporate-wrapper">
-    <header class="executive-header">
-        <div class="hero-bg-overlay"></div> <div class="container hero-content">
-            <div class="glass-brand-box">
-                <span class="legacy-badge">ESTABLISHED 1979</span>
-                <h1 class="brand-main">DATA TIMBER <span class="gold-accent">MART</span></h1>
-                
-                <div class="service-details">
-                    <p class="main-leader-text">Pakistan's Industrial Leader in Timber & Polymers</p>
-                    <div class="detail-tags">
-                        <span>Exotic Hardwoods (Burma & African Teak)</span>
-                        <span class="separator">|</span>
-                        <span>Industrial Marine Ply (Waterproof Solutions)</span>
-                        <span class="separator">|</span>
-                        <span>Premium PVC Boards & Roof Sheets</span>
-                    </div>
-                </div>
-            </div>
+<div class="elite-business-wrapper">
+    <section class="premium-hero">
+        <div class="hero-bg-wrapper">
+            <div class="hero-img-layer" style="background-image: url('./images/goddownandr.jpg');"></div>
+            <div class="hero-vignette"></div>
         </div>
-    </header>
-
-    <section class="infrastructure-section">
-        <div class="container">
-            <div class="bento-grid">
+        
+        <div class="container position-relative z-3">
+            <div class="hero-content-center">
                 
-                <div class="bento-card large shop-gallery">
-                    <div class="slider-engine">
-                        <img src="./images/shopfront.jpg" alt="Karachi Hub" class="slide">
-                        <img src="./images/goddown2.jpg" alt="Data Timber Mart" class="slide">
-                        <img src="./images/shopfront.jpg" alt="Interior View" class="slide">
+                <div class="legacy-label">SINCE 1979</div>
+                
+                <h1 class="brand-title-modern">
+                    DATA TIMBER <span class="gold-text">MART</span>
+                </h1>
+                
+                <p class="hero-mission-statement">
+                    Architecting Pakistan's <span class="white-bold">Structural Legacy</span> for 4.5 Decades.
+                </p>
+
+                <div class="expertise-strip">
+                    <div class="expertise-node">
+                        <i class="fas fa-gem"></i>
+                        <span>Premium Woods</span>
                     </div>
-                    <div class="card-overlay">
-                        <div class="overlay-text">
-                            <h3>The Flagship Store</h3>
-                            <p>Karachi Timber Market Hub</p>
-                        </div>
-                        <div class="custom-pagination">
-                            <span class="p-dot active"></span>
-                            <span class="p-dot"></span>
-                            <span class="p-dot"></span>
-                        </div>
+                    <div class="expertise-node">
+                        <i class="fas fa-layer-group"></i>
+                        <span>Marine Ply</span>
+                    </div>
+                    <div class="expertise-node">
+                        <i class="fas fa-bolt"></i>
+                        <span>High-Grade PVC</span>
                     </div>
                 </div>
 
-                <div class="bento-card wood-gallery">
-                    <div class="slider-engine fast">
-                        <img src="./images/barmatic.jpg" alt="Burma Teak" class="slide">
-                        <img src="./images/africanteak.jpg" alt="African Teak" class="slide">
-                    </div>
-                    <div class="card-overlay">
-                        <div class="overlay-text">
-                            <h3>Exotic Hardwoods</h3>
-                            <p>Burma & African Teak Specialists</p>
-                        </div>
-                        <div class="custom-pagination">
-                            <span class="p-dot active"></span>
-                            <span class="p-dot"></span>
-                        </div>
-                    </div>
+                <div class="hero-buttons-flex">
+                    <a href="#about" class="btn-gold-solid">OUR STORY</a>
+                    <a href="#products" class="btn-white-outline">EXPLORE RANGE</a>
                 </div>
-
-                <div class="bento-card machine-gallery">
-                    <div class="slider-engine">
-                        <img src="./images/yellow pine.jpg" alt="German Tech" class="slide">
-                        <img src="./images/mahoganymuzz.jpeg" alt="Cutting Precision" class="slide">
-                    </div>
-                    <div class="card-overlay">
-                        <div class="overlay-text">
-                            <h3>Industrial Precision</h3>
-                            <p>Advanced German Technology</p>
-                        </div>
-                        <div class="custom-pagination">
-                            <span class="p-dot active"></span>
-                            <span class="p-dot"></span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bento-card wide ply-pvc-gallery">
-                    <div class="slider-engine slow">
-                        <img src="./images/unbergoddown1.jpg" alt="Marine Ply" class="slide">
-                        <img src="./images/mahoganymuzz.jpeg" alt="PVC Sheets" class="slide">
-                        <img src="./images/download (1).jpg" alt="Warehouse" class="slide">
-                    </div>
-                    <div class="card-overlay">
-                        <div class="overlay-text">
-                            <h3>Marine Ply & PVC Solutions</h3>
-                            <p>Premium Quality Nationwide Supply</p>
-                        </div>
-                        <div class="custom-pagination">
-                            <span class="p-dot active"></span>
-                            <span class="p-dot"></span>
-                            <span class="p-dot"></span>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
 </div>
+
+
+
        <section class="footer-section">
     <div class="container-narrow">
         

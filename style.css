@@ -571,69 +571,142 @@ body {
 }
 
 /* img slider  */
+:root {
+    --gold: #D4AF37;
+    --dark: #121212;
+}
 
-/* Center the slider vertically and horizontally on the page */
-.slider-container {
+/* Slider Base */
+.premium-slider-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    background: var(--dark);
+}
+
+/* Desktop: Text over Image */
+.slide-content-grid {
+    position: relative;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+}
+
+.img-zoom-container {
+    height: 550px;
+    overflow: hidden;
+    background: #000;
+}
+
+.slide-img {
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+    transition: transform 8s ease-out;
+}
+
+.carousel-item.active .slide-img {
+    transform: scale(1.1);
+}
+
+/* Caption Design */
+.dynamic-caption {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    background: rgba(20, 20, 20, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: white;
+    max-width: 450px;
+    z-index: 10;
+    transition: all 0.5s ease;
+}
+
+.category-title {
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.dynamic-caption h3 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.dynamic-caption p {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.6;
+}
+
+.stock-status {
+    font-size: 12px;
+    background: rgba(212, 175, 55, 0.2);
+    color: var(--gold);
+    padding: 4px 12px;
+    border-radius: 50px;
+    border: 1px solid var(--gold);
+}
+
+/* Controls & Indicators */
+.control-icon {
+    width: 45px;
+    height: 45px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
     align-items: center;
-    min-height: 100vh; /* Takes up the full height of the viewport */
-    background-color: #f8f9fa; /* Light background color */
-    padding: 20px;
+    justify-content: center;
+    color: black;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-/* Define the overall size and styling of the carousel */
-#woodSlider {
-    max-width: 800px; /* Adjust slider width as needed */
-    width: 90%; /* Responsive width */
-    border-radius: 15px; /* Subtle rounded corners */
-    overflow: hidden; /* Important to contain the image and its border-radius */
+.luxury-indicators [data-bs-target] {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--gold);
 }
 
-/* Professional Shadow Effect */
-.custom-shadow {
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15), 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease-in-out;
+.luxury-indicators .active {
+    width: 30px;
+    border-radius: 10px;
 }
 
-.custom-shadow:hover {
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2), 0 5px 20px rgba(0, 0, 0, 0.15);
-}
+/* =========================================
+   MOBILE RESPONSIVE FIX (KEY CHANGES)
+   ========================================= */
+@media (max-width: 768px) {
+    .img-zoom-container {
+        height: 300px; /* Image height choti kardi */
+    }
 
-/* Image Styling */
-.slider-img {
-    height: 500px; /* Fixed height for consistency, adjust as needed */
-    object-fit: cover; /* Ensures the image covers the area without distortion */
-    border-radius: 15px; /* Apply to match the carousel container */
-}
+    .dynamic-caption {
+        position: relative; /* Image ke niche stack ho jayega */
+        bottom: 0;
+        left: 0;
+        max-width: 100%;
+        background: var(--dark); /* Mobile par solid black background */
+        border-radius: 0;
+        border: none;
+        padding: 25px 20px;
+        text-align: center;
+    }
 
-/* Image Animation (Zoom-in effect) */
-.carousel-item .animated-item {
-    transform: scale(1.0);
-    transition: transform 5s ease-in-out; /* Slow, professional transition */
-}
+    .dynamic-caption h3 {
+        font-size: 1.4rem;
+    }
 
-.carousel-item.active .animated-item {
-    transform: scale(1.05); /* Zoom in effect on the active image */
-}
-
-/* Customizing Controls for better visibility */
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    width: 3rem; 
-    height: 3rem;
-    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
-    border-radius: 50%; /* Circle shape */
-}
-
-.carousel-control-prev,
-.carousel-control-next {
-    width: 8%; /* Increase the clickable area */
-}
-
-/* Optional: Make the transition smoother */
-.carousel-item {
-    transition: transform 1s ease-in-out !important; 
+    .carousel-control-prev, .carousel-control-next {
+        display: none; /* Mobile par buttons ki zaroorat nahi */
+    }
 }
 /* -------------------------------------------
    1. PREMIUM THEME BASE STYLES
@@ -728,121 +801,158 @@ body {
 /* JS se yeh class add hogi on mouse move */
 .premium-card.tilt-active {
     /* This class will be managed by JS for the 3D effect */
-}:root {
-    --gold: #D4AF37;
-    --white: #FFFFFF;
-    --slate: #2C3E50;
-    --glass: rgba(255, 255, 255, 0.95);
 }
 
-/* --- Hero Section with Blurry Background --- */
-.executive-header {
+:root {
+    --gold: #D4AF37;
+    --deep-dark: #0A0A0A;
+    --soft-white: #E0E0E0;
+}
+
+/* --- Hero Layout & Cinematic Effects --- */
+.premium-hero {
     position: relative;
-    height: 80vh;
+    height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center;
+    background: var(--deep-dark);
     overflow: hidden;
-    background: #000;
+    text-align: center;
 }
 
-.hero-bg-overlay {
+.hero-bg-wrapper {
     position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-image: url('your-background-wood-image.jpg'); /* Background Image */
+    inset: 0;
+}
+
+.hero-img-layer {
+    width: 100%;
+    height: 100%;
     background-size: cover;
     background-position: center;
-    filter: blur(10px) brightness(0.6); /* Modern Blur Effect */
+    filter: brightness(0.3) grayscale(0.2);
     transform: scale(1.1);
+    animation: slowZoomOut 25s infinite alternate linear;
 }
 
-.glass-brand-box {
-    position: relative;
-    z-index: 2;
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(5px);
-    padding: 60px;
-    border: 1px solid rgba(255,255,255,0.1);
-    text-align: center;
-    width: 100%;
-    max-width: 900px;
+@keyframes slowZoomOut {
+    from { transform: scale(1.1); }
+    to { transform: scale(1); }
 }
 
-.legacy-badge { color: var(--gold); letter-spacing: 5px; font-weight: 700; font-size: 14px; }
-.brand-main { font-size: clamp(2.5rem, 6vw, 4.5rem); color: var(--white); margin: 20px 0; font-weight: 300; }
-.gold-accent { color: var(--gold); font-weight: 800; }
+.hero-vignette {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle, transparent 20%, rgba(0,0,0,0.9) 100%);
+}
 
-.service-details { margin-top: 30px; }
-.main-leader-text { color: var(--white); font-size: 1.5rem; font-weight: 600; margin-bottom: 15px; }
-.detail-tags { color: #ccc; font-size: 0.95rem; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-.separator { color: var(--gold); }
+/* --- Typography Design --- */
+.legacy-label {
+    color: var(--gold);
+    font-size: 12px;
+    letter-spacing: 6px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    opacity: 0.9;
+}
 
-/* --- Bento Infrastructure Grid --- */
-.infrastructure-section { padding: 80px 0; background: #f8f9fa; }
-.bento-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+.brand-title-modern {
+    font-size: clamp(3rem, 12vw, 6rem);
+    font-weight: 900;
+    line-height: 0.85;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.gold-text {
+    background: linear-gradient(to bottom, #f9e498, #d4af37, #b38728);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-mission-statement {
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    color: #999;
+    font-weight: 300;
+    margin-bottom: 50px;
+}
+
+.white-bold {
+    color: white;
+    font-weight: 600;
+}
+
+/* --- Expertise Minimalist Grid --- */
+.expertise-strip {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+}
+
+.expertise-node {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.expertise-node i {
+    color: var(--gold);
+    font-size: 1rem;
+}
+
+.expertise-node span {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--soft-white);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* --- Buttons (Premium Feel) --- */
+.hero-buttons-flex {
+    display: flex;
+    justify-content: center;
     gap: 20px;
 }
 
-.bento-card {
-    position: relative;
-    height: 380px;
-    background: #000;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+.btn-gold-solid {
+    background: var(--gold);
+    color: black;
+    padding: 16px 45px;
+    font-weight: 800;
+    text-decoration: none;
+    border-radius: 2px;
+    letter-spacing: 1px;
+    transition: 0.4s;
 }
 
-.large { grid-column: span 2; grid-row: span 2; height: 780px; }
-.wide { grid-column: span 2; }
-
-/* Slider Engine */
-.slider-engine {
-    display: flex;
-    width: 300%; /* Adjust per image count */
-    height: 100%;
-    animation: slideLoop 10s infinite ease-in-out;
-}
-.bento-card:hover .slider-engine { animation-play-state: paused; }
-
-@keyframes slideLoop {
-    0%, 30% { transform: translateX(0); }
-    33%, 63% { transform: translateX(-33.33%); }
-    66%, 96% { transform: translateX(-66.66%); }
+.btn-white-outline {
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    padding: 16px 45px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: 0.4s;
 }
 
-.slide { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; }
-
-/* Overlay & Pagination */
-.card-overlay {
-    position: absolute; bottom: 0; left: 0; width: 100%;
-    padding: 40px 30px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.9));
-    color: var(--white);
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+.btn-gold-solid:hover {
+    background: white;
+    transform: translateY(-5px);
 }
 
-.overlay-text h3 { margin: 0; font-size: 1.6rem; }
-.overlay-text p { margin: 5px 0 0; color: #ddd; font-size: 0.9rem; }
-
-.custom-pagination { display: flex; gap: 6px; }
-.p-dot { width: 8px; height: 8px; background: rgba(255,255,255,0.3); border-radius: 50%; }
-.p-dot.active { width: 30px; background: var(--gold); border-radius: 10px; }
+.btn-white-outline:hover {
+    background: white;
+    color: black;
+}
 
 /* --- Mobile Responsiveness --- */
-@media (max-width: 1024px) {
-    .bento-grid { grid-template-columns: repeat(2, 1fr); }
-    .large { grid-column: span 2; height: 500px; }
-}
-
-@media (max-width: 600px) {
-    .bento-grid { grid-template-columns: 1fr; }
-    .large, .wide { grid-column: span 1; height: 350px; }
-    .brand-main { font-size: 2.5rem; }
-    .detail-tags { font-size: 0.8rem; }
+@media (max-width: 768px) {
+    .expertise-strip { gap: 20px; }
+    .hero-buttons-flex { flex-direction: column; align-items: center; }
+    .btn-gold-solid, .btn-white-outline { width: 80%; }
 }
 
 :root {
