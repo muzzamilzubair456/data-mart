@@ -37,7 +37,7 @@ body {
     max-width: 1300px;
     height: 100%;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 30 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -378,271 +378,197 @@ body {
 
 /* hero section */
 
-
-/* --- HERO SECTION STYLING (Split-Screen Elegance) --- */
-
-
-.hero {
-    min-height: 90vh; 
-    display: flex;
-    align-items: left;
-    overflow: hidden;
-    position: relative;
-    z-index: 1; 
-    
-    /* 1. PRIMARY BACKGROUND: Deep Dark Brown */
-    background-color: var(--primary-color); 
-     background-blend-mode: multiply;
-    /* Subtle Texture/Background Image (Optional but recommended for wood feel) */
-    background-image: url('./images/barmatic.jpg'); 
-    background-size: cover;
-    background-position: center 25%;
-    background-attachment: fixed; 
+:root {
+    --gold: #D4AF37;
+    --gold-gradient: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+    --white: #FFFFFF;
+    --dark-slate: #1A1A1A;
+    --light-bg: #F9FAFB;
 }
 
-/* 2. CUSTOM OVERLAY: Rich Dark Brown Overlay (100% saturation, lower opacity) */
-.hero::before {
-    content: '';
+/* --- HERO SECTION --- */
+.premium-hero {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    background: #000;
+    overflow: hidden;
+    padding: 80px 0;
+}
+
+.hero-blur-bg {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        135deg,
-        rgba(83, 52, 36, 0.55),
-        rgba(63, 39, 27, 0.55)
-    );
-    z-index: -1;
+    background: url('./images/goddownandr.jpg') center/cover no-repeat;
+    filter: blur(8px) brightness(0.4);
+    z-index: 1;
+    transform: scale(1.1);
 }
 
-.hero-container {
-    max-width: 1400px;
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    min-height: 90vh;
-    padding: 0 40px;
-    text-align: center; 
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle, transparent 20%, rgba(0,0,0,0.8) 100%);
+    z-index: 2;
 }
 
-/* --- LEFT CONTENT (Text: White on Dark) --- */
-.hero-left {
-    flex: 1.2; /* Text block ko thoda zyada space diya */
-    padding: 80px 40px 80px 0; 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    
-    /* Animation (Same, but smooth) */
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s, transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s;
-}
-.hero-left.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.hero-subtitle {
-    font-size: 0.9rem;
-    color: var(--accent-color); /* Light Taupe accent */
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 3px; 
-    margin-bottom: 15px;
-}
-
-.hero-left h1 {
-    font-family: var(--font-family-serif);
-    font-size: 5.5rem; 
-    line-height: 1.1;
-    margin-bottom: 25px;
-    color: #F7F3EE; /* Crisp White */
-}
-
-.hero-left .timber-world {
-    color: var(--secondary-color); 
-    font-weight: 700;
-}
-
-.hero-left .mart-tag {
-    display: block;
-     font-family: var(--font-family-serif);
-    font-size: 2.5rem;
-    font-weight: 300;
-    color: var(--accent-color); 
-    margin-top: 5px;
-}
-
-.hero-left .desc {
-    font-size: 1.3rem;
-    line-height: 1.6;
-      color: rgba(247, 243, 238, 0.88);
-    max-width: 550px;
-    margin-bottom: 50px;
-}
-
-/* --- BUTTONS (High Contrast White) --- */
-/* --- BUTTONS (High Contrast White) --- */
-.hero-buttons {
-    display: flex;
-    gap: 25px; 
-    margin-top: 20px;
-}
-
-.hero-buttons .btn {
-    padding: 16px 35px; 
-    text-decoration: none;
-    font-size: 1.05rem;
-    font-weight: 600;
-    border-radius: 5px;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
-    opacity: 0;
-    transform: translateY(10px);
-}
-.hero-buttons .btn-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Outlined Primary Button: Default Text White */
-.btn-primary-outline {
-    background-color: transparent;
-    color: var(--secondary-color); /* <--- TEXT COLOR IS WHITE */
-    border: 2px solid var(--secondary-color);
-}
-.btn-primary-outline:hover {
-    background-color: var(--secondary-color);
-    color: var(--primary-color); /* Hover: Text dark ho jayega white background par */
-}
-
-/* Solid CTA Button: Default Text White (Using a light accent background) */
-.btn-solid-cta {
-    background-color: var(--accent-color); /* Light Taupe background */
-    color: #F7F3EE; /* <--- TEXT COLOR IS WHITE/LIGHT ACCENT */
-    border: 2px solid var(--accent-color);
-    box-shadow: 0 5px 15px rgba(87, 86, 86, 0.5); 
-}
-.btn-solid-cta:hover {
-    background-color: var(--secondary-color);
-    border-color: var(--secondary-color);
-    color: var(--primary-color); /* Hover: Text dark ho jayega white background par */
-}
-
-/* --- MOBILE PERFECTION (Adjustment) --- */
-@media (max-width: 992px) {
-    /* ... existing mobile styles ... */
-    .hero-buttons {
-        flex-direction: column;
-        gap: 15px;
-    }
-    .hero-buttons .btn {
-        opacity: 1;
-        transform: none;
-    }
-}
-
-/* --- RIGHT IMAGE (Small size, Bordered, Artwork look) --- */
-.hero-right {
-    flex: 0.8; /* Desktop par chota size diya */
-    overflow: hidden;
+.hero-text-content {
     position: relative;
-    
-    /* 3. BORDER & BOX DESIGN */
-    border: 5px solid var(--accent-color); /* Light Taupe Border */
-    background-color: var(--accent-color); /* Border ke peeche color */
-    border-radius: 10px; 
-    box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.2), /* Offset shadow (Right and Bottom) */
-                0 10px 30px rgba(0, 0, 0, 0.4); 
-    
-    /* Animation */
-    opacity: 0;
-    transform: translateX(50px) scale(0.95);
-    transition: opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s, transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s;
-}
-.hero-right.visible {
-    opacity: 1;
-    transform: translateX(0) scale(1);
+    z-index: 10;
+    text-align: center;
+    color: white;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.image-wrapper {
-    height: 100%;
-    width: 100%;
+/* Hero Typography Enhancement */
+.legacy-badge {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    color: var(--gold);
+    text-transform: uppercase;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    padding: 8px 25px;
+    display: inline-block;
+    margin-bottom: 30px;
+    background: rgba(0,0,0,0.3);
 }
 
-.hero-right img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    
-    /* Ken Burns Effect */
-    transform: scale(1.03); 
-    transition: transform 12s ease-out; 
+.main-brand-title {
+    font-size: clamp(2.5rem, 8vw, 5.5rem);
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 25px;
+    letter-spacing: -2px;
 }
 
-.hero-right.visible img {
-    transform: scale(1); 
+.gold-text {
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-
-/* --- MOBILE PERFECTION (Text Above Image) --- */
-@media (max-width: 992px) {
-    .hero {
-        background-attachment: scroll; 
-        min-height: auto;
-        padding-top: calc(var(--navbar-height) + 20px);
-    }
-    .hero-container {
-        flex-direction: column;
-        min-height: auto;
-        padding: 0 20px; 
-        padding-bottom: 50px;
-
-    }
-    
-    /* Mobile Order: TEXT UP, IMAGE DOWN */
-    .hero-left {
-        padding: 20px 0 40px 0;
-        order: 1; 
-        flex: auto; /* Reset flex */
-        opacity: 1; 
-        transform: none;
-    }
-    
-    .hero-right {
-        order: 2; 
-        height: 350px; /* Sizable image height */
-        flex: auto; /* Reset flex */
-        transform: none; 
-        opacity: 1; 
-        transition: none;
-        width: 100%;
-        max-width: 100%;
-        
-        /* Mobile: Border/Shadow ko chota karna */
-        border: 3px solid var(--accent-color); 
-        box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.2), 
-                    0 5px 15px rgba(0, 0, 0, 0.4); 
-    }
-    
-    .hero-left h1 {
-        font-size: 3rem;
-    }
-    .hero-left .mart-tag {
-        font-size: 2rem;
-    }
-    .hero-left .desc {
-        font-size: 1.05rem;
-    }
-    .hero-buttons {
-        flex-direction: column;
-        gap: 15px;
-    }
-    .hero-buttons .btn {
-        opacity: 1;
-        transform: none;
-    }
+.tagline-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
 }
 
+.t-line { width: 40px; height: 1px; background: var(--gold); opacity: 0.6; }
+
+.hero-tagline {
+    font-size: clamp(1rem, 3vw, 1.45rem);
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: #f1f1f1;
+    margin: 0;
+}
+
+.hero-description {
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 700px;
+    margin: 0 auto 40px;
+}
+
+.highlight { color: var(--gold); font-weight: 700; border-bottom: 1px solid var(--gold); }
+
+/* Premium Action Pills */
+.hero-action-pills {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.pill-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px 24px;
+    border-radius: 4px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.pill-item i { color: var(--gold); font-size: 1.1rem; }
+.pill-item span { font-size: 0.85rem; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; }
+
+.pill-item:hover {
+    background: var(--gold);
+    transform: translateY(-5px);
+}
+
+.pill-item:hover span, .pill-item:hover i { color: #000; }
+
+/* --- BENTO GRID SYSTEM --- */
+.infrastructure-bento { padding: 100px 0; background: var(--light-bg); }
+.section-intro { text-align: center; margin-bottom: 60px; }
+.sub-heading { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; color: var(--dark-slate); margin-bottom: 15px; }
+.lead-text { color: #666; font-size: 1.1rem; }
+.heading-divider { width: 50px; height: 3px; background: var(--gold); margin: 20px auto; }
+
+.bento-grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.bento-card {
+    position: relative;
+    height: 380px;
+    background: #111;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.large { grid-column: span 2; grid-row: span 2; height: 785px; }
+.wide { grid-column: span 2; }
+
+/* --- SLIDER LOGIC --- */
+.slider-track { display: flex; height: 100%; transition: transform 0.5s ease; }
+.slide-img { width: 100%; min-width: 100%; height: 100%; object-fit: cover; opacity: 0.85; }
+
+.slider-2 .slider-track { width: 200%; animation: slide2 8s infinite ease-in-out; }
+.slider-3 .slider-track { width: 300%; animation: slide3 12s infinite ease-in-out; }
+
+@keyframes slide2 { 0%, 45% { transform: translateX(0); } 55%, 100% { transform: translateX(-50%); } }
+@keyframes slide3 { 0%, 30% { transform: translateX(0); } 33%, 63% { transform: translateX(-33.33%); } 66%, 100% { transform: translateX(-66.66%); } }
+
+.card-info {
+    position: absolute; bottom: 0; left: 0; width: 100%;
+    padding: 40px 30px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.95));
+    color: white;
+}
+
+.custom-dots { display: flex; gap: 8px; margin-top: 15px; }
+.custom-dots span { width: 8px; height: 8px; background: rgba(255,255,255,0.4); border-radius: 50%; }
+.custom-dots span.active { width: 25px; background: var(--gold); border-radius: 10px; }
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 1100px) {
+    .bento-grid-container { grid-template-columns: repeat(2, 1fr); }
+    .large { grid-column: span 2; height: 500px; }
+}
+
+@media (max-width: 768px) {
+    .premium-hero { min-height: 100vh; padding: 40px 0; }
+    .bento-grid-container { grid-template-columns: 1fr; gap: 20px; }
+    .large, .wide { grid-column: span 1; height: 350px; }
+    .bento-card { height: 320px; }
+    .pill-item { width: 100%; justify-content: center; }
+    .main-brand-title { letter-spacing: 0; }
+}
 
 /* img slider  */
 
@@ -802,475 +728,395 @@ body {
 /* JS se yeh class add hogi on mouse move */
 .premium-card.tilt-active {
     /* This class will be managed by JS for the 3D effect */
+}:root {
+    --gold: #D4AF37;
+    --white: #FFFFFF;
+    --slate: #2C3E50;
+    --glass: rgba(255, 255, 255, 0.95);
 }
 
-
-/* =======================================================
-   GLOBAL RESETS & STRUCTURE
-   ======================================================= */
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    min-height: 100vh;
-    font-family: 'Arial', sans-serif; /* Ya koi professional font use karein */
-    color: #4B3832; /* Default dark brown text */
-}
-
-/* Ensure all content is above the fixed background */
-.main-content-wrapper {
-    position: relative; 
-    z-index: 0; 
-    overflow-x: hidden; /* Prevent horizontal scrollbar from animations */
-}
-
-
-/* =======================================================
-   BACKGROUND ANIMATION STYLES (Fixed Layer)
-   ======================================================= */
-#animated-background {
-    position: fixed; 
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: -1; 
-    background: linear-gradient(to bottom right, #4B3832, #A0522D); /* Richer Brown Gradient */
-}
-
-/* Floating Squares/Particles */
-#animated-background::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    pointer-events: none; 
-    
-    box-shadow: 
-        10vw 20vh 0 0 rgba(255, 255, 255, 0.1), /* Lighter, more subtle particles */
-        25vw 70vh 0 0 rgba(255, 255, 255, 0.08),
-        80vw 10vh 0 0 rgba(255, 255, 255, 0.12),
-        50vw 90vh 0 0 rgba(255, 255, 255, 0.15),
-        65vw 45vh 0 0 rgba(255, 255, 255, 0.07),
-        30vw 15vh 0 0 rgba(255, 255, 255, 0.1),
-        95vw 85vh 0 0 rgba(255, 255, 255, 0.06),
-        5vw 95vh 0 0 rgba(255, 255, 255, 0.15);
-    
-    animation: moveBackground 25s linear infinite; 
-}
-
-/* The animation keyframes */
-@keyframes moveBackground {
-    0% {
-        transform: translate(0, 0) rotate(0deg);
-    }
-    100% {
-        transform: translate(150px, 150px) rotate(360deg); 
-    }
-}
-
-
-/* =======================================================
-   1. LEGACY ARCHITECTURAL GRID STYLES (DATA TIMBER WORLD)
-   ======================================================= */
-
-/* =======================================================
-   GLOBAL RESETS & STRUCTURE (Existing/Assumed)
-   ======================================================= */
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    min-height: 100vh;
-    font-family: 'Arial', sans-serif;
-    color: #4B3832;
-}
-
-.main-content-wrapper {
-    position: relative; 
-    z-index: 0; 
-    overflow-x: hidden;
-}
-/* =======================================================
-   1. LEGACY ARCHITECTURAL GRID STYLES (DYNAMIC OVERHAUL)
-   ======================================================= */
-
-.legacy-grid-section {
+/* --- Hero Section with Blurry Background --- */
+.executive-header {
     position: relative;
-    z-index: 1;
-    overflow: hidden;
-    /* Stronger shadow for premium look */
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); 
-}
-
-/* --- DYNAMIC LEGACY BLOCK (Text + Image/Gradient) --- */
-.legacy-block {
-    padding: 60px 50px;
-    height: 100%;
+    height: 80vh;
     display: flex;
-    align-items: center; /* Vertically center content */
+    align-items: center;
     justify-content: center;
+    overflow: hidden;
+    background: #000;
 }
 
-.legacy-bg-image {
-    /* BACKGROUND SETUP */
-    background: 
-        /* 1. Dark Overlay Gradient for better text readability */
-        linear-gradient(to right, rgba(60, 42, 30, 0.9) 0%, rgba(60, 42, 30, 0.6) 70%, rgba(60, 42, 30, 0.3) 100%),
-        /* 2. Placeholder Image - ***CHANGE THIS PATH*** */
-        url('images/shopfront.jpg'); 
-    
+.hero-bg-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('your-background-wood-image.jpg'); /* Background Image */
     background-size: cover;
     background-position: center;
-    color: #F8F4F0; /* Creamy White text */
+    filter: blur(10px) brightness(0.6); /* Modern Blur Effect */
+    transform: scale(1.1);
 }
 
-.legacy-content {
-    max-width: 450px;
+.glass-brand-box {
     position: relative;
-    z-index: 5; 
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    padding: 60px;
+    border: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 900px;
 }
 
-.legacy-title {
-    font-size: 2.8rem;
-    font-weight: 900;
-    color: #FFD700; /* Gold Highlight */
-    letter-spacing: 2px;
-    margin-bottom: 8px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+.legacy-badge { color: var(--gold); letter-spacing: 5px; font-weight: 700; font-size: 14px; }
+.brand-main { font-size: clamp(2.5rem, 6vw, 4.5rem); color: var(--white); margin: 20px 0; font-weight: 300; }
+.gold-accent { color: var(--gold); font-weight: 800; }
+
+.service-details { margin-top: 30px; }
+.main-leader-text { color: var(--white); font-size: 1.5rem; font-weight: 600; margin-bottom: 15px; }
+.detail-tags { color: #ccc; font-size: 0.95rem; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+.separator { color: var(--gold); }
+
+/* --- Bento Infrastructure Grid --- */
+.infrastructure-section { padding: 80px 0; background: #f8f9fa; }
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
 }
 
-.legacy-established {
-    font-size: 1.2rem;
+.bento-card {
+    position: relative;
+    height: 380px;
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.large { grid-column: span 2; grid-row: span 2; height: 780px; }
+.wide { grid-column: span 2; }
+
+/* Slider Engine */
+.slider-engine {
+    display: flex;
+    width: 300%; /* Adjust per image count */
+    height: 100%;
+    animation: slideLoop 10s infinite ease-in-out;
+}
+.bento-card:hover .slider-engine { animation-play-state: paused; }
+
+@keyframes slideLoop {
+    0%, 30% { transform: translateX(0); }
+    33%, 63% { transform: translateX(-33.33%); }
+    66%, 96% { transform: translateX(-66.66%); }
+}
+
+.slide { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; }
+
+/* Overlay & Pagination */
+.card-overlay {
+    position: absolute; bottom: 0; left: 0; width: 100%;
+    padding: 40px 30px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.overlay-text h3 { margin: 0; font-size: 1.6rem; }
+.overlay-text p { margin: 5px 0 0; color: #ddd; font-size: 0.9rem; }
+
+.custom-pagination { display: flex; gap: 6px; }
+.p-dot { width: 8px; height: 8px; background: rgba(255,255,255,0.3); border-radius: 50%; }
+.p-dot.active { width: 30px; background: var(--gold); border-radius: 10px; }
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 1024px) {
+    .bento-grid { grid-template-columns: repeat(2, 1fr); }
+    .large { grid-column: span 2; height: 500px; }
+}
+
+@media (max-width: 600px) {
+    .bento-grid { grid-template-columns: 1fr; }
+    .large, .wide { grid-column: span 1; height: 350px; }
+    .brand-main { font-size: 2.5rem; }
+    .detail-tags { font-size: 0.8rem; }
+}
+
+:root {
+    --gold: #D4AF37;
+    --white: #FFFFFF;
+}
+
+.premium-legacy-section {
+    position: relative;
+    padding: 100px 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: #000; /* Base color for image loading */
+}
+
+/* Background Image Layer (Full Screen) */
+.legacy-bg-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('./images/shopfront.jpg'); /* Yahan apni image lagayein */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    filter: brightness(0.5); /* Background ko dark rakha taake white text chamke */
+    z-index: 1;
+}
+
+/* THE UPDATED GLASS CARD (Crystal Clear Blur) */
+.legacy-glass-card {
+    position: relative;
+    z-index: 10;
+    /* Opacity kam ki hai taake peeche ki image nazar aaye */
+    background: rgba(255, 255, 255, 0.05); 
+    /* Deep Blur Effect */
+    backdrop-filter: blur(20px) saturate(180%); 
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    
+    padding: 70px 50px;
+    border: 1px solid rgba(255, 255, 255, 0.15); /* Light border for definition */
+    border-radius: 8px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+.est-tag {
+    color: var(--gold);
+    font-weight: 700;
+    letter-spacing: 5px;
+    font-size: 0.9rem;
+    display: block;
+}
+
+.heritage-label {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.75rem;
     letter-spacing: 3px;
     text-transform: uppercase;
-    opacity: 0.8;
-    margin-bottom: 25px;
 }
 
-.legacy-divider {
-    border-top: 4px solid #FFD700; /* Thicker Gold Divider */
-    width: 80px;
-    margin-bottom: 30px;
-}
-
-.legacy-description {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    margin-bottom: 40px;
-}
-
-.btn-legacy-outline {
-    color: #F8F4F0;
-    border: 1px solid #FFD700;
-    padding: 12px 25px;
-    text-decoration: none;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    display: inline-block;
-}
-
-.btn-legacy-outline:hover {
-    background-color: #FFD700;
-    color: #3C2A1E; 
-}
-
-/* --- Stat Grid Container (Slim: only 2 boxes) --- */
-.stat-grid-container-slim {
-    background-color: #2E2018; /* Darker base color for contrast */
-    padding: 0;
-}
-
-.stat-tile {
-    padding: 50px 30px;
-    text-align: center;
-    transition: transform 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
-    cursor: pointer;
-    overflow: hidden;
-    position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #F8F4F0;
-    height: 100%; 
-}
-
-/* --- DYNAMIC TILE STYLING (Backgrounds) --- */
-.dynamic-tile-1 {
-    background: linear-gradient(180deg, #4B3832 0%, #6D564A 100%);
-}
-.dynamic-tile-2 {
-    background: linear-gradient(180deg, #6D564A 0%, #4B3832 100%);
-}
-
-/* --- Hover Effect (3D press/lift) --- */
-.stat-tile:hover {
-    z-index: 10;
-    transform: translateY(-5px) scale(1.03); 
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6); 
-    background: linear-gradient(180deg, #6D564A 0%, #8B6E60 100%);
-}
-
-.icon-gold {
-    font-size: 3rem; 
-    margin-bottom: 15px;
-    color: #FFD700; 
-}
-
-.stat-number-large {
-    font-size: 4rem; 
-    font-weight: 900;
-    line-height: 1;
-    margin-bottom: 5px;
-    color: #FFFFFF; 
-}
-
-.stat-label-large {
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+.legacy-main-title {
+    font-size: clamp(2rem, 5vw, 3.8rem);
     font-weight: 300;
-    opacity: 0.9;
+    color: var(--white);
+    line-height: 1.1;
+    margin: 30px 0;
 }
 
-
-/* =======================================================
-   RESPONSIVE ADJUSTMENTS (Legacy Grid)
-   ======================================================= */
-
-/* Desktop (lg) */
-@media (min-width: 992px) {
-    /* Legacy block height is aligned with the two stacked stat tiles (50% each) */
-    .legacy-block {
-        height: 440px; 
-    }
-    .stat-tile {
-        /* On desktop, tiles should split the available height */
-        height: 50%;
-    }
+.highlight-gold {
+    color: var(--gold);
+    font-weight: 800;
 }
 
-/* Mobile/Tablet (max-width: 991px) */
+.legacy-body-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 20px;
+}
+
+/* Stats Styling */
+.legacy-stats-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin: 40px 0;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.stat-box .num {
+    display: block;
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--white);
+}
+
+.stat-box .lab {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 1px;
+}
+
+.stat-divider {
+    width: 1px; height: 60px;
+    background: rgba(212, 175, 55, 0.3);
+}
+
+/* Professional Gold Button */
+.btn-legacy-gold {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    background: var(--gold);
+    color: #000;
+    padding: 18px 40px;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: 0.3s ease;
+}
+
+.btn-legacy-gold:hover {
+    background: var(--white);
+    transform: translateY(-3px);
+}
+
+/* Full Responsive Fix */
 @media (max-width: 991px) {
-    /* Legacy Block is full width, stacked on top */
-    .col-lg-5.col-md-12 {
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
-    
-    .legacy-bg-image {
-        padding: 40px 20px;
-        height: 300px; /* Fixed height for image background on smaller screens */
-        text-align: center;
-    }
-    .legacy-content {
-        margin: auto;
-    }
-    .legacy-divider {
-        margin: 20px auto;
-    }
-    .legacy-title {
-        font-size: 2rem;
-    }
-
-    /* Stat Tiles: 2 per row (col-sm-6) */
-    .col-md-6.col-sm-6 {
-        flex: 0 0 50%; 
-        max-width: 50%;
-    }
-    
-    .stat-tile {
-        /* Mobile par padding aur font size adjust */
-        padding: 30px 15px;
-        height: auto;
-    }
-    
-    .stat-number-large {
-        font-size: 3rem;
-    }
+    .legacy-glass-card { padding: 40px 20px; }
+    .legacy-stats-grid { flex-direction: column; gap: 20px; }
+    .stat-divider { display: none; }
+    .legacy-main-title { font-size: 2.2rem; }
 }
+
+
 /* -------------------------------------------------------
    2. MOBILE OPTIMIZED 3D FLIP CARD STYLES (MODIFIED)
    ------------------------------------------------------- */
-
-.mobile-feature-section {
-    position: relative;
-    z-index: 1;
+/* --- Corporate Color Palette --- */
+:root {
+    --dtm-dark: #1A1A1A;
+    --dtm-gold: #C5A059;
+    --dtm-white: #FFFFFF;
+    --dtm-gray: #F8F9FA;
 }
 
-.bg-light-creamy {
-    background-color: #FDFBFA;
+.corporate-values-section {
+    background-color: var(--dtm-gray);
 }
 
-.section-heading {
-    color: #4B3832; 
+.value-tagline {
+    font-size: 0.8rem;
+    letter-spacing: 4px;
+    color: var(--dtm-gold);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.value-heading {
+    font-size: 2.2rem;
+    color: var(--dtm-dark);
     font-weight: 800;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
+    margin-bottom: 20px;
 }
 
-/* --- Card Container (CRITICAL for 3D perspective) --- */
-.flip-card-container {
-    background-color: transparent;
-    width: 100%;
-    /* Adjusted height for 2-per-line mobile layout */
-    height: 180px; 
-    perspective: 1000px; 
+.heading-line {
+    width: 60px;
+    height: 3px;
+    background: var(--dtm-gold);
+    margin: 0 auto;
+}
+
+/* --- Premium Flip Card Styling --- */
+.premium-flip-wrapper {
+    perspective: 1000px;
+    height: 220px; /* Uniform height */
 }
 
 .flip-card {
     position: relative;
     width: 100%;
     height: 100%;
-    text-align: center;
-    transition: transform 0.8s; 
-    transform-style: preserve-3d; 
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
-    border-radius: 12px;
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    cursor: pointer;
 }
 
-/* Flipping the card on hover (desktop) or .flipped class (mobile tap) */
-.flip-card-container:hover .flip-card,
-.flip-card-container.flipped .flip-card { 
+.premium-flip-wrapper:hover .flip-card,
+.premium-flip-wrapper:active .flip-card {
     transform: rotateY(180deg);
 }
 
-/* Front and Back common styles */
-.flip-card-front, .flip-card-back {
+.flip-front, .flip-back {
     position: absolute;
     width: 100%;
     height: 100%;
-    backface-visibility: hidden; 
-    border-radius: 12px;
-    padding: 15px; /* Reduced padding for smaller cards */
+    backface-visibility: hidden;
+    border-radius: 4px; /* Minimalist sharp look */
+    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border: 1px solid rgba(0,0,0,0.05);
 }
 
-/* --- NEW: FRONT FACE GRADIENT STYLING --- */
-.bg-brown-gradient {
-    /* Rich, professional gradient from Dark Coffee to Mahogany */
-    background: linear-gradient(135deg, #583321 0%, #aa8061 100%);
-    color: #F8F4F0; 
+/* Front Styling: Dark Professional */
+.flip-front {
+    background-color: var(--dtm-dark);
+    color: var(--dtm-white);
 }
 
-/* --- FRONT FACE TYPOGRAPHY --- */
-/* Reduced size to fit 2-per-line on mobile */
-.front-icon {
-    font-size: 2.5rem; 
-    color: #FFD700; 
-    margin-bottom: 5px;
+.icon-wrap {
+    font-size: 2.5rem;
+    color: var(--dtm-gold);
+    margin-bottom: 15px;
 }
 
-.front-title {
-    font-size: 1rem; 
+.flip-front h3 {
+    font-size: 0.95rem;
     font-weight: 700;
-    margin-bottom: 3px;
-    line-height: 1.2;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
 }
 
-.front-subtitle {
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.7);
-    font-style: italic;
+.tap-hint {
+    font-size: 0.7rem;
+    background: rgba(197, 160, 89, 0.2);
+    color: var(--dtm-gold);
+    padding: 4px 12px;
+    border-radius: 20px;
 }
 
-/* --- BACK FACE STYLING (White Theme) --- */
-.bg-light-white {
-    background-color: #F8F4F0; 
-    color: #4B3832;
-    transform: rotateY(180deg); 
-    text-align: left;
-    padding: 15px; /* Reduced padding */
+/* Back Styling: Clean White/Gold */
+.flip-back {
+    background-color: var(--dtm-white);
+    color: var(--dtm-dark);
+    transform: rotateY(180deg);
+    text-align: center;
+    border: 2px solid var(--dtm-gold);
 }
 
-.back-title {
-    font-size: 1rem; 
-    font-weight: 700;
-    color: #8B4513; 
-    margin-bottom: 5px;
+.flip-back h4 {
+    font-size: 1rem;
+    color: var(--dtm-gold);
+    font-weight: 800;
+    margin-bottom: 10px;
 }
 
-.back-text {
-    font-size: 0.8rem; 
-    line-height: 1.4;
+.flip-back p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #555;
 }
 
-
-/* =======================================================
-   RESPONSIVE ADJUSTMENTS (CRITICAL FIXES)
-   ======================================================= */
-
-/* Desktop (lg) - default 5/7 split */
-@media (min-width: 992px) {
-    .legacy-block {
-        height: 520px;
-    }
-}
-
-/* Tablet (md) - Flip cards are 2 per row */
-@media (min-width: 768px) and (max-width: 991px) {
-    .legacy-block {
-        padding: 40px 30px;
-        height: auto; 
-    }
-    
-    .col-lg-6.col-md-6 {
-        flex: 0 0 50%;
-        max-width: 50%;
-    }
-    
-    .flip-card-container {
-        height: 220px; /* Bigger height on tablets */
-    }
-}
-
-/* Mobile (sm/xs) - FORCE 2 FLIP CARDS PER LINE */
+/* Mobile Adjustments (2 per row) */
 @media (max-width: 767px) {
-    /* Legacy Block is full width */
-    .col-lg-5.col-md-12 {
-        flex: 0 0 100%;
-        max-width: 100%;
+    .premium-flip-wrapper {
+        height: 190px; /* Slightly shorter on mobile */
     }
-    
-    .legacy-block {
-        padding: 40px 20px;
-        height: auto;
+    .value-heading {
+        font-size: 1.6rem;
     }
-    
-    .legacy-title {
-        font-size: 1.8rem;
+    .flip-front h3 {
+        font-size: 0.85rem;
     }
-
-    /* Stat Tiles remain 2 per row for visual impact */
-    .col-md-6.col-sm-6 {
-        flex: 0 0 50%; 
-        max-width: 50%;
+    .flip-back p {
+        font-size: 0.75rem;
     }
-    
-    /* === CRITICAL MOBILE FLIP CARD FIX: 2 per line === */
-    .col-lg-6.col-md-6.col-sm-12 {
-        /* Overriding col-sm-12 to be 50% on mobile */
-        flex: 0 0 50%;
-        max-width: 50%;
-    }
-    
-    /* Adding padding adjustments to prevent cards from touching */
-    .mobile-feature-section .row > div {
-        padding-left: 5px;
-        padding-right: 5px;
-    }
-    
-    /* FINAL CARD HEIGHT: 180px */
-    .flip-card-container {
-        height: 180px;
-    }
-
-    /* Final Font size adjustments for small space */
-    .front-title { font-size: 0.9rem; }
-    .back-text { font-size: 0.75rem; }
 }
 
 /* =======================================================
