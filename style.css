@@ -77,7 +77,36 @@ body {
     color: var(--text-color); /* Hover to regular black/dark text */
     border-bottom: 2px solid var(--primary-color); /* Dark brown underline accent */
 }
+/* Logo Container */
+.navbar-logo {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 12px 0 !important; /* Navbar ke andar gap maintain karne ke liye */
+    text-decoration: none !important;
+}
 
+/* Main Logo Image Styling */
+.main-nav-logo {
+    /* Desktop Size: Highest priority for size control */
+    height: 65px !important; 
+    width: auto !important; /* Aspect ratio lock rahega */
+    display: block !important;
+    object-fit: contain !important;
+    max-width: 100% !important; /* Container se bahar nahi jayega */
+    transition: transform 0.3s ease !important;
+}
+
+/* Hover Effect */
+.main-nav-logo:hover {
+    transform: scale(1.02) !important;
+}
+
+/* Mobile Responsiveness (Highest Priority) */
+@media (max-width: 768px) {
+    .main-nav-logo {
+        height: 102px !important; /* Mobile par automatic adjust hoga */
+    }
+}
 /* Dropdown Styling */
 .dropdown {
     position: relative;
