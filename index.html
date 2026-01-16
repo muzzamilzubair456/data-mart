@@ -471,83 +471,130 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         </div>
     </section>
+<section class="infrastructure-bento">
+    <div class="container">
+        <div class="section-intro text-center mb-5">
+            <span class="legacy-tag">GLOBAL INFRASTRUCTURE</span>
+            <h2 class="sub-heading">Precision & <span class="gold-text">Scale</span></h2>
+            <div class="heading-divider mx-auto"></div>
+        </div>
 
-    <section class="infrastructure-bento">
-        <div class="container">
-            <div class="section-intro">
-                <h2 class="sub-heading">Global-Scale Infrastructure</h2>
-                <p class="lead-text">A legacy built on precision cutting and massive stock-holding.</p>
-                <div class="heading-divider"></div>
-            </div>
-
-            <div class="bento-grid-container">
-                <div class="bento-card large slider-3">
-                    <div class="slider-track">
-                        <img src="./images/shopfront.jpg" class="slide-img" alt="Store 1">
-                        <img src="./images/shopfront2.jpg" class="slide-img" alt="Store 2">
-                        <img src="./images/dataallsubhanunder.jpg" class="slide-img" alt="Store 3">
+        <div class="row g-3 bento-grid-wrapper">
+            <div class="col-lg-6 col-md-12 bento-col main-feature">
+                <div class="bento-card main-hub">
+                    <div id="sliderMain" class="carousel slide h-100" data-bs-ride="carousel">
+                        <div class="carousel-indicators bento-indicators">
+                            <button type="button" data-bs-target="#sliderMain" data-bs-slide-to="0" class="active" aria-current="true"></button>
+                            <button type="button" data-bs-target="#sliderMain" data-bs-slide-to="1"></button>
+                        </div>
+                        
+                        <div class="carousel-inner h-100">
+                            <div class="carousel-item active h-100">
+                                <img src="./images/shopfront.jpg" class="bento-img" alt="Store Front 1">
+                            </div>
+                            <div class="carousel-item h-100">
+                                <img src="./images/shopfront2.jpg" class="bento-img" alt="Store Front 2">
+                            </div>
+                        </div>
                     </div>
                     <div class="card-info">
                         <h3>The Flagship Store</h3>
                         <p>Karachi Timber Market Hub</p>
-                        <div class="custom-dots"><span class="active"></span><span></span><span></span></div>
-                    </div>
-                </div>
-
-                <div class="bento-card slider-2">
-                    <div class="slider-track">
-                        <img src="./images/barmatic.jpg" class="slide-img" alt="Teak 1">
-                        <img src="./images/africanteak.jpg" class="slide-img" alt="Teak 2">
-                    </div>
-                    <div class="card-info">
-                        <h3>Exotic Hardwoods</h3>
-                        <p>Teak Specialists</p>
-                        <div class="custom-dots"><span class="active"></span><span></span></div>
-                    </div>
-                </div>
-
-                <div class="bento-card slider-2">
-                    <div class="slider-track">
-                        <img src="./images/ashlord3.jpg" class="slide-img" alt="Machine 1">
-                        <img src="./images/ashlord.jpg" class="slide-img" alt="Machine 2">
-                    </div>
-                    <div class="card-info">
-                        <h3>Industrial Precision</h3>
-                        <p>German Technology</p>
-                        <div class="custom-dots"><span class="active"></span><span></span></div>
-                    </div>
-                </div>
-
-                <div class="bento-card wide slider-2">
-                    <div class="slider-track">
-                        <img src="./images/goddown2.jpg" class="slide-img" alt="Marine Ply">
-                        <img src="/images/goddown1.jpg" class="slide-img" alt="PVC Sheet">
-                    </div>
-                    <div class="card-info">
-                        <h3>Marine Ply & PVC Solutions</h3>
-                        <p>Premium Quality Supply</p>
-                        <div class="custom-dots"><span class="active"></span><span></span></div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-</div>
 
-<section class="inventory-slider-section">
+            <div class="col-lg-6 col-md-12">
+                <div class="row g-3">
+                    
+                    <div class="col-6 col-lg-6 bento-col">
+                        <div class="bento-card secondary">
+                            <div id="sliderExotic" class="carousel slide h-100" data-bs-ride="carousel">
+                                <div class="carousel-indicators bento-indicators">
+                                    <button type="button" data-bs-target="#sliderExotic" data-bs-slide-to="0" class="active" aria-current="true"></button>
+                                    <button type="button" data-bs-target="#sliderExotic" data-bs-slide-to="1"></button>
+                                </div>
+                                <div class="carousel-inner h-100">
+                                    <div class="carousel-item active h-100">
+                                        <img src="./images/barmatic.jpg" class="bento-img" alt="Exotic Wood 1">
+                                    </div>
+                                    <div class="carousel-item h-100">
+                                        <img src="./images/africanteak.jpg" class="bento-img" alt="Exotic Wood 2">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-info">
+                                <h3>Exotic Hardwoods</h3>
+                                <p>Teak Specialists</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-6 bento-col">
+                        <div class="bento-card secondary">
+                            <div id="sliderIndustrial" class="carousel slide h-100" data-bs-ride="carousel">
+                                <div class="carousel-indicators bento-indicators">
+                                    <button type="button" data-bs-target="#sliderIndustrial" data-bs-slide-to="0" class="active" aria-current="true"></button>
+                                    <button type="button" data-bs-target="#sliderIndustrial" data-bs-slide-to="1"></button>
+                                </div>
+                                <div class="carousel-inner h-100">
+                                    <div class="carousel-item active h-100">
+                                        <img src="./images/ashlord3.jpg" class="bento-img" alt="Industrial 1">
+                                    </div>
+                                    <div class="carousel-item h-100">
+                                        <img src="./images/ashlord.jpg" class="bento-img" alt="Industrial 2">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-info">
+                                <h3>Industrial Precision</h3>
+                                <p>German Technology</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 bento-col">
+                        <div class="bento-card wide">
+                            <div id="sliderMarine" class="carousel slide h-100" data-bs-ride="carousel">
+                                <div class="carousel-indicators bento-indicators">
+                                    <button type="button" data-bs-target="#sliderMarine" data-bs-slide-to="0" class="active" aria-current="true"></button>
+                                    <button type="button" data-bs-target="#sliderMarine" data-bs-slide-to="1"></button>
+                                </div>
+                                <div class="carousel-inner h-100">
+                                    <div class="carousel-item active h-100">
+                                        <img src="./images/goddown2.jpg" class="bento-img" alt="Marine Ply 1">
+                                    </div>
+                                    <div class="carousel-item h-100">
+                                        <img src="/images/goddown1.jpg" class="bento-img" alt="Marine Ply 2">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-info">
+                                <h3>Marine Ply & PVC Solutions</h3>
+                                <p>Premium Quality Supply</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div> </div> </div> </div>
+</section>
+</div>
+                          <!-- BANNER IMAGE  -->
+<section class="inventory-slider-section py-5">
     <div class="container">
-        <div class="premium-slider-wrapper">
+        <div class="premium-slider-wrapper shadow-2xl">
             <div id="woodInventoryCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
                 
                 <div class="carousel-indicators luxury-indicators">
-                    <button type="button" data-bs-target="#woodInventoryCarousel" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#woodInventoryCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
                     <button type="button" data-bs-target="#woodInventoryCarousel" data-bs-slide-to="1"></button>
                     <button type="button" data-bs-target="#woodInventoryCarousel" data-bs-slide-to="2"></button>
                     <button type="button" data-bs-target="#woodInventoryCarousel" data-bs-slide-to="3"></button>
+                    <button type="button" data-bs-target="#woodInventoryCarousel" data-bs-slide-to="4"></button>
                 </div>
 
-                <div class="carousel-inner shadow-lg">
-                    <div class="carousel-item active">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="5000">
                         <div class="slide-content-grid">
                             <div class="img-zoom-container">
                                 <img src="./images/shopfront.jpg" class="d-block w-100 slide-img" alt="Burma Teak">
@@ -557,39 +604,88 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <h3>Legendary Burma Teak</h3>
                                 <p>Hand-picked, seasoned timber for high-end luxury furniture and yacht decking.</p>
                                 <div class="caption-footer">
-                                    <span class="stock-status">Available in Stock</span>
+                                    <span class="stock-pill">Available in Stock</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="carousel-item">
+                    <div class="carousel-item" data-bs-interval="5000">
                         <div class="slide-content-grid">
                             <div class="img-zoom-container">
-                                <img src="./images/unbergoddown1.jpg" class="d-block w-100 slide-img" alt="Inventory">
+                                <img src="./images/unbergoddown1.jpg" class="d-block w-100 slide-img" alt="Godown">
                             </div>
                             <div class="dynamic-caption">
                                 <h6 class="category-title">INFRASTRUCTURE</h6>
                                 <h3>Modern Godown Facility</h3>
                                 <p>Pakistan's most organized timber storage with moisture-controlled environments.</p>
                                 <div class="caption-footer">
-                                    <span class="stock-status">24/7 Logistics</span>
+                                    <span class="stock-pill">24/7 Logistics</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item" data-bs-interval="5000">
+                        <div class="slide-content-grid">
+                            <div class="img-zoom-container">
+                                <img src="./images/africanteak.jpg" class="d-block w-100 slide-img" alt="African Teak">
+                            </div>
+                            <div class="dynamic-caption">
+                                <h6 class="category-title">EXOTIC IMPORTS</h6>
+                                <h3>African Teak & Hardwood</h3>
+                                <p>Specially imported durable woods for architectural structural strength.</p>
+                                <div class="caption-footer">
+                                    <span class="stock-pill">Imported Quality</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item" data-bs-interval="5000">
+                        <div class="slide-content-grid">
+                            <div class="img-zoom-container">
+                                <img src="./images/ashlord.jpg" class="d-block w-100 slide-img" alt="PVC">
+                            </div>
+                            <div class="dynamic-caption">
+                                <h6 class="category-title">INDUSTRIAL SOLUTIONS</h6>
+                                <h3>Industrial PVC & Polymers</h3>
+                                <p>High-grade industrial materials for modern construction and engineering.</p>
+                                <div class="caption-footer">
+                                    <span class="stock-pill">Specialized Range</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item" data-bs-interval="5000">
+                        <div class="slide-content-grid">
+                            <div class="img-zoom-container">
+                                <img src="./images/ashlord3.jpg" class="d-block w-100 slide-img" alt="Ash Wood">
+                            </div>
+                            <div class="dynamic-caption">
+                                <h6 class="category-title">AESTHETIC INTERIORS</h6>
+                                <h3>Prime White Ash Wood</h3>
+                                <p>The first choice for interior designers focusing on elegance and modern aesthetics.</p>
+                                <div class="caption-footer">
+                                    <span class="stock-pill">Designers' Choice</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <button class="carousel-control-prev" type="button" data-bs-target="#woodInventoryCarousel" data-bs-slide="prev">
-                    <span class="control-icon"><i class="fas fa-chevron-left"></i></span>
+                <button class="carousel-control-prev custom-nav" type="button" data-bs-target="#woodInventoryCarousel" data-bs-slide="prev">
+                    <span class="nav-circle"><i class="fas fa-arrow-left"></i></span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#woodInventoryCarousel" data-bs-slide="next">
-                    <span class="control-icon"><i class="fas fa-chevron-right"></i></span>
+                <button class="carousel-control-next custom-nav" type="button" data-bs-target="#woodInventoryCarousel" data-bs-slide-next">
+                    <span class="nav-circle"><i class="fas fa-arrow-right"></i></span>
                 </button>
             </div>
         </div>
     </div>
 </section>
+
 
 
 <section class="premium-legacy-section">
@@ -663,7 +759,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="flip-front">
                             <div class="icon-wrap"><i class="fas fa-microscope"></i></div>
                             <h3>Quality Assurance</h3>
-                            <span class="tap-hint">Details</span>
+                            <span class="tap-hint">Tap & Details</span>
                         </div>
                         <div class="flip-back">
                             <h4>Precision Milled</h4>
@@ -679,7 +775,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="flip-front">
                             <div class="icon-wrap"><i class="fas fa-truck-loading"></i></div>
                             <h3>Direct Logistics</h3>
-                            <span class="tap-hint">Details</span>
+                            <span class="tap-hint">Tap & Details</span>
                         </div>
                         <div class="flip-back">
                             <h4>Nationwide Reach</h4>
@@ -695,7 +791,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="flip-front">
                             <div class="icon-wrap"><i class="fas fa-user-shield"></i></div>
                             <h3>Legacy Trust</h3>
-                            <span class="tap-hint">Details</span>
+                            <span class="tap-hint">Tap & Details</span>
                         </div>
                         <div class="flip-back">
                             <h4>Zero Hassle</h4>
@@ -711,7 +807,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="flip-front">
                             <div class="icon-wrap"><i class="fas fa-seedling"></i></div>
                             <h3>Legal Sourcing</h3>
-                            <span class="tap-hint">Details</span>
+                            <span class="tap-hint">Tap & Details</span>
                         </div>
                         <div class="flip-back">
                             <h4>Certified Wood</h4>
@@ -746,7 +842,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <div id="barma">
   <a class="linebreak" href="./barmateak.html">
     <div class="product-card">
-      <span class="tag hardwood">Hardwood</span>
+      <!-- <span class="tag hardwood">Hardwood</span> -->
 
       <div class="image-placeholder">
         <img src="./images/barmatic.jpg" alt="" width="450" height="190">
@@ -765,7 +861,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 
    <div id="african"><a class="linebreak" href="./africanteak.html"><div class="product-card">
-    <span class="tag hardwood">Hardwood</span>
+    <!-- <span class="tag hardwood">Hardwood</span> -->
     <div class="image-placeholder"><img src="./images/africanteak.jpg" alt="" width="450" height="190"></div>
     <div class="card-content">
       <h3>African teak</h3>
@@ -775,8 +871,10 @@ document.addEventListener('DOMContentLoaded', function() {
         <span class="view-details">View details</span>
     </div>
   </div></a></div>
+
+
   <div id="Sapele"><a class="linebreak" href="./sapheli.html"><div class="product-card">
-    <span class="tag hardwood">Hardwood</span>
+    <!-- <span class="tag hardwood">Hardwood</span> -->
     <div class="image-placeholder"><img src="./images/saphelifront.jpeg " alt="" width="450" height="190"></div>
     <div class="card-content">
       <h3>Sapele wood</h3>
@@ -788,7 +886,7 @@ document.addEventListener('DOMContentLoaded', function() {
   </div></a></div>
 
    <div id="ash"><a  class="linebreak" href="./ashwood.html"><div class="product-card">
-    <span class="tag reclaimed">Reclaimed</span>
+    <!-- <span class="tag reclaimed">Reclaimed</span> -->
     <div class="image-placeholder"><img src="./images/ashlord3.jpg" alt="" width="450" height="190"></div>
     <div class="card-content">
       <h3>Ash wood</h3>

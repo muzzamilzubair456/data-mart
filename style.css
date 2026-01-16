@@ -401,7 +401,7 @@ body {
     position: absolute;
     inset: 0;
     background: url('./images/goddownandr.jpg') center/cover no-repeat;
-    filter: blur(8px) brightness(0.4);
+    filter: blur(1px) brightness(0.4);
     z-index: 1;
     transform: scale(1.1);
 }
@@ -572,142 +572,80 @@ body {
 
 /* img slider  */
 :root {
-    --gold: #D4AF37;
-    --dark: #121212;
+    --gold: #ffc504;
+    --dark: #0A0A0A;
 }
 
-/* Slider Base */
-.premium-slider-wrapper {
-    max-width: 1100px;
-    margin: 0 auto;
-    border-radius: 20px;
-    overflow: hidden;
-    background: var(--dark);
-}
-
-/* Desktop: Text over Image */
-.slide-content-grid {
+/* --- Bento Layout Fix --- */
+.bento-card {
     position: relative;
-    display: flex;
-    flex-direction: column;
-}
-
-.img-zoom-container {
-    height: 550px;
+    border-radius: 15px;
     overflow: hidden;
-    background: #000;
+    height: 100%;
+    background: #111;
 }
 
-.slide-img {
+/* Desktop Heights */
+.main-hub { height: 620px; }
+.secondary, .wide { height: 300px; }
+
+.bento-img {
+    width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.8;
-    transition: transform 8s ease-out;
+    filter: brightness(0.8);
+    transition: transform 0.6s ease;
 }
 
-.carousel-item.active .slide-img {
-    transform: scale(1.1);
-}
-
-/* Caption Design */
-.dynamic-caption {
+/* --- Custom Toggle Indicators (Image 3 Style) --- */
+.bento-indicators {
     position: absolute;
-    bottom: 40px;
-    left: 40px;
-    background: rgba(20, 20, 20, 0.7);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    padding: 30px;
-    border-radius: 15px;
-    border: 1px solid rgba(255,255,255,0.1);
-    color: white;
-    max-width: 450px;
-    z-index: 10;
-    transition: all 0.5s ease;
+    bottom: 110px !important; /* Text ke thora upar */
+    left: 20px !important;
+    margin: 0 !important;
+    justify-content: flex-start !important;
+    gap: 8px;
 }
 
-.category-title {
-    color: var(--gold);
-    font-size: 11px;
-    letter-spacing: 3px;
-    margin-bottom: 10px;
-    font-weight: 700;
+.bento-indicators button {
+    width: 10px !important; /* Default Dot */
+    height: 10px !important;
+    border-radius: 50% !important;
+    background-color: rgba(255,255,255,0.4) !important;
+    border: none !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    opacity: 1 !important;
 }
 
-.dynamic-caption h3 {
-    font-size: 1.8rem;
-    font-weight: 800;
-    margin-bottom: 12px;
+/* Jab image slide hogi, ye class automatic active hogi */
+.bento-indicators button.active {
+    width: 30px !important; /* Long Capsule like your image */
+    border-radius: 10px !important;
+    background-color: #ffd000 !important;
 }
 
-.dynamic-caption p {
-    font-size: 0.95rem;
-    color: rgba(255,255,255,0.8);
-    line-height: 1.6;
+.card-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0,0,0,1), transparent);
+    z-index: 5;
 }
 
-.stock-status {
-    font-size: 12px;
-    background: rgba(212, 175, 55, 0.2);
-    color: var(--gold);
-    padding: 4px 12px;
-    border-radius: 50px;
-    border: 1px solid var(--gold);
-}
-
-/* Controls & Indicators */
-.control-icon {
-    width: 45px;
-    height: 45px;
-    background: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: black;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-.luxury-indicators [data-bs-target] {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: var(--gold);
-}
-
-.luxury-indicators .active {
-    width: 30px;
-    border-radius: 10px;
-}
-
-/* =========================================
-   MOBILE RESPONSIVE FIX (KEY CHANGES)
-   ========================================= */
+/* --- MOBILE RESPONSIVE (2 Images per line) --- */
 @media (max-width: 768px) {
-    .img-zoom-container {
-        height: 300px; /* Image height choti kardi */
-    }
+    .main-hub { height: 350px; }
+    .secondary { height: 220px; } /* Mobile par 2 images set hain */
+    .wide { height: 250px; }
 
-    .dynamic-caption {
-        position: relative; /* Image ke niche stack ho jayega */
-        bottom: 0;
-        left: 0;
-        max-width: 100%;
-        background: var(--dark); /* Mobile par solid black background */
-        border-radius: 0;
-        border: none;
-        padding: 25px 20px;
-        text-align: center;
-    }
-
-    .dynamic-caption h3 {
-        font-size: 1.4rem;
-    }
-
-    .carousel-control-prev, .carousel-control-next {
-        display: none; /* Mobile par buttons ki zaroorat nahi */
-    }
+    .card-info h3 { font-size: 0.95rem; }
+    .card-info p { font-size: 0.75rem; }
+    .bento-indicators { bottom: 55px !important; left: 15px !important; }
 }
+
+
 /* -------------------------------------------
    1. PREMIUM THEME BASE STYLES
    ------------------------------------------- */
@@ -803,6 +741,151 @@ body {
     /* This class will be managed by JS for the 3D effect */
 }
 
+:root {
+    --gold: #D4AF37;
+    --dark-matte: #151515;
+    --glass-bg: rgba(20, 20, 20, 0.85);
+}
+
+.premium-slider-wrapper {
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+    background: #000;
+    border: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+/* Luxury Ken Burns Effect */
+.img-zoom-container {
+    height: 650px;
+    overflow: hidden;
+}
+
+.slide-img {
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7);
+    transition: transform 10s ease-in-out;
+}
+
+.carousel-item.active .slide-img {
+    transform: scale(1.2);
+}
+
+/* Glassmorphism Business Caption */
+.dynamic-caption {
+    position: absolute;
+    bottom: 60px;
+    left: 60px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    padding: 50px;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    max-width: 550px;
+    color: white;
+    z-index: 10;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.category-title {
+    color: var(--gold);
+    letter-spacing: 4px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.dynamic-caption h3 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.dynamic-caption p {
+    color: rgba(255,255,255,0.7);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+/* Yellow Toggle Switch Sync (Professional) */
+.luxury-indicators {
+    bottom: 35px !important;
+    gap: 12px;
+}
+
+.luxury-indicators button {
+    width: 12px !important;
+    height: 12px !important;
+    border-radius: 50% !important;
+    background-color: rgba(255,255,255,0.2) !important;
+    border: 2px solid transparent !important;
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55) !important;
+    opacity: 1 !important;
+}
+
+.luxury-indicators button.active {
+    width: 45px !important; /* Gold Capsule shape */
+    background-color: var(--gold) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+/* Business Stock Pill */
+.stock-pill {
+    padding: 8px 24px;
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+/* Professional Nav Arrows */
+.nav-circle {
+    width: 60px;
+    height: 60px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: 0.3s;
+}
+
+.nav-circle:hover {
+    background: var(--gold);
+    color: black;
+    transform: scale(1.1);
+}
+
+/* --- Responsive Layout Fix --- */
+@media (max-width: 991px) {
+    .dynamic-caption { left: 30px; bottom: 30px; max-width: 80%; }
+}
+
+@media (max-width: 768px) {
+    .img-zoom-container { height: 450px; }
+    .dynamic-caption {
+        position: relative;
+        bottom: 0;
+        left: 0;
+        max-width: 100%;
+        border-radius: 0;
+        padding: 40px 20px;
+        background: #111;
+        text-align: center;
+    }
+    .luxury-indicators { bottom: 15px !important; justify-content: center !important; }
+}
 :root {
     --gold: #D4AF37;
     --deep-dark: #0A0A0A;
