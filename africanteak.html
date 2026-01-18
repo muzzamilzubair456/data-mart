@@ -1,123 +1,325 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>African Teak — Full Details | Data Timber World</title>
-  <link rel="icon" href="./images/fabef3bd-4722-492c-a3b9-ccf8f8f5f4ab (1).jpg">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-  <style>
-    :root{--accent:#ff7a00;--muted:#6b6b6b;}
-    body{background:#f4f4f6;color:#222;font-family:"Segoe UI", Roboto, Arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
-    .container-lg{max-width:1100px;}
-    .topbar{background:linear-gradient(90deg,#2c2a29,#4e3e36);color:#fff;padding:22px;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.12);margin-top:28px;}
-    .title{font-weight:800;font-size:28px;letter-spacing:.2px;}
-    .subtitle{color:#e8d8a0;font-weight:600;margin-top:6px;}
-    .card-detail{margin-top:24px;background:#fff;border-radius:14px;padding:22px;box-shadow:0 12px 30px rgba(0,0,0,0.06);}
-    .specs-list li{margin-bottom:8px;}
-    .badge-accent{background:linear-gradient(90deg,var(--accent),#ff9c3a);color:#fff;border-radius:999px;padding:8px 12px;font-weight:700;box-shadow:0 6px 18px rgba(255,120,0,0.18);}
-    .img-wrap{border-radius:12px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.08);}
-    .back-btn{background:transparent;border:1px solid #ddd;color:#ffffff;padding:8px 14px;border-radius:10px;}
-    .feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:10px;}
-    .feature{background:#fafafa;padding:12px;border-radius:10px;border:1px solid #f0f0f0;}
-    footer{margin-top:30px;padding:14px 0;text-align:center;color:var(--muted);font-size:14px;}
-    @media (max-width:767px){.topbar{padding:16px;}}
-  </style>
-  
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>African Teak | Architectural Grade | Data Timber World</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        :root {
+            --slate: #1a1c1e;
+            --gold: #c5a059;
+            --cream: #f9f7f2;
+            --text-muted: #000000;
+            --border: #e2e4e7;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        body {
+            background-color: #fff;
+            color: var(--slate);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- Global Container --- */
+        .wrapper { width: 100%; max-width: 1400px; margin: 0 auto; }
+
+        /* --- Header --- */
+        .nav-minimal {
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: var(--slate);
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .back-link:hover { color: var(--gold); }
+
+        /* --- Hero Section Responsive --- */
+        .detail-hero {
+            display: grid;
+            grid-template-columns: 1fr;
+            border-bottom: 1px solid var(--border);
+        }
+
+        @media (min-width: 992px) {
+            .detail-hero { grid-template-columns: 1fr 1fr; min-height: 85vh; }
+        }
+
+        .visual-side {
+            background: var(--cream);
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .visual-side img {
+            width: 100%;
+            height: auto;
+            max-width: 550px;
+            box-shadow: 20px 20px 60px rgba(0,0,0,0.1);
+            object-fit: cover;
+        }
+
+        .content-side {
+            padding: 40px 5%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        @media (min-width: 992px) {
+            .content-side { padding: 60px 10%; }
+        }
+
+        .category-tag {
+            color: var(--gold);
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            margin: 0 0 20px 0;
+            line-height: 1;
+        }
+
+        .description-lead {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            border-left: 2px solid var(--gold);
+            padding-left: 20px;
+        }
+
+        /* --- Specs Grid --- */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .spec-item {
+            border-top: 1px solid var(--border);
+            padding-top: 15px;
+        }
+
+        .spec-item label {
+            display: block;
+            font-size: 9px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .spec-item span { font-size: 1.1rem; font-weight: 500; font-family: 'Cormorant Garamond', serif; }
+
+        /* --- Info Section --- */
+        .info-section { padding: 60px 5%; }
+
+        @media (min-width: 992px) {
+            .info-section { padding: 100px 5%; }
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .rich-text-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .rich-text-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        .rich-text-column h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--gold);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .rich-text-column ul { padding: 0; list-style: none; margin: 0; }
+        .rich-text-column li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f9f9f9;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* --- Updated Sticky Glassy Action Bar --- */
+        .action-bar {
+            position: sticky;
+            bottom: 15px; /* Thora gap zameen se */
+            width: 92%; /* Side se space */
+            margin: 0 auto 15px;
+            background: rgba(29, 29, 29, 0.75); /* Dark transparent */
+            backdrop-filter: blur(12px); /* Glassy Effect */
+            -webkit-backdrop-filter: blur(12px);
+            padding: 10px 20px; /* Chota padding space kam karne ke liye */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 50px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            color: #fff;
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        @media (max-width: 480px) {
+            .action-bar {
+                padding: 8px 15px; /* Mobile par aur bhi compact */
+                width: 95%;
+            }
+            .status span { font-size: 11px !important; } /* Mobile par text chota */
+            .btn-gold, .btn-outline-white {
+                padding: 8px 15px !important;
+                font-size: 10px !important;
+            }
+        }
+
+        .status { text-align: left; }
+        .btn-group { display: flex; gap: 8px; }
+
+        .btn-gold, .btn-outline-white {
+            padding: 10px 20px;
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: 600;
+            border-radius: 40px;
+            text-decoration: none;
+            transition: var(--transition);
+            text-align: center;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-gold { background: var(--gold); color: #fff; }
+        .btn-outline-white { border: 1px solid rgba(0, 0, 0, 0.4); color: #fff; background: transparent; }
+
+        footer { padding: 40px 5% 40px; text-align: center; font-size: 11px; color: var(--text-muted); background: var(--cream); }
+    </style>
 </head>
 <body>
-  <div class="container container-lg">
-    <div class="topbar d-flex justify-content-between align-items-center flex-wrap">
-      <div>
-        <div class="title">African Teak — Genuine Teak Wood</div>
-        <div class="subtitle">Origin: West Africa · Premium Hardwood · Excellent for Outdoor & Furniture Use</div>
-      </div>
-      <div class="mt-3 mt-md-0 text-md-end">
-        <span class="badge-accent">Premium Grade</span>
-        <div style="height:6px"></div>
-        <a href="./gallery.html" class="back-btn">← Back to Products</a>
-      </div>
+
+    <nav class="nav-minimal">
+        <a href="./gallery.html" class="back-link">← Gallery</a>
+        <div style="font-weight: 800; letter-spacing: 3px; font-size: 12px;">DATA TIMBER MART</div>
+    </nav>
+
+    <div id="print-area">
+        <section class="detail-hero">
+            <div class="visual-side">
+                <img src="./images/africanteak.jpg" alt="African Teak Wood">
+            </div>
+            
+            <div class="content-side">
+                <span class="category-tag">Exotic Collection</span>
+                <h1>African Teak</h1>
+                <p class="description-lead">
+                    A premium hardwood known for its rich golden tones and exceptional weather resistance.
+                </p>
+
+                <div class="specs-grid">
+                    <div class="spec-item"><label>Hardness</label><span>1,150 lbf</span></div>
+                    <div class="spec-item"><label>Density</label><span>720 kg/m³</span></div>
+                    <div class="spec-item"><label>Durability</label><span>Class A</span></div>
+                    <div class="spec-item"><label>Stability</label><span>High</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <h2 class="section-title">Product Dossier</h2>
+            <div class="rich-text-grid">
+                <div class="rich-text-column">
+                    <h4>Overview</h4>
+                    <ul>
+                        <li>Origin: West Africa</li>
+                        <li>Grain: Straight / Interlocked</li>
+                    </ul>
+                </div>
+                <div class="rich-text-column">
+                    <h4>Uses</h4>
+                    <ul>
+                        <li>Marine Decking</li>
+                        <li>Luxury Furniture</li>
+                        <li>External Facades</li>
+                    </ul>
+                </div>
+                <div class="rich-text-column">
+                    <h4>Care</h4>
+                    <ul>
+                        <li>Kiln Dried Treatment</li>
+                        <li>Teak Oil Compatible</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
     </div>
 
-    <div class="card-detail row g-4 align-items-start">
-      <div class="col-lg-5">
-        <div class="img-wrap">
-          <img src="./images/africanteak.jpg" alt="African Teak" class="img-fluid w-100">
+    <div class="action-bar">
+        <div class="status">
+            <small style="opacity: 0.7; display: block; font-size: 8px; text-transform: uppercase;">Stock</small>
+            <span style="font-weight: 500; font-size: 13px; color: #fff;">In Stock</span>
         </div>
-        <div class="mt-3">
-          <strong>Standard Plank Example:</strong>
-          <div>96" × 8" × 2" (custom sizes available)</div>
+        <div class="btn-group">
+            <button id="downloadPDF" class="btn-outline-white">Save PDF</button>
+            <a href="#" class="btn-gold">Consult</a>
         </div>
-        <div class="feature-grid mt-3">
-          <div class="feature"><strong>Density</strong><div style="color:var(--muted); margin-top:6px;">~640 – 720 kg/m³</div></div>
-          <div class="feature"><strong>Janka Hardness</strong><div style="color:var(--muted); margin-top:6px;">~1,150 lbf</div></div>
-          <div class="feature"><strong>Stability</strong><div style="color:var(--muted); margin-top:6px;">High — moderate movement with humidity</div></div>
-          <div class="feature"><strong>Durability</strong><div style="color:var(--muted); margin-top:6px;">Class A — Very durable</div></div>
-        </div>
-      </div>
-
-      <div class="col-lg-7">
-        <h3>Full Description</h3>
-        <p style="line-height:1.65; color:#444;">
-          African Teak is a premium hardwood from West Africa known for its warm golden-brown color, straight grain, and exceptional workability. It is ideal for furniture, cabinetry, flooring, and outdoor structures. Resistant to decay and termites, it offers a balance of strength and aesthetic appeal for high-end projects.
-        </p>
-        <h4 class="mt-3">Why African Teak is special</h4>
-        <ul class="mb-3" style="color:#444; line-height:1.6;">
-          <li><strong>Durability:</strong> Highly resistant to rot, insect attacks, and weathering.</li>
-          <li><strong>Workability:</strong> Machine & hand work easily; holds screws and nails firmly.</li>
-          <li><strong>Finish:</strong> Accepts stains, oils, and varnishes beautifully.</li>
-          <li><strong>Color & Grain:</strong> Straight to interlocked grain with rich golden hues.</li>
-        </ul>
-        <h4>Common Applications</h4>
-        <p style="color:#444; line-height:1.6;">
-          Indoor/Outdoor Furniture, Flooring, Decking, Joinery, Boat Interiors, Luxury Cabinetry.
-        </p>
-        <h4 class="mt-3">Technical Specs & Handling</h4>
-        <table class="table table-bordered" style="max-width:720px; background:#fff;">
-          <tbody>
-            <tr><th style="width:40%;">Average Dry Density</th><td>640 – 720 kg / m³</td></tr>
-            <tr><th>Typical Moisture Content (kiln-dried)</th><td>8% – 12%</td></tr>
-            <tr><th>Janka Hardness (approx.)</th><td>~1,150 lbf</td></tr>
-            <tr><th>Workability Notes</th><td>Easy to saw, shape, and sand; pre-drill for screws; glue works well.</td></tr>
-            <tr><th>Finishing</th><td>Sands to smooth finish; shows beautiful sheen with oils or varnish.</td></tr>
-          </tbody>
-        </table>
-        <h4 class="mt-3">Origin & Sustainability</h4>
-        <p style="color:#444; line-height:1.6;">
-          Sourced from West Africa. Always request FSC or legally sourced certification for sustainable use.
-        </p>
-        <h4 class="mt-3">Care & Maintenance</h4>
-        <ul style="color:#444; line-height:1.6;">
-          <li>Periodic oiling for outdoor furniture.</li>
-          <li>Clean gently with soft cloth or brush.</li>
-          <li>Store in dry, ventilated area before installation.</li>
-        </ul>
-
-        <div class="mt-4">
-          <a href="./gallery.html" class="btn btn-outline-secondary me-2">← Back to Products</a>
-          <a href="#" class="btn" style="background:var(--accent); color:#fff;">Request Quote</a>
-         <button id="downloadPDF" class="btn btn-light ms-2">Download Spec (PDF)</button>
-        </div>
-      </div>
     </div>
 
-    <footer>©️ Data Timber World — Genuine & Imported Woods · Since 1980</footer>
-  </div>
+    <footer>
+        © Data Timber Mart · Established 1980
+    </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-document.getElementById("downloadPDF").addEventListener("click", function() {
-    var element = document.body; // pura page PDF me convert hoga
-    var opt = {
-        margin: 0.5,
-        filename: 'wood-spec.pdf', // aap har page ka unique naam de sakte ho
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2 },
-        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
-    };
-    html2pdf().set(opt).from(element).save();
-});
-</script>
+    <script>
+        document.getElementById("downloadPDF").addEventListener("click", function() {
+            const element = document.getElementById("print-area");
+            const opt = {
+                margin: 0.2,
+                filename: 'Teak-Spec.pdf',
+                image: { type: 'jpeg', quality: 1 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+            };
+            html2pdf().set(opt).from(element).save();
+        });
+    </script>
 </body>
 </html>

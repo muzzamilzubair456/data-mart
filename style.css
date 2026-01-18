@@ -976,8 +976,8 @@ body {
     color: white;
 }
 
-.gold-text {
-    background: linear-gradient(to bottom, #f9e498, #d4af37, #b38728);
+#gold-text1 {
+    background: linear-gradient(to bottom, #f9e498, #d4af37, #b38728); 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -2951,7 +2951,7 @@ botttom navbar */
 .line {
     width: 50px;
     height: 3px;
-    background: #D4AF37;
+   
     margin: 15px auto;
 }
 
@@ -3043,6 +3043,7 @@ botttom navbar */
     gap: 8px;
     color: #D4AF37;
 }
+
 
 /* Premium Button */
 .view-btn {
