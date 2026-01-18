@@ -5,321 +5,388 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>African Teak | Architectural Grade | Data Timber World</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
     <style>
         :root {
-            --slate: #1a1c1e;
-            --gold: #c5a059;
-            --cream: #f9f7f2;
-            --text-muted: #000000;
-            --border: #e2e4e7;
+            --primary: #1a1a1a;    /* Deep Charcoal */
+            --accent: #b28a41;     /* Premium Gold */
+            --bg-soft: #fbfaf8;    /* Ivory Paper */
+            --text-main: #2d2d2d;
+            --text-muted: #666666;
+            --border: #e5e5e5;
             --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            background-color: #fff;
-            color: var(--slate);
+            background-color: var(--bg-soft);
+            color: var(--text-main);
             font-family: 'Inter', sans-serif;
-            margin: 0;
-            padding: 0;
             line-height: 1.6;
-            overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* --- Global Container --- */
-        .wrapper { width: 100%; max-width: 1400px; margin: 0 auto; }
-
-        /* --- Header --- */
-        .nav-minimal {
-            padding: 20px 5%;
+        /* --- Header & Navigation --- */
+        .nav-header {
+            padding: 40px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: #fff;
         }
 
-        .back-link {
-            text-decoration: none;
-            color: var(--slate);
-            font-size: 10px;
+        .brand-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
-            font-weight: 600;
+        }
+
+        .back-gallery {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
             transition: var(--transition);
+            border-bottom: 1px solid transparent;
         }
 
-        .back-link:hover { color: var(--gold); }
+        .back-gallery:hover { color: var(--primary); border-color: var(--primary); }
 
-        /* --- Hero Section Responsive --- */
-        .detail-hero {
+        /* --- Hero Section --- */
+        .product-hero {
             display: grid;
-            grid-template-columns: 1fr;
-            border-bottom: 1px solid var(--border);
+            grid-template-columns: 1.2fr 0.8fr;
+            min-height: 80vh;
+            background: #fff;
+            margin: 0 5%;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.05);
         }
 
-        @media (min-width: 992px) {
-            .detail-hero { grid-template-columns: 1fr 1fr; min-height: 85vh; }
-        }
-
-        .visual-side {
-            background: var(--cream);
-            padding: 30px;
+        .image-viewport {
+            background-color: #f1f1f1;
+            position: relative;
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .visual-side img {
+        .image-viewport img {
             width: 100%;
-            height: auto;
-            max-width: 550px;
-            box-shadow: 20px 20px 60px rgba(0,0,0,0.1);
+            height: 100%;
             object-fit: cover;
+            transition: transform 1.5s ease;
         }
 
-        .content-side {
-            padding: 40px 5%;
+        .image-viewport:hover img { transform: scale(1.05); }
+
+        .content-pane {
+            padding: 80px 10%;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
-        @media (min-width: 992px) {
-            .content-side { padding: 60px 10%; }
-        }
-
         .category-tag {
-            color: var(--gold);
-            font-size: 10px;
+            color: var(--accent);
+            font-size: 0.7rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 15px;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
         }
 
         h1 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            margin: 0 0 20px 0;
+            font-size: clamp(3rem, 6vw, 4.5rem);
             line-height: 1;
+            margin-bottom: 30px;
+            font-weight: 500;
         }
 
-        .description-lead {
+        .hero-desc {
             font-size: 1.1rem;
             color: var(--text-muted);
-            margin-bottom: 30px;
-            border-left: 2px solid var(--gold);
-            padding-left: 20px;
+            margin-bottom: 40px;
+            font-weight: 300;
         }
 
-        /* --- Specs Grid --- */
+        /* --- Technical Grid --- */
         .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            border-top: 1px solid var(--border);
+            padding-top: 40px;
+        }
+
+        .spec-box h6 {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .spec-box p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-style: italic;
+        }
+
+        /* --- Detailed Info Section --- */
+        .details-section {
+            padding: 120px 5%;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 40px;
+        }
+
+        .side-title {
+            grid-column: span 4;
+            position: sticky;
+            top: 40px;
+            height: fit-content;
+        }
+
+        .side-title h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+        }
+
+        .main-body { grid-column: span 8; }
+
+        .info-block { margin-bottom: 80px; }
+        
+        .info-block h4 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+            width: fit-content;
+        }
+
+        .list-premium {
+            list-style: none;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
 
-        .spec-item {
-            border-top: 1px solid var(--border);
-            padding-top: 15px;
-        }
-
-        .spec-item label {
-            display: block;
-            font-size: 9px;
-            text-transform: uppercase;
-            color: var(--gold);
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
-        }
-
-        .spec-item span { font-size: 1.1rem; font-weight: 500; font-family: 'Cormorant Garamond', serif; }
-
-        /* --- Info Section --- */
-        .info-section { padding: 60px 5%; }
-
-        @media (min-width: 992px) {
-            .info-section { padding: 100px 5%; }
-        }
-
-        .section-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2rem, 5vw, 3rem);
-            margin-bottom: 40px;
-            text-align: center;
-        }
-
-        .rich-text-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
-        }
-
-        @media (min-width: 768px) {
-            .rich-text-grid { grid-template-columns: repeat(3, 1fr); }
-        }
-
-        .rich-text-column h4 {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-            border-bottom: 1px solid var(--gold);
-            padding-bottom: 10px;
-            display: inline-block;
-        }
-
-        .rich-text-column ul { padding: 0; list-style: none; margin: 0; }
-        .rich-text-column li {
-            padding: 8px 0;
-            border-bottom: 1px solid #f9f9f9;
+        .list-premium li {
+            padding-left: 20px;
+            position: relative;
+            font-size: 0.95rem;
             color: var(--text-muted);
-            font-size: 14px;
         }
 
-        /* --- Updated Sticky Glassy Action Bar --- */
+        .list-premium li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        /* --- Action Bar --- */
         .action-bar {
-            position: sticky;
-            bottom: 15px; /* Thora gap zameen se */
-            width: 92%; /* Side se space */
-            margin: 0 auto 15px;
-            background: rgba(29, 29, 29, 0.75); /* Dark transparent */
-            backdrop-filter: blur(12px); /* Glassy Effect */
-            -webkit-backdrop-filter: blur(12px);
-            padding: 10px 20px; /* Chota padding space kam karne ke liye */
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 800px;
+            background: rgba(26, 26, 26, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            border-radius: 100px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-radius: 50px;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            color: #fff;
             z-index: 1000;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
         }
 
-        @media (max-width: 480px) {
-            .action-bar {
-                padding: 8px 15px; /* Mobile par aur bhi compact */
-                width: 95%;
-            }
-            .status span { font-size: 11px !important; } /* Mobile par text chota */
-            .btn-gold, .btn-outline-white {
-                padding: 8px 15px !important;
-                font-size: 10px !important;
-            }
+        .action-info { color: #fff; }
+        .action-info span { 
+            display: block; 
+            font-size: 0.6rem; 
+            text-transform: uppercase; 
+            letter-spacing: 2px;
+            opacity: 0.6;
         }
 
-        .status { text-align: left; }
-        .btn-group { display: flex; gap: 8px; }
+        .action-btns { display: flex; gap: 15px; }
 
-        .btn-gold, .btn-outline-white {
-            padding: 10px 20px;
-            font-size: 11px;
-            text-transform: uppercase;
-            font-weight: 600;
-            border-radius: 40px;
+        .btn-prime {
+            background: var(--accent);
+            color: #fff;
             text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             transition: var(--transition);
-            text-align: center;
             border: none;
             cursor: pointer;
         }
 
-        .btn-gold { background: var(--gold); color: #fff; }
-        .btn-outline-white { border: 1px solid rgba(0, 0, 0, 0.4); color: #fff; background: transparent; }
+        .btn-prime:hover { background: #fff; color: var(--primary); }
 
-        footer { padding: 40px 5% 40px; text-align: center; font-size: 11px; color: var(--text-muted); background: var(--cream); }
+        .btn-ghost {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            transition: var(--transition);
+            background: transparent;
+            cursor: pointer;
+        }
+
+        footer {
+            padding: 100px 5% 150px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .product-hero { grid-template-columns: 1fr; margin: 0; }
+            .content-pane { padding: 40px 5%; }
+            .details-section { display: flex; flex-direction: column; padding: 60px 5%; }
+            .side-title { position: static; margin-bottom: 20px; }
+            .list-premium { grid-template-columns: 1fr; }
+            .action-bar { 
+                flex-direction: column; border-radius: 20px; 
+                padding: 15px; text-align: center; gap: 15px;
+                bottom: 10px; width: 95%;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <nav class="nav-minimal">
-        <a href="./gallery.html" class="back-link">← Gallery</a>
-        <div style="font-weight: 800; letter-spacing: 3px; font-size: 12px;">DATA TIMBER MART</div>
-    </nav>
+    <div id="product-page">
+        <nav class="nav-header">
+            <div class="brand-name">Data Timber</div>
+            <a href="./gallery.html" class="back-gallery">← The Collection</a>
+        </nav>
 
-    <div id="print-area">
-        <section class="detail-hero">
-            <div class="visual-side">
-                <img src="./images/africanteak.jpg" alt="African Teak Wood">
-            </div>
-            
-            <div class="content-side">
-                <span class="category-tag">Exotic Collection</span>
-                <h1>African Teak</h1>
-                <p class="description-lead">
-                    A premium hardwood known for its rich golden tones and exceptional weather resistance.
-                </p>
+        <main>
+            <section class="product-hero">
+                <div class="image-viewport">
+                    <img src="./images/africanteak.jpg" alt="African Teak Premium Wood">
+                </div>
+                <div class="content-pane">
+                    <span class="category-tag">Exotic Hardwoods</span>
+                    <h1>African Teak</h1>
+                    <p class="hero-desc">
+                        Known as Iroko, this legendary timber is prized for its extreme durability and golden-bronze luster. It is nature's answer to demanding architectural environments and luxury exterior joinery.
+                    </p>
+                    
+                    <div class="specs-grid">
+                        <div class="spec-box">
+                            <h6>Hardness</h6>
+                            <p>1,260 lbf Janka</p>
+                        </div>
+                        <div class="spec-box">
+                            <h6>Density</h6>
+                            <p>660 kg/m³</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-                <div class="specs-grid">
-                    <div class="spec-item"><label>Hardness</label><span>1,150 lbf</span></div>
-                    <div class="spec-item"><label>Density</label><span>720 kg/m³</span></div>
-                    <div class="spec-item"><label>Durability</label><span>Class A</span></div>
-                    <div class="spec-item"><label>Stability</label><span>High</span></div>
+            <section class="details-section">
+                <div class="side-title">
+                    <h2>The Technical <br>Dossier</h2>
                 </div>
-            </div>
-        </section>
+                
+                <div class="main-body">
+                    <div class="info-block">
+                        <h4>Overview</h4>
+                        <p style="color: var(--text-muted); font-weight: 300; font-size: 1.1rem; margin-bottom: 30px;">
+                            African Teak is a high-performance hardwood with exceptional oil retention. Its ability to withstand rot and termite attacks makes it a premier choice for marine environments and outdoor luxury projects.
+                        </p>
+                        <ul class="list-premium">
+                            <li>Class 1 Durability Rating</li>
+                            <li>High Natural Oil Content</li>
+                            <li>Mellows to Rich Bronze</li>
+                            <li>Exceptional Structural Stability</li>
+                        </ul>
+                    </div>
 
-        <section class="info-section">
-            <h2 class="section-title">Product Dossier</h2>
-            <div class="rich-text-grid">
-                <div class="rich-text-column">
-                    <h4>Overview</h4>
-                    <ul>
-                        <li>Origin: West Africa</li>
-                        <li>Grain: Straight / Interlocked</li>
-                    </ul>
+                    <div class="info-block">
+                        <h4>Primary Applications</h4>
+                        <ul class="list-premium">
+                            <li>Yacht Decking & Marine Work</li>
+                            <li>Premium Exterior Cladding</li>
+                            <li>High-End Garden Furniture</li>
+                            <li>Commercial Heavy Flooring</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-block">
+                        <h4>Specifications & Care</h4>
+                        <p style="color: var(--text-muted); font-size: 0.95rem;">
+                            <strong>Botanical:</strong> Milicia excelsa (Origin: West Africa) <br><br>
+                            <strong>Maintenance:</strong> For outdoor use, it can be left to age gracefully to a silver-grey or oiled regularly to maintain its deep golden-brown glow.
+                        </p>
+                    </div>
                 </div>
-                <div class="rich-text-column">
-                    <h4>Uses</h4>
-                    <ul>
-                        <li>Marine Decking</li>
-                        <li>Luxury Furniture</li>
-                        <li>External Facades</li>
-                    </ul>
-                </div>
-                <div class="rich-text-column">
-                    <h4>Care</h4>
-                    <ul>
-                        <li>Kiln Dried Treatment</li>
-                        <li>Teak Oil Compatible</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+            </section>
+        </main>
+
+        <footer>
+            © Data Timber Mart — Global Wood Purveyors Since 1979
+        </footer>
     </div>
 
     <div class="action-bar">
-        <div class="status">
-            <small style="opacity: 0.7; display: block; font-size: 8px; text-transform: uppercase;">Stock</small>
-            <span style="font-weight: 500; font-size: 13px; color: #fff;">In Stock</span>
+        <div class="action-info">
+            <span>Availability Status</span>
+            <strong>Premium Stock Ready</strong>
         </div>
-        <div class="btn-group">
-            <button id="downloadPDF" class="btn-outline-white">Save PDF</button>
-            <a href="#" class="btn-gold">Consult</a>
+        <div class="action-btns">
+            <button onclick="generatePDF()" class="btn-ghost">Export PDF</button>
+            <a href="https://wa.me/+923002844789" class="btn-prime">Enquire Now</a>
         </div>
     </div>
 
-    <footer>
-        © Data Timber Mart · Established 1980
-    </footer>
-
     <script>
-        document.getElementById("downloadPDF").addEventListener("click", function() {
-            const element = document.getElementById("print-area");
+        function generatePDF() {
+            const element = document.getElementById('product-page');
             const opt = {
                 margin: 0.2,
-                filename: 'Teak-Spec.pdf',
-                image: { type: 'jpeg', quality: 1 },
-                html2canvas: { scale: 2 },
+                filename: 'African-Teak-Spec-Sheet.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true },
                 jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
             };
             html2pdf().set(opt).from(element).save();
-        });
+        }
     </script>
+
 </body>
 </html>

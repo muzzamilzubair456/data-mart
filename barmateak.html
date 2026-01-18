@@ -6,7 +6,6 @@
     <title>Burma Teak | Premium Architectural Hardwoods | Data Timber World</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
     <style>
@@ -120,7 +119,7 @@
             font-weight: 300;
         }
 
-        /* --- Specs --- */
+        /* --- Specs Grid --- */
         .specs-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -252,7 +251,6 @@
         .btn-ghost {
             border: 1px solid rgba(255,255,255,0.2);
             color: #fff;
-            text-decoration: none;
             padding: 12px 25px;
             border-radius: 50px;
             font-size: 0.8rem;
@@ -273,19 +271,19 @@
             color: var(--text-muted);
         }
 
-        /* --- PDF Optimization --- */
-        @media print {
-            .action-bar, .nav-header { display: none !important; }
-            body { background: white; }
-            .product-hero { box-shadow: none; border: 1px solid #eee; }
-        }
-
+        /* --- Mobile Responsive --- */
         @media (max-width: 1024px) {
             .product-hero { grid-template-columns: 1fr; margin: 0; }
             .content-pane { padding: 60px 5%; }
             .details-section { display: flex; flex-direction: column; }
             .side-title { position: static; margin-bottom: 40px; }
-            .action-bar { flex-direction: column; border-radius: 20px; gap: 20px; padding: 20px; text-align: center; bottom: 10px;}
+            .action-bar { flex-direction: column; border-radius: 20px; gap: 20px; padding: 20px; bottom: 10px;}
+            .list-premium { grid-template-columns: 1fr; }
+        }
+
+        /* PDF Tuning */
+        @media print {
+            .action-bar, .nav-header { display: none !important; }
         }
     </style>
 </head>
@@ -306,7 +304,7 @@
                     <span class="category-tag">Genuine Myanmar Origin</span>
                     <h1>Burma Teak</h1>
                     <p class="hero-desc">
-                        World-renowned for its unparalleled beauty and natural oils. Burma Teak is the gold standard for marine environments and luxury architectural joinery, offering lifelong durability.
+                        World-renowned for its unparalleled beauty and natural oils. Burma Teak is the gold standard for marine environments and luxury architectural joinery.
                     </p>
                     
                     <div class="specs-grid">
@@ -331,7 +329,7 @@
                     <div class="info-block">
                         <h4>Full Description</h4>
                         <p style="color: var(--text-muted); font-weight: 300; font-size: 1.1rem; margin-bottom: 30px;">
-                            Burma Teak (Genuine Teak) is prized for its high dimensional stability and outstanding resistance to rot, insects, and water. Its heartwood varies from golden-brown to deep amber, developing a rich patina over time.
+                            Burma Teak (Genuine Teak) is prized for its high dimensional stability and outstanding resistance to rot, insects, and water.
                         </p>
                         <ul class="list-premium">
                             <li>High Natural Oil Content</li>
@@ -352,23 +350,15 @@
                             <li>Bespoke Architectural Joinery</li>
                         </ul>
                     </div>
-
-                    <div class="info-block">
-                        <h4>Origin & Care</h4>
-                        <p style="color: var(--text-muted); font-size: 0.95rem;">
-                            <strong>Source:</strong> Responsibly sourced from mature forests in Myanmar (Burma). <br><br>
-                            <strong>Maintenance:</strong> Periodic application of teak oil is recommended to maintain its golden hue. For outdoor use, it can be left untreated to develop a classic silver-grey patina.
-                        </p>
-                    </div>
                 </div>
             </section>
         </main>
-
         <footer>
             © Data Timber Mart — Global Wood Purveyors Since 1979
         </footer>
     </div>
-
+<br>
+<br><br><br><br><br><br><br><br>
     <div class="action-bar">
         <div class="action-info">
             <span>Standard Stock Example</span>
@@ -384,7 +374,7 @@
         function downloadPDF() {
             const element = document.getElementById('capture-area');
             const options = {
-                margin: 0.2,
+                margin: 0.4,
                 filename: 'Burma-Teak-Data-Timber.pdf',
                 image: { type: 'jpeg', quality: 0.98 },
                 html2canvas: { scale: 2, useCORS: true },
