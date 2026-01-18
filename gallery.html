@@ -923,193 +923,393 @@ if(reduce.matches){
     });
 }
 </script>
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Industries | Premium Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --navy: #051635;
-            --gold: #c5a059;
-            --slate: #1e293b;
-            --white: #ffffff;
-            --bg: #f8fafc;
-        }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--navy); background: var(--white); scroll-behavior: smooth; }
-
-        .container { max-width: 1300px; margin: 0 auto; padding: 0 25px; }
-
-        /* --- Section Titles --- */
-        .header-title { text-align: center; margin-bottom: 70px; }
-        .header-title h2 { font-family: 'Montserrat'; font-size: 2.8rem; text-transform: uppercase; color: var(--navy); }
-        .line { width: 100px; height: 5px; background: var(--gold); margin: 20px auto; border-radius: 10px; }
-
-        /* --- 1. Marine Wood Hero Section --- */
-        .wood-hero { padding: 120px 0; background: var(--navy); color: var(--white); overflow: hidden; }
-        .wood-flex { display: flex; align-items: center; gap: 80px; flex-wrap: wrap; }
-        .wood-content { flex: 1; min-width: 350px; }
-        .wood-content h2 { font-family: 'Montserrat'; font-size: 3rem; color: var(--gold); margin-bottom: 25px; }
-        .wood-content p { font-size: 1.1rem; line-height: 1.9; opacity: 0.9; margin-bottom: 30px; }
-        .wood-image { flex: 1; min-width: 350px; position: relative; }
-        .wood-image img { width: 100%; border-radius: 30px; box-shadow: 30px 30px 0 var(--gold); }
-
-        /* --- 2. PVC Product Showcase --- */
-        .pvc-section { padding: 100px 0; background: var(--bg); }
-        .pvc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; }
-        .pvc-card { background: white; border-radius: 40px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.05); transition: 0.4s; }
-        .pvc-card:hover { transform: translateY(-15px); }
-        .pvc-img { height: 350px; background-size: cover; background-position: center; position: relative; }
-        .pvc-badge { position: absolute; top: 25px; left: 25px; background: var(--gold); color: white; padding: 10px 25px; border-radius: 50px; font-weight: 800; text-transform: uppercase; font-size: 0.75rem; }
-        .pvc-info { padding: 45px; }
-        .pvc-info h3 { font-family: 'Montserrat'; font-size: 1.8rem; margin-bottom: 20px; color: var(--navy); }
+<div class="data-pvc-module">
+    <div class="pvc-container">
         
-        .spec-row { display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid #f1f1f1; font-weight: 600; font-size: 0.95rem; }
-        .spec-row span:first-child { color: var(--gold); text-transform: uppercase; font-size: 0.8rem; }
+        <div class="pvc-header">
+            <span class="pvc-pre-title">Elite Building Materials</span>
+            <h2 class="pvc-main-title">DATA PVC Roofing Systems</h2>
+            <div class="pvc-animated-line"></div>
+        </div>
 
-        /* --- 3. Industrial Applications --- */
-        .app-section { padding: 100px 0; }
-        .app-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
-        .app-box { background: var(--white); padding: 30px; border-radius: 20px; text-align: center; border: 1px solid #f0f0f0; transition: 0.3s; }
-        .app-box:hover { background: var(--navy); color: white; border-color: var(--navy); }
-        .app-box i { font-size: 2rem; color: var(--gold); margin-bottom: 15px; display: block; }
-        .app-box span { font-weight: 700; font-size: 0.9rem; }
-
-        /* --- 4. Comparison Table --- */
-        .comp-section { padding: 100px 0; background: #fff; }
-        .table-resp { overflow-x: auto; border-radius: 30px; box-shadow: 0 40px 80px rgba(0,0,0,0.1); }
-        table { width: 100%; border-collapse: collapse; min-width: 800px; }
-        th { background: var(--navy); color: white; padding: 30px; text-align: center; font-family: 'Montserrat'; }
-        td { padding: 25px; text-align: center; border-bottom: 1px solid #eee; font-weight: 600; }
-        .focus { background: #fffcf0; color: var(--navy); border-left: 3px solid var(--gold); border-right: 3px solid var(--gold); }
-
-        @media (max-width: 768px) {
-            .wood-hero { text-align: center; padding: 60px 0; }
-            .wood-image img { box-shadow: 15px 15px 0 var(--gold); }
-            .header-title h2 { font-size: 2rem; }
-        }
-    </style>
-</head>
-<body>
-
-    <section class="wood-hero">
-        <div class="container">
-            <div class="wood-flex">
-                <div class="wood-content">
-                    <p style="color:var(--gold); font-weight: 800; letter-spacing: 2px;">PREMIUM TIMBER SERIES</p>
-                    <h2>Shorea Leprosula Miq.</h2>
-                    <p>Hamara plywood khaas Shorea Leprosula Miq. wood se banaya jata hai jo ke apni tezi se barhne aur qudrati taur par seedhi (straight) aur cylindrical stem structure ki wajah se jana jata hai. Ye music instruments aur mazboot furniture ke liye behtareen hai.</p>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                        <div class="app-box" style="background: rgba(255,255,255,0.1); border: none;">
-                            <i class="fa-solid fa-ship"></i>
-                            <span style="color:white">Marine Ply</span>
-                        </div>
-                        <div class="app-box" style="background: rgba(255,255,255,0.1); border: none;">
-                            <i class="fa-solid fa-trowel-bricks"></i>
-                            <span style="color:white">Shuttering Ply</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="wood-image">
-                    <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=1000" alt="Premium Wood Detail">
-                </div>
+        <div class="pvc-info-grid">
+            <div class="pvc-feature-box">
+                <div class="pvc-icon">🛡️</div>
+                <h4>Zero Corrosion</h4>
+                <p>Engineered for coastal & chemical zones with 100% immunity to rust.</p>
+            </div>
+            <div class="pvc-feature-box">
+                <div class="pvc-icon">🌡️</div>
+                <h4>Heat Reflection</h4>
+                <p>ASA layer reflects 71% heat, keeping interiors 5-8°C cooler.</p>
+            </div>
+            <div class="pvc-feature-box">
+                <div class="pvc-icon">🔇</div>
+                <h4>Noise Damping</h4>
+                <p>Hollow core design reduces rain impact noise by up to 15dB.</p>
             </div>
         </div>
-    </section>
 
-    <section class="pvc-section">
-        <div class="container">
-            <div class="header-title">
-                <h2>Advanced PVC Roofing</h2>
-                <div class="line"></div>
-                <p>Triple-layer ASA technology for residential & industrial projects.</p>
-            </div>
-
-            <div class="pvc-grid">
-                <div class="pvc-card">
-                    <div class="pvc-img" style="background-image: url('https://images.unsplash.com/photo-1635424710928-0544e8512efe?q=80&w=800');">
-                        <span class="pvc-badge">Single Wall / Skin</span>
-                    </div>
-                    <div class="pvc-info">
-                        <h3>Industrial Corrugated</h3>
-                        <div class="spec-row"><span>Width (Effective)</span><span>1010mm</span></div>
-                        <div class="spec-row"><span>Thickness</span><span>2.1mm</span></div>
-                        <div class="spec-row"><span>Material</span><span>UPVC + UV Protection</span></div>
-                        <div class="spec-row"><span>Heat Shield</span><span>Reflects up to 71%</span></div>
+        <div class="pvc-product-display">
+            <div class="pvc-card">
+                <div class="pvc-card-img">
+                    <img src="images/pvcsinglewall.jpg" alt="Single Wall">
+                </div>
+                <div class="pvc-card-body">
+                    <span class="pvc-label">Standard Series</span>
+                    <h3>Single Wall Skin</h3>
+                    <div class="pvc-spec-list">
+                        <div class="pvc-spec-row"><span>Thickness</span><strong>2.1mm - 3.0mm</strong></div>
+                        <div class="pvc-spec-row"><span>Width</span><strong>1010mm</strong></div>
+                        <div class="pvc-spec-row"><span>Warranty</span><strong>25 Years</strong></div>
                     </div>
                 </div>
+            </div>
 
-                <div class="pvc-card">
-                    <div class="pvc-img" style="background-image: url('https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800');">
-                        <span class="pvc-badge">Twin Wall / Hollow</span>
-                    </div>
-                    <div class="pvc-info">
-                        <h3>Architectural Insulation</h3>
-                        <div class="spec-row"><span>Thickness</span><span>12mm Heavy Duty</span></div>
-                        <div class="spec-row"><span>Noise Control</span><span>-15dB Reduction</span></div>
-                        <div class="spec-row"><span>Weight</span><span>±6.0kg/m²</span></div>
-                        <div class="spec-row"><span>Structure Life</span><span>25 Years Warranty</span></div>
+            <div class="pvc-card high-spec">
+                <div class="pvc-card-img">
+                    <img src="images/pvc3.png" alt="Twin Wall">
+                </div>
+                <div class="pvc-card-body">
+                    <span class="pvc-label gold">Premium Series</span>
+                    <h3>Twin Wall / Hollow</h3>
+                    <div class="pvc-spec-list">
+                        <div class="pvc-spec-row"><span>Thickness</span><strong>12.0mm</strong></div>
+                        <div class="pvc-spec-row"><span>Structure</span><strong>Hollow Core</strong></div>
+                        <div class="pvc-spec-row"><span>Performance</span><strong>Extreme Load</strong></div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <section class="app-section">
-        <div class="container">
-            <div class="header-title">
-                <h2>Versatile Applications</h2>
-                <div class="line"></div>
-                <p>Hamare products 24+ industries mein istemal hotay hain.</p>
+    </div>
+</div>
+
+<style>
+/* Encapsulated Styles - Sirf isi section pe apply honge */
+.data-pvc-module {
+    padding: 100px 0;
+    background: #f8f9fa; /* Light, clean professional background */
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: #2d3436;
+    overflow: hidden;
+}
+
+.pvc-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Animation */
+.pvc-header {
+    text-align: center;
+    margin-bottom: 60px;
+    opacity: 0;
+    animation: fadeInUp 0.8s forwards;
+}
+
+.pvc-pre-title {
+    color: #d4af37;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.pvc-main-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 15px 0;
+    color: #1a1a1a;
+}
+
+.pvc-animated-line {
+    width: 0;
+    height: 4px;
+    background: #d4af37;
+    margin: 0 auto;
+    animation: stretch 1s 0.5s forwards;
+}
+
+/* Info Grid */
+.pvc-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+.pvc-feature-box {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: all 0.4s ease;
+    border-top: 4px solid transparent;
+}
+
+.pvc-feature-box:hover {
+    transform: translateY(-10px);
+    border-top-color: #d4af37;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.pvc-icon { font-size: 35px; margin-bottom: 20px; }
+.pvc-feature-box h4 { font-size: 1.4rem; margin-bottom: 10px; color: #1a1a1a; }
+.pvc-feature-box p { color: #636e72; font-size: 0.95rem; }
+
+/* Product Cards */
+.pvc-product-display {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.pvc-card {
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+    transition: 0.5s;
+    opacity: 0;
+    animation: fadeInUp 1s 0.3s forwards;
+}
+
+.pvc-card.high-spec {
+    background: #1a1a1a;
+    color: #fff;
+}
+
+.pvc-card-img { flex: 1; }
+.pvc-card-img img { width: 100%; transition: 0.5s; }
+.pvc-card:hover .pvc-card-img img { transform: scale(1.1); }
+
+.pvc-card-body { flex: 1.2; padding-left: 30px; }
+.pvc-label { font-size: 11px; font-weight: 700; text-transform: uppercase; color: #d4af37; }
+.pvc-card-body h3 { font-size: 1.8rem; margin: 10px 0 20px; }
+
+.pvc-spec-list { border-top: 1px solid #eee; padding-top: 20px; }
+.high-spec .pvc-spec-list { border-top-color: #333; }
+
+.pvc-spec-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+.pvc-spec-row span { color: #888; }
+.pvc-spec-row strong { color: #d4af37; }
+
+/* Keyframe Animations */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes stretch {
+    to { width: 80px; }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .pvc-product-display { grid-template-columns: 1fr; }
+    .pvc-card { flex-direction: column; text-align: center; }
+    .pvc-card-body { padding: 30px 0 0 0; }
+}
+</style>
+
+<div class="plywood-catalog-module">
+    <div class="ply-container">
+        
+        <header class="ply-intro">
+            <span class="ply-label">Wood Engineering</span>
+            <h2>Premium Plywood Solutions</h2>
+            <p class="ply-meranti-desc">
+                Featuring <strong>Red Meranti (Shorea leprosula Miq.)</strong> — a relatively fast-growing species that naturally retains a straight and cylindrical stem structure. A versatile wood utilized for high-grade structural plywood, furniture, and musical instruments.
+            </p>
+        </header>
+
+        <div class="ply-grid">
+            
+            <div class="ply-item">
+                <div class="ply-img">
+                    <img src="images/plywood.jpg" alt="Marine Ply">
+                </div>
+                <div class="ply-info">
+                    <h3>Marine Ply</h3>
+                    <p>Water-resistant structural grade for extreme moisture conditions.</p>
+                </div>
             </div>
-            <div class="app-grid">
-                <div class="app-box"><i class="fa-solid fa-warehouse"></i><span>Warehouses</span></div>
-                <div class="app-box"><i class="fa-solid fa-cow"></i><span>Dairy Farms</span></div>
-                <div class="app-box"><i class="fa-solid fa-industry"></i><span>Factories</span></div>
-                <div class="app-box"><i class="fa-solid fa-seedling"></i><span>Green Houses</span></div>
-                <div class="app-box"><i class="fa-solid fa-flask"></i><span>Chemical Units</span></div>
-                <div class="app-box"><i class="fa-solid fa-car"></i><span>Vehicle Sheds</span></div>
+
+            <div class="ply-item">
+                <div class="ply-img">
+                    <img src="images/shutteringply.jpg" alt="Shuttering Ply">
+                </div>
+                <div class="ply-info">
+                    <h3>Shuttering Ply</h3>
+                    <p>High-density panels for concrete formwork and construction.</p>
+                </div>
             </div>
+
+            <div class="ply-item">
+                <div class="ply-img">
+                    <img src="images/mdfproducts.jpg" alt="MDF Products">
+                </div>
+                <div class="ply-info">
+                    <h3>MDF Products</h3>
+                    <p>Medium-density fiberboard for premium furniture and cabinetry.</p>
+                </div>
+            </div>
+
+            <div class="ply-item">
+                <div class="ply-img">
+                    <img src="images/vaneeroard'.jpg" alt="Veneer Board">
+                </div>
+                <div class="ply-info">
+                    <h3>Veneer Board</h3>
+                    <p>Natural wood finishes for aesthetic architectural interiors.</p>
+                </div>
+            </div>
+
+            <div class="ply-item">
+                <div class="ply-img">
+                    <img src="images/laminationproducts.jpg" alt="Lamination Products">
+                </div>
+                <div class="ply-info">
+                    <h3>Lamination Products</h3>
+                    <p>Durable decorative layers with a wide range of textures.</p>
+                </div>
+            </div>
+
+            <div class="ply-item">
+                <div class="ply-img">
+                    <img src="images/gysumboard.jpg" alt="Gypsum Board">
+                </div>
+                <div class="ply-info">
+                    <h3>Gypsum Board</h3>
+                    <p>Lightweight fire-resistant panels for ceilings and partitions.</p>
+                </div>
+            </div>
+
         </div>
-    </section>
 
-    <section class="comp-section">
-        <div class="container">
-            <div class="header-title">
-                <h2>Material Performance</h2>
-                <div class="line"></div>
-            </div>
-            <div class="table-resp">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Feature</th>
-                            <th>Galvanized Iron</th>
-                            <th class="focus">Data PVC Sheets</th>
-                            <th>Asbestos</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>Climate Resistance</td><td>Rust / Corrode</td><td class="focus">Excellent / No Decay</td><td>Decay over time</td></tr>
-                        <tr><td>Heat Control</td><td>Extremely Hot (85%)</td><td class="focus">Efficient (29%)</td><td>Absorbs Heat (70%)</td></tr>
-                        <tr><td>Sound Insulation</td><td>Very Poor</td><td class="focus">Insulator</td><td>Little Insulated</td></tr>
-                        <tr><td>Impact Strength</td><td>Resistant</td><td class="focus">Flexible & Strong</td><td>Brittle</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
+    </div>
+</div>
 
-</body>
-</html>
+<style>
+/* Plywood Module Scoped Styling */
+.plywood-catalog-module {
+    padding: 100px 0;
+    background: #ffffff; /* Clean White Background */
+    font-family: 'Inter', sans-serif;
+    color: #333;
+}
 
+.ply-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
+/* Header Styling */
+.ply-intro {
+    text-align: center;
+    margin-bottom: 70px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ply-label {
+    display: inline-block;
+    color: #C5A059; /* Muted Gold */
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.ply-intro h2 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #111;
+    margin-bottom: 25px;
+}
+
+.ply-meranti-desc {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #666;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 25px;
+}
+
+/* Modern Image Grid */
+.ply-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+}
+
+.ply-item {
+    background: #fcfcfc;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.4s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.ply-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.06);
+    border-color: #C5A059;
+}
+
+.ply-img {
+    height: 220px;
+    overflow: hidden;
+    background: #eee;
+}
+
+.ply-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s ease;
+}
+
+.ply-item:hover .ply-img img {
+    transform: scale(1.1);
+}
+
+.ply-info {
+    padding: 30px;
+}
+
+.ply-info h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #1a1a1a;
+}
+
+.ply-info p {
+    font-size: 0.95rem;
+    color: #888;
+    line-height: 1.6;
+}
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+    .ply-intro h2 { font-size: 2rem; }
+    .ply-grid { grid-template-columns: 1fr; }
+}
+</style>
 
 <footer class="site-footer">
     <div class="footer-container">
