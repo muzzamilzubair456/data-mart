@@ -1,107 +1,393 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Red Oak — Full Details | Data Timber World</title>
-  <link rel="icon" href="./images/fabef3bd-4722-492c-a3b9-ccf8f8f5f4ab (1).jpg">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    :root{--accent:#ff7a00;--muted:#6b6b6b;}
-    body{background:#f4f4f6;color:#222;font-family:"Segoe UI", Roboto, Arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
-    .container-lg{max-width:1100px;}
-    .topbar{background:linear-gradient(90deg,#2c2a29,#4e3e36);color:#fff;padding:22px;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.12);margin-top:28px;}
-    .title{font-weight:800;font-size:28px;letter-spacing:.2px;}
-    .subtitle{color:#e8d8a0;font-weight:600;margin-top:6px;}
-    .card-detail{margin-top:24px;background:#fff;border-radius:14px;padding:22px;box-shadow:0 12px 30px rgba(0,0,0,0.06);}
-    .specs-list li{margin-bottom:8px;}
-    .badge-accent{background:linear-gradient(90deg,var(--accent),#ff9c3a);color:#fff;border-radius:999px;padding:8px 12px;font-weight:700;box-shadow:0 6px 18px rgba(255,120,0,0.18);}
-    .img-wrap{border-radius:12px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.08);}
-    .back-btn{background:transparent;border:1px solid #ddd;color:#ffffff;padding:8px 14px;border-radius:10px;}
-    .feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:10px;}
-    .feature{background:#fafafa;padding:12px;border-radius:10px;border:1px solid #f0f0f0;}
-    footer{margin-top:30px;padding:14px 0;text-align:center;color:var(--muted);font-size:14px;}
-    @media (max-width:767px){.topbar{padding:16px;}}
-  </style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Red Oak | Premium North American Hardwood | Data Timber World</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        :root {
+            --primary: #1a1a1a;    
+            --accent: #bc6c4d;     /* Warm Red Oak Clay/Rust Tone */
+            --bg-soft: #fbfaf8;    
+            --text-main: #2d2d2d;
+            --text-muted: #666666;
+            --border: #e5e5e5;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-soft);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- Header --- */
+        .nav-header {
+            padding: 40px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .back-gallery {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            transition: var(--transition);
+            border-bottom: 1px solid transparent;
+        }
+
+        .back-gallery:hover { color: var(--primary); border-color: var(--primary); }
+
+        /* --- Hero Section --- */
+        .product-hero {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            min-height: 80vh;
+            background: #fff;
+            margin: 0 5%;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.05);
+        }
+
+        .image-viewport {
+            background-color: #f1f1f1;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-viewport img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.5s ease;
+        }
+
+        .image-viewport:hover img { transform: scale(1.05); }
+
+        .content-pane {
+            padding: 80px 10%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .category-tag {
+            color: var(--accent);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        /* --- Specs --- */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            border-top: 1px solid var(--border);
+            padding-top: 40px;
+        }
+
+        .spec-box h6 {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .spec-box p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+        }
+
+        /* --- Details Section --- */
+        .details-section {
+            padding: 120px 5%;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 40px;
+        }
+
+        .side-title {
+            grid-column: span 4;
+            position: sticky;
+            top: 40px;
+            height: fit-content;
+        }
+
+        .side-title h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+        }
+
+        .main-body {
+            grid-column: span 8;
+        }
+
+        .info-block { margin-bottom: 80px; }
+        
+        .info-block h4 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+            width: fit-content;
+        }
+
+        .list-premium {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .list-premium li {
+            padding-left: 20px;
+            position: relative;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .list-premium li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        /* --- Action Bar --- */
+        .action-bar {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 85%;
+            max-width: 800px;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 40px;
+            border-radius: 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .action-info { color: #fff; }
+        .action-info span { 
+            display: block; 
+            font-size: 0.6rem; 
+            text-transform: uppercase; 
+            letter-spacing: 2px;
+            opacity: 0.6;
+        }
+
+        .action-btns { display: flex; gap: 15px; }
+
+        .btn-prime {
+            background: var(--accent);
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+        }
+
+        .btn-prime:hover { background: #fff; color: var(--primary); }
+
+        .btn-ghost {
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            transition: var(--transition);
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .btn-ghost:hover { background: rgba(255,255,255,0.1); }
+
+        footer {
+            padding: 100px 5% 150px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 1024px) {
+            .product-hero { grid-template-columns: 1fr; margin: 0; }
+            .content-pane { padding: 60px 5%; }
+            .details-section { display: flex; flex-direction: column; }
+            .side-title { position: static; margin-bottom: 40px; }
+            .action-bar { flex-direction: column; border-radius: 20px; gap: 20px; padding: 20px; text-align: center; bottom: 10px;}
+        }
+    </style>
 </head>
 <body>
-<div class="container container-lg">
-  <div class="topbar d-flex justify-content-between align-items-center flex-wrap">
-    <div>
-      <div class="title">Red Oak — Strong & Versatile Hardwood</div>
-      <div class="subtitle">Origin: North America · Hard & Durable · Ideal for Flooring & Furniture</div>
-    </div>
-    <div class="mt-3 mt-md-0 text-md-end">
-      <span class="badge-accent">Premium Grade</span>
-      <div style="height:6px"></div>
-      <a href="./gallery.html" class="back-btn">← Back to Products</a>
-    </div>
-  </div>
 
-  <div class="card-detail row g-4 align-items-start">
-    <div class="col-lg-5">
-      <div class="img-wrap">
-        <img src="./images/redoak.jpg" alt="Red Oak" class="img-fluid w-100">
-      </div>
-      <div class="mt-3">
-        <strong>Standard Plank Example:</strong>
-        <div>96" × 8" × 1.5" (custom sizes available)</div>
-      </div>
-      <div class="feature-grid mt-3">
-        <div class="feature"><strong>Density</strong><div style="color:var(--muted); margin-top:6px;">~710 – 750 kg/m³</div></div>
-        <div class="feature"><strong>Janka Hardness</strong><div style="color:var(--muted); margin-top:6px;">~1,290 lbf</div></div>
-        <div class="feature"><strong>Stability</strong><div style="color:var(--muted); margin-top:6px;">Moderate — slight movement with moisture</div></div>
-        <div class="feature"><strong>Durability</strong><div style="color:var(--muted); margin-top:6px;">Class B — Moderately durable</div></div>
-      </div>
+    <div id="product-capture">
+        <nav class="nav-header">
+            <div class="brand-name">Data Timber</div>
+            <a href="./gallery.html" class="back-gallery">← The Collection</a>
+        </nav>
+
+        <main>
+            <section class="product-hero">
+                <div class="image-viewport">
+                    <img src="./images/redoak.jpg" alt="Premium Red Oak">
+                </div>
+                <div class="content-pane">
+                    <span class="category-tag">Architectural North American Hardwood</span>
+                    <h1>Red Oak</h1>
+                    <p class="hero-desc">
+                        A masterpiece of strength and texture. Red Oak is celebrated for its distinctive open grain and warm reddish hue, making it the premier choice for luxury flooring and traditional cabinetry.
+                    </p>
+                    
+                    <div class="specs-grid">
+                        <div class="spec-box">
+                            <h6>Hardness</h6>
+                            <p>1,290 lbf Janka</p>
+                        </div>
+                        <div class="spec-box">
+                            <h6>Durability</h6>
+                            <p>Class B (Moderately Durable)</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="details-section">
+                <div class="side-title">
+                    <h2>Traditional <br>Strength</h2>
+                </div>
+                
+                <div class="main-body">
+                    <div class="info-block">
+                        <h4>Why Red Oak?</h4>
+                        <p style="color: var(--text-muted); font-weight: 300; font-size: 1.1rem; margin-bottom: 30px;">
+                            Red Oak is one of the most popular hardwoods in North America for a reason. Its porous nature allows it to take stains exceptionally well, while its hardness ensures it stands up to decades of wear in high-traffic flooring applications.
+                        </p>
+                        <ul class="list-premium">
+                            <li>Distinctive Prominent Grain</li>
+                            <li>Warm Rosy Undertones</li>
+                            <li>Excellent Shock Resistance</li>
+                            <li>Stains Exceptionally Well</li>
+                            <li>Classic Architectural Look</li>
+                            <li>Superior Dimensional Stability</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-block">
+                        <h4>Common Applications</h4>
+                        <ul class="list-premium">
+                            <li>High-End Timber Flooring</li>
+                            <li>Traditional Cabinetry</li>
+                            <li>Bespoke Staircases</li>
+                            <li>Luxury Interior Doors</li>
+                            <li>Architectural Millwork</li>
+                            <li>Fine Dining Furniture</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-block">
+                        <h4>Care & Handling</h4>
+                        <p style="color: var(--text-muted); font-size: 0.95rem;">
+                            <strong>Origin:</strong> Sustainably sourced from North America. <br><br>
+                            <strong>Maintenance:</strong> Red Oak’s open pores should be sealed properly. For flooring, use high-quality polyurethane; for furniture, oils and waxes highlight the deep grain. Avoid direct moisture exposure for outdoor settings.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            © Data Timber Mart — Global Wood Purveyors Since 1979
+        </footer>
     </div>
 
-    <div class="col-lg-7">
-      <h3>Full Description</h3>
-      <p style="line-height:1.65; color:#444;">
-        Red Oak is a North American hardwood prized for its strong, hard texture and distinctive reddish hue. It is widely used for flooring, furniture, cabinetry, and interior joinery. The open grain pattern adds character to furniture and decorative panels.
-      </p>
-      <h4 class="mt-3">Why Red Oak is special</h4>
-      <ul class="mb-3" style="color:#444; line-height:1.6;">
-        <li><strong>Appearance:</strong> Warm red tone with straight, prominent grain.</li>
-        <li><strong>Durability:</strong> Moderate resistance to decay and wear.</li>
-        <li><strong>Workability:</strong> Cuts, planes, and sands well; takes stain and finish nicely.</li>
-        <li><strong>Applications:</strong> Flooring, furniture, cabinetry, doors, paneling.</li>
-      </ul>
-      <h4>Common Applications</h4>
-      <p style="color:#444; line-height:1.6;">
-        Flooring, Furniture, Doors, Cabinetry, Joinery, Architectural Millwork.
-      </p>
-      <h4 class="mt-3">Technical Specs & Handling</h4>
-      <table class="table table-bordered" style="max-width:720px; background:#fff;">
-        <tbody>
-          <tr><th style="width:40%;">Average Dry Density</th><td>710 – 750 kg / m³</td></tr>
-          <tr><th>Typical Moisture Content (kiln-dried)</th><td>8% – 12%</td></tr>
-          <tr><th>Janka Hardness (approx.)</th><td>~1,290 lbf</td></tr>
-          <tr><th>Workability Notes</th><td>Easy to saw, plane, and sand; glue holds well; finishes beautifully.</td></tr>
-          <tr><th>Finishing</th><td>Accepts oils, varnish, and stains; smooth surface with natural grain.</td></tr>
-        </tbody>
-      </table>
-      <h4 class="mt-3">Origin & Sustainability</h4>
-      <p style="color:#444; line-height:1.6;">
-        North America. FSC certified or legally sourced wood recommended.
-      </p>
-      <h4 class="mt-3">Care & Maintenance</h4>
-      <ul style="color:#444; line-height:1.6;">
-        <li>Keep dry before installation.</li>
-        <li>Clean regularly and polish for indoor use.</li>
-        <li>Protect from moisture for outdoor installations.</li>
-      </ul>
-
-      <div class="mt-4">
-        <a href="./gallery.html" class="btn btn-outline-secondary me-2">← Back to Products</a>
-        <a href="#" class="btn" style="background:var(--accent); color:#fff;">Request Quote</a>
-        <a href="#" class="btn btn-light ms-2">Download Spec (PDF)</a>
-      </div>
+    <div class="action-bar">
+        <div class="action-info">
+            <span>Standard Stock Size</span>
+            <strong>96" × 8" × 1.5"</strong>
+        </div>
+        <div class="action-btns">
+            <button onclick="generatePDF()" class="btn-ghost">Spec Sheet (PDF)</button>
+            <a href="https://wa.me/+923002844789" class="btn-prime">Request Quote</a>
+        </div>
     </div>
-  </div>
 
-  <footer>©️ Data Timber World — Genuine & Imported Woods · Since 1980</footer>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function generatePDF() {
+            const element = document.getElementById('product-capture');
+            const opt = {
+                margin: 0.2,
+                filename: 'Red-Oak-Spec-Sheet.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true },
+                jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+            };
+            html2pdf().set(opt).from(element).save();
+        }
+    </script>
+
 </body>
 </html>
