@@ -804,12 +804,12 @@ body {
 /* Glassmorphism Business Caption */
 .dynamic-caption {
     position: absolute;
-    bottom: 60px;
-    left: 60px;
+    bottom: 10px;
+    left: 20px;
     background: var(--glass-bg);
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
-    padding: 50px;
+    padding: 20px;
     border-radius: 25px;
     border: 1px solid rgba(255, 255, 255, 0.08);
     max-width: 550px;
@@ -913,7 +913,7 @@ body {
         background: #111;
         text-align: center;
     }
-    .luxury-indicators { bottom: 15px !important; justify-content: center !important; }
+    .luxury-indicators { bottom: -2px !important; justify-content: center !important; }
 }
 :root {
     --gold: #D4AF37;
