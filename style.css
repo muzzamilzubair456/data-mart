@@ -2922,11 +2922,22 @@ botttom navbar */
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap');
 
 .industry-showcase {
-    background: #3f3e3e; /* Darker for premium feel */
+    /* background: #d3c8c8; Darker for premium feel */
+  
+    background:
+        /* linear-gradient(
+            rgba(78, 56, 35, 0.65),
+            rgba(87, 69, 31, 0.65)
+        ), */
+        url("images/pvcsinglewall.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     padding: 80px 0 0 0;
     font-family: 'Space Grotesk', sans-serif;
-    color: #fff;
+    color: #000000;
     overflow: hidden;
+    font-weight: 1000px;
 }
 
 .main-header {
@@ -2935,11 +2946,11 @@ botttom navbar */
 }
 
 .gold-accent {
-    color: #D4AF37;
+    color: #e7cc34;
     letter-spacing: 5px;
     text-transform: uppercase;
-    font-size: 12px;
-    font-weight: 700;
+    font-size: 16px;
+    font-weight: 900;
 }
 
 .display-title {
@@ -2988,7 +2999,7 @@ botttom navbar */
 .panel-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.92) 20%, rgba(0,0,0,0.1) 100%);
+    background: linear-gradient(to top, rgba(0,0,0,0.92) 20%, rgba(0,0,0,0.1) 10%);
     z-index: 1;
 }
 
@@ -3006,7 +3017,7 @@ botttom navbar */
 
 .panel-tag {
     color: #000000;
-    font-weight: 600;
+    font-weight: 800;
     font-size: 18px;
     border-left: 3px solid #ffc404;
     padding-left: 10px;
@@ -3021,10 +3032,11 @@ botttom navbar */
 }
 
 .panel-content p {
-    color: #bbb;
+    color: #000000;
     font-size: 1.1rem;
     line-height: 1.6;
     margin-bottom: 30px;
+    font-weight: bold;
 }
 
 /* Spec Items */
@@ -3082,4 +3094,160 @@ botttom navbar */
 .linebreak{
     text-decoration: none;
     color: #ffffff;
+}
+:root {
+    --text-brown: #5D3A1A;
+    --tag-gold: #C5A059;
+    --btn-bg: #8B4513; /* Chocolate/Brown color like image */
+    --card-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.product-section {
+    padding: 50px 20px;
+    background-color: #fcfcfc;
+}
+
+.product-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.product-img {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+.product-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.product-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-brown);
+    margin-bottom: 12px;
+    font-family: 'Serif', 'Georgia', serif;
+}
+
+.product-desc {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    min-height: 3em; /* Sab cards ko barabar rakhne ke liye */
+}
+
+.product-tag {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--tag-gold);
+    margin-bottom: 20px;
+}
+
+.button-wrapper {
+    margin-top: auto;
+    text-align: right;
+}
+
+.view-btn {
+    display: inline-block;
+    background-color: var(--btn-bg);
+    color: #fff !important;
+    padding: 10px 22px;
+    border-radius: 25px;
+    text-decoration: none !important;
+    font-size: 0.85rem;
+    font-weight: 700;
+    transition: background 0.3s ease;
+    box-shadow: 0 4px 8px rgba(139, 69, 19, 0.2);
+}
+
+.view-btn:hover {
+    background-color: #5D3A1A;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 600px) {
+    .product-container {
+        grid-template-columns: 1fr;
+    }
+}:root {
+    --text-brown: #4A2C10;
+    --tag-gold: #B58D3D;
+    --btn-bg: #723E16;
+    --light-bg: #FDFBF8; /* Off-white for premium feel */
+}
+
+
+
+/* Explore Gallery Button Styling */
+.gallery-footer {
+    padding-top: 40px;
+    border-top: 1px solid #eee;
+}
+
+.gallery-text {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.explore-gallery-btn {
+    display: inline-block;
+    padding: 18px 45px;
+    background: transparent;
+    border: 2px solid var(--text-brown);
+    color: var(--text-brown) !important;
+    text-decoration: none !important;
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.explore-gallery-btn:hover {
+    background: var(--text-brown);
+    color: #fff !important;
+}
+
+.explore-gallery-btn i {
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+.explore-gallery-btn:hover i {
+    transform: translateX(5px);
+}
+
+/* Grid adjustment */
+.product-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto;
 }
