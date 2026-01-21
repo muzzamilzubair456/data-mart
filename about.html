@@ -8,6 +8,7 @@
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <link rel="stylesheet" href="style.css">
     <style>
         :root {
@@ -1014,45 +1015,51 @@ function toggleFaq(item) {
 <div class="newsletter-signup">
   <h4 class="newsletter-title">Stay Updated</h4>
   <form id="contact-form">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <textarea name="message" placeholder="Your Message" required></textarea>
-    <input type="hidden" name="title" value="Contact Us">
-    <button type="submit" class="subscribe-btn">Submit</button>
+    <input type="text" id="name" name="name" placeholder="Your Name" required><br><br>
+    <input type="email" id="email" name="email" placeholder="Your Email" required><br><br>
+    <textarea id="message" name="message" placeholder="Your Message" required></textarea><br><br>
+    <button type="submit" id="btn" class="subscribe-btn">Submit</button>
   </form>
-  <div id="toast" style="display:none; padding:10px; background:green; color:white; margin-top:10px; border-radius:5px;">Email Sent Successfully!</div>
+  <div id="toast" style="display:none; padding:10px; margin-top:10px; border-radius:5px; color:white;"></div>
 </div>
-</script>
-<!-- Add EmailJS SDK -->
+
 <script>
-  // Initialize EmailJS
-  emailjs.init("service_t2kac2l"); // Replace YOUR_USER_ID with EmailJS user ID
+  (function() {
+    // Dashboard -> Account -> API Keys se Public Key yahan copy karein
+    emailjs.init("se8HBJ5MrvZpwtsrU"); 
+  })();
 
   const form = document.getElementById('contact-form');
   const toast = document.getElementById('toast');
+  const btn = document.getElementById('btn');
 
-  form.addEventListener('submit', function(event){
-    event.preventDefault(); // Prevent default form submission
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); 
 
-    emailjs.sendForm('service_t2kac2l', 'ContactFormTemplate', this)
-      .then(function(){
-        // Success
+    btn.innerText = 'Sending...';
+    btn.disabled = true;
+
+    // Hum sirf Main Template (Contact Us) bhejenge, 
+    // Auto-reply dashboard se link hone ki wajah se khud chala jayega.
+    emailjs.sendForm('service_t2kac2l', 'template_vsaa1rk', this)
+      .then(function() {
         toast.style.display = "block";
-        toast.innerText = "Thank you! Your message has been sent successfully.";
-        form.reset(); // Clear form
-
-        setTimeout(()=>{ toast.style.display="none"; }, 5000); // Hide after 5 sec
-      }, function(error){
-        // Error
+        toast.style.background = "green";
+        toast.innerText = "Message Sent! Check your email.";
+        form.reset();
+        btn.innerText = 'Submit';
+        btn.disabled = false;
+        setTimeout(() => { toast.style.display = "none"; }, 5000);
+      }, function(error) {
         toast.style.display = "block";
         toast.style.background = "red";
-        toast.innerText = "Oops! Something went wrong. Try again.";
-        setTimeout(()=>{ toast.style.display="none"; }, 5000);
-        console.log('FAILED...', error);
+        toast.innerText = "Error occurred. Check console.";
+        btn.innerText = 'Submit';
+        btn.disabled = false;
+        console.log('Error:', error);
       });
   });
 </script>
-
         </div>
 
         <div class="footer-column links-wrapper">
@@ -1146,7 +1153,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-
+</script>
 <a href="https://wa.me/+923002844789" class="whatsapp-float" target="_blank">
     <i class="fab fa-whatsapp"></i>
     <span class="tooltip-text">Chat with us</span>
