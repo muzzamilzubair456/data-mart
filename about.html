@@ -3,141 +3,662 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Timber Mart | Premium Corporate Identity</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <title>Data Timber Mart | Industrial Excellence</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+<link rel="stylesheet" href="style.css">
     <style>
         :root {
-            --primary: #0a0a0a;
-            --accent: #0056b3;
-            --soft-blue: #f4f9ff;
+            --brand-primary: #0f172a;
+            --brand-accent: #2563eb;
+            --bg-light: #f8fafc;
             --white: #ffffff;
-            --gray-light: #f9fafb;
-            --gray-border: #e5e7eb;
-            --text-dark: #111827;
-            --text-muted: #4b5563;
-            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* --- Global Reset & Responsiveness --- */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--white); color: var(--text-dark); line-height: 1.8; overflow-x: hidden; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
-        img { max-width: 100%; border-radius: 12px; }
-
-        /* --- Navigation Bar --- */
-        nav { height: 90px; display: flex; align-items: center; border-bottom: 1px solid var(--gray-border); position: sticky; top: 0; background: rgba(255,255,255,0.9); backdrop-filter: blur(15px); z-index: 1000; }
-        .nav-inner { display: flex; justify-content: space-between; align-items: center; width: 100%; }
-        .logo { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 900; color: var(--primary); text-decoration: none; letter-spacing: -0.5px; }
-
-        /* --- Hero Section --- */
-        .hero { padding: 120px 0 80px; background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%); min-height: 90vh; display: flex; align-items: center; }
-        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-        .hero-label { display: inline-block; padding: 6px 14px; background: var(--soft-blue); color: var(--accent); border-radius: 6px; font-weight: 800; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 25px; }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.1; color: var(--primary); margin-bottom: 30px; }
-        .hero p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 40px; max-width: 550px; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--white); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
         
-        .hero-visual { position: relative; }
-        .hero-main-img { border-radius: 40px 4px 40px 4px; box-shadow: 0 40px 100px rgba(0,0,0,0.1); }
-        .stat-overlay { position: absolute; bottom: -30px; left: -30px; background: var(--white); padding: 30px; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.05); border: 1px solid var(--gray-border); }
-        .stat-overlay h2 { color: var(--accent); font-size: 2.5rem; }
+        /* Mobile-First Container */
+        .container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+        @media (min-width: 768px) { .container { padding: 0 40px; } }
 
-        /* --- Values Pillar --- */
-        .pillars { padding: 100px 0; background: var(--white); border-bottom: 1px solid var(--gray-border); }
-        .pillar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
-        .pillar-card { padding: 30px; transition: var(--transition); }
-        .pillar-card i { font-size: 2.2rem; color: var(--accent); margin-bottom: 20px; }
-        .pillar-card h3 { font-size: 1.5rem; margin-bottom: 12px; }
+        img { max-width: 100%; height: auto; border-radius: 4px; display: block; }
 
-        /* --- Expandable Story Section --- */
-        .story-section { padding: 120px 0; background: var(--gray-light); text-align: center; }
-        .section-intro { max-width: 800px; margin: 0 auto 60px; }
-        .section-intro h2 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 20px; }
+       
+        /* Hero Section */
+        .hero { padding: 40px 0 80px; background: radial-gradient(circle at top right, #f1f5f9, #ffffff); overflow: hidden; }
+        .hero-grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; }
         
-        .action-btn { background: var(--primary); color: white; border: none; padding: 20px 50px; border-radius: 50px; font-weight: 700; cursor: pointer; transition: var(--transition); font-size: 1rem; }
-        .action-btn:hover { background: var(--accent); transform: translateY(-3px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .hero-label { display: inline-block; padding: 6px 12px; background: #eff6ff; color: var(--brand-accent); border-radius: 4px; font-weight: 700; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 20px; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 8vw, 4rem); line-height: 1.1; color: var(--brand-primary); margin-bottom: 20px; }
+        .hero p { font-size: 1rem; color: var(--text-muted); margin-bottom: 30px; font-weight: 400; }
+        
+        .hero-visual { position: relative; margin-top: 20px; }
+        .hero-main-img { border-radius: 2px; border-left: 6px solid var(--brand-primary); box-shadow: 20px 20px 50px rgba(0,0,0,0.1); width: 100%; }
+        
+        .stat-overlay { position: absolute; bottom: -20px; right: 10px; background: var(--brand-primary); padding: 20px; color: white; min-width: 120px; }
+        .stat-overlay h2 { color: var(--brand-accent); font-size: 2.2rem; font-family: 'Playfair Display'; line-height: 1; }
+        .stat-overlay p { font-weight: 600; font-size: 0.55rem; letter-spacing: 2px; margin-top: 4px; opacity: 0.8; }
 
-        .content-vault { max-height: 0; overflow: hidden; transition: max-height 1.5s ease-in-out; text-align: left; }
-        .content-vault.active { max-height: 6000px; }
+        /* Pillars (Values) */
+        .pillars { padding: 60px 0; background: var(--white); }
+        .pillar-grid { display: grid; grid-template-columns: 1fr; gap: 30px; }
+        .pillar-card { border-top: 1px solid var(--border); padding-top: 25px; }
+        .pillar-card i { font-size: 1.5rem; color: var(--brand-accent); margin-bottom: 15px; }
+        .pillar-card h3 { font-size: 1.3rem; font-family: 'Playfair Display'; margin-bottom: 10px; color: var(--brand-primary); }
+        .pillar-card p { font-size: 0.9rem; color: var(--text-muted); }
 
-        /* --- Detailed Blocks --- */
-        .detail-block { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; padding: 100px 0; align-items: center; border-bottom: 1px solid var(--gray-border); }
-        .detail-block.alt { direction: rtl; }
-        .detail-block.alt .text-content { direction: ltr; }
+        .story-section {
+    padding: 90px 0;
+    background: var(--bg-light);
+}
 
-        .text-content h3 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 20px; color: var(--primary); }
-        .tag { color: var(--accent); font-weight: 800; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 10px; display: block; }
+.section-intro {
+    text-align: center;
+    margin-bottom: 50px;
+    max-width: 800px;
+    margin-inline: auto;
+}
 
-        /* --- Tech Specs Table --- */
-        .spec-wrap { background: white; padding: 40px; border-radius: 20px; border: 1px solid var(--gray-border); margin-top: 30px; }
-        .spec-row { display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid var(--gray-light); }
-        .spec-row:last-child { border: none; }
-        .spec-val { font-weight: 700; color: var(--accent); }
+.section-intro h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 5vw, 3rem);
+    color: var(--brand-primary);
+    margin-bottom: 12px;
+}
 
-        /* --- Timeline Section --- */
-        .timeline { padding: 80px 0; }
-        .timeline-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-        .time-box { background: white; padding: 30px; border-radius: 15px; border: 1px solid var(--gray-border); position: relative; }
-        .time-box::before { content: ""; position: absolute; top: -10px; left: 30px; width: 20px; height: 20px; background: var(--accent); border-radius: 50%; }
+.intro-line {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 30px;
+}
 
-        /* --- FAQ Section --- */
-        .faq { padding: 100px 0; background: var(--white); }
-        .faq-list { max-width: 850px; margin: 0 auto; }
-        .faq-item { margin-bottom: 20px; border: 1px solid var(--gray-border); border-radius: 12px; }
-        .faq-q { padding: 25px; cursor: pointer; display: flex; justify-content: space-between; font-weight: 700; font-size: 1.1rem; }
-        .faq-a { padding: 0 25px 25px; color: var(--text-muted); display: none; }
+.action-btn {
+    background: var(--brand-primary);
+    color: #fff;
+    border: none;
+    padding: 18px 36px;
+    width: 100%;
+    max-width: 280px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
 
-        /* --- Professional Dev Section (Short & Strong) --- */
-        .dev-section { background: #000; color: white; padding: 100px 0; }
-        .dev-wrapper { display: flex; align-items: center; justify-content: space-between; border-left: 4px solid var(--accent); padding-left: 50px; }
-        .dev-left h2 { font-size: 2.5rem; font-family: 'Playfair Display'; margin-bottom: 10px; }
-        .dev-left p { color: #999; max-width: 500px; font-size: 1.1rem; }
-        .dev-right .btn-dev { border: 1px solid #444; color: white; padding: 15px 40px; text-decoration: none; border-radius: 50px; font-weight: 700; transition: 0.3s; }
-        .dev-right .btn-dev:hover { background: white; color: black; }
+.action-btn:hover {
+    opacity: 0.9;
+}
 
-        /* --- Footer --- */
-        footer { padding: 50px 0; background: #000; text-align: center; color: #555; border-top: 1px solid #111; font-size: 0.9rem; }
+.content-vault {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1s ease-in-out;
+}
 
-        /* --- Scroll Reveal Animation --- */
-        .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
+.content-vault.active {
+    max-height: 6000px;
+}
+
+.detail-block {
+    margin-bottom: 70px;
+}
+
+.detail-block.alt {
+    background: #fff;
+    padding: 50px;
+    border-radius: 6px;
+}
+
+.text-content {
+    max-width: 900px;
+    margin-inline: auto;
+}
+
+.tag {
+    display: inline-block;
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+    color: var(--brand-primary);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.text-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #111;
+}
+
+.text-content p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #444;
+}
+
+.spec-wrap {
+    margin-top: 25px;
+    border-top: 1px solid #e5e5e5;
+}
+
+.spec-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 0;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 0.9rem;
+}
+
+.spec-label {
+    color: #666;
+}
+
+.spec-val {
+    font-weight: 600;
+    color: #111;
+}
+
+.timeline-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 50px;
+}
+
+.time-box {
+    background: #fff;
+    padding: 35px 25px;
+    text-align: center;
+    border-radius: 6px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.04);
+}
+
+.time-box h4 {
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+    color: #111;
+}
+
+.time-box p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+
+        /* Detail Blocks */
+        .detail-block { padding: 40px 0; display: flex; flex-direction: column; gap: 30px; }
+        .text-content h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 15px; color: var(--brand-primary); }
+        .tag { color: var(--brand-accent); font-weight: 800; text-transform: uppercase; font-size: 0.65rem; letter-spacing: 2px; margin-bottom: 10px; display: block; }
+
+        /* Tech Table (Mobile scrollable) */
+        .spec-wrap { background: white; padding: 25px; border-left: 3px solid var(--brand-accent); margin-top: 20px; overflow-x: auto; }
+        .spec-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #f1f5f9; min-width: 250px; }
+        .spec-label { font-size: 0.85rem; color: var(--text-muted); }
+        .spec-val { font-size: 0.85rem; font-weight: 700; color: var(--brand-primary); }
+
+        /* Timeline / Hubs */
+        .timeline-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 40px 0; }
+        .time-box { background: white; padding: 20px 15px; border: 1px solid var(--border); text-align: center; }
+        .time-box h4 { font-size: 0.85rem; color: var(--brand-accent); text-transform: uppercase; margin-bottom: 5px; }
+        .time-box p { font-size: 0.75rem; color: var(--text-muted); }
+
+     
+        /* Dev Section */
+        .dev-section { background: var(--brand-primary); color: white; padding: 60px 0; text-align: center; }
+        .dev-left h2 { font-size: 1.8rem; font-family: 'Playfair Display'; margin-bottom: 15px; }
+        .dev-left p { font-size: 0.95rem; color: #94a3b8; margin-bottom: 30px; }
+        .btn-dev { display: inline-block; border: 1px solid rgba(255,255,255,0.2); color: white; padding: 15px 30px; text-decoration: none; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; }
+
+        footer { padding: 40px 0; background: #0a0a0a; text-align: center; color: #444; font-size: 0.65rem; }
+
+        /* Animations */
+        .reveal { opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* --- Responsive Design --- */
-        @media (max-width: 1024px) {
-            .hero-grid, .detail-block, .pillar-grid, .timeline-grid { grid-template-columns: 1fr; gap: 50px; text-align: center; }
-            .hero-text, .hero-visual { display: flex; flex-direction: column; align-items: center; }
-            .detail-block.alt { direction: ltr; }
-            .dev-wrapper { flex-direction: column; text-align: center; padding-left: 0; border-left: none; }
-            .dev-left { margin-bottom: 30px; }
-            .hero h1 { font-size: 3.5rem; }
+        /* Tablet & Desktop Adjustments */
+        @media (min-width: 768px) {
+            nav { height: 90px; }
+            .logo { font-size: 1.4rem; }
+            .hero-grid { grid-template-columns: 1.1fr 0.9fr; gap: 60px; }
+            .hero { padding: 80px 0; }
+            .pillar-grid { grid-template-columns: repeat(3, 1fr); gap: 40px; }
+            .timeline-grid { grid-template-columns: repeat(4, 1fr); }
+            .detail-block { flex-direction: row; gap: 80px; padding: 80px 0; }
+            .detail-block.alt { flex-direction: row-reverse; }
+            .dev-wrapper { display: flex; text-align: left; justify-content: space-between; align-items: center; }
+            .action-btn { width: auto; }
         }
     </style>
 </head>
 <body>
+<header class="luxury-navbar">
+    <div class="navbar-container">
 
-    <nav>
-        <div class="container nav-inner">
-            <a href="./index.html" class="logo">DATA TIMBER MART</a>
-            <div style="font-size: 0.8rem; font-weight: 800; color: var(--accent);">ESTABLISHED 1998</div>
+        <button class="hamburger-menu" aria-label="Toggle navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+    
+<nav class="mobile-menu-links">
+    <div class="menu-content-wrapper">
+        
+        <div class="menu-block core-navigation">
+            <ul>
+                <li><a href="./index.html" class="main-link" style="border-top: 1px solid rgba(93, 64, 55, 0.1);">Home</a></li>
+                <li><a href="./about.html" class="main-link">About Us</a></li>
+                
+                <li class="dropdown-item">
+                    <div class="dropdown-toggle" id="products-toggle">
+                        Our Products 
+                        <i class="fas fa-chevron-right arrow"></i>
+                    </div>
+                    
+                    <ul class="product-dropdown" id="products-list">
+                        <li class="dropdown-category-title">PREMIUM HARDWOODS</li>
+                        <li><a href="#Sapele">Sapele Wood</a></li>
+                        <li><a href="#barma">Barma Teak</a></li>
+                        <li class="dropdown-category-title">EXOTIC SPECIES</li>
+                        <li><a href="#african">Africa Teak</a></li>
+                        <li><a href="#ash">Ash Wood</a></li>
+                        <li class="dropdown-category-title last-category"><a href="./gallery.html" style="font-weight: 700;">View Full Gallery <i class="fas fa-arrow-right"></i></a></li>
+                    </ul>
+                </li>
+                
+                <li><a href="./arrival.html" class="main-link">New Arrivals</a></li>
+            </ul>
+        </div>
+
+        <div class="divider-line"></div>
+        
+        <div class="menu-block feature-tile">
+            <h4 class="block-title">Featured Tool</h4>
+            <a href="./gallery.html" class="resource-tile feature-link">
+                <span class="icon"><i class="fas fa-tree"></i></span>
+                <div class="text-group">
+                    <span class="text-main">Find Your Perfect Wood</span>
+                    <span class="text-sub">Match wood types to your project's needs and budget.</span>
+                </div>
+            </a>
+        </div>
+        
+        <div class="divider-line"></div>
+
+        <div class="menu-block utility-links">
+            <a href="#callToggleBtn" class="utility-link"><i class="fas fa-headset"></i> Contact & Support</a>
+            <a href="#faq" class="utility-link"><i class="fas fa-question-circle"></i> FAQ & Returns</a>
+            <!-- <a href="./quote.html" class="utility-link cta-utility"><i class="fas fa-scroll"></i> Get Custom Quote</a> -->
+        </div>
+        
+        <div class="social-footer">
+            <h4 class="block-title">Connect With Us</h4>
+            <div class="social-links">
+                <a href="https://www.facebook.com/arif.data.90" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/+923002844789" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+<br><br><br><br>
+    </div>
+</nav>
+
+<style>
+/* --- 🎨 WOOD THEME COLOR VARIABLES (Final Premium Look) --- */
+:root {
+    --primary-color: #5D4037; /* Dark Brown (Main Text/Action) */
+    --secondary-color: #ffffff; 
+    --accent-color: #CC9966; /* Richer Wood/Gold Accent for Highlights */
+    --navbar-height: 60px; /* IMPORTANT: Top Navbar Height */
+    --light-wood-bg: #F4EDE8; /* Smoother, Off-White/Light Beige Background */
+    --color-text-subtle: #7A7A7A;
+}
+
+/* -----------------------------------------------------------------------------------
+   DRAWER SETUP (Mobile Only)
+   ----------------------------------------------------------------------------------- */
+.mobile-menu-links {
+    position: fixed;
+    top: var(--navbar-height); /* FIX: Starts below the main navbar */
+    left: 0;
+    width: 320px; 
+    height: calc(100vh - var(--navbar-height)); /* FIX: Full height below navbar */
+    background-color: var(--light-wood-bg); 
+    transform: translateX(-100%); 
+    transition: transform 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0); 
+    padding-top: 25px; 
+    padding-bottom: 20px;
+    box-shadow: 3px 0 20px rgba(0, 0, 0, 0.25); 
+    z-index: 9999; 
+    overflow-y: auto; 
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+.menu-content-wrapper {
+    padding: 0 25px; 
+}
+
+.mobile-menu-links.is-open {
+    transform: translateX(0);
+}
+
+.divider-line {
+    height: 1px;
+    background-color: rgba(93, 64, 55, 0.1); 
+    margin: 25px 0; 
+}
+
+/* --- Block 1: CORE NAVIGATION (Clean Links & Dropdown) --- */
+.core-navigation ul {
+    list-style: none;
+    padding: 0;
+}
+
+.core-navigation a.main-link {
+    display: block;
+    padding: 15px 0; 
+    color: var(--primary-color); 
+    text-decoration: none;
+    font-size: 1.25rem; 
+    font-weight: 600;
+    transition: color 0.2s;
+    border-bottom: 1px solid rgba(93, 64, 55, 0.1); /* Separator */
+}
+
+.core-navigation a.main-link:hover {
+    color: var(--accent-color);
+}
+
+
+/* --- PRODUCT DROPDOWN STYLING --- */
+.dropdown-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    color: var(--primary-color);
+    font-size: 1.25rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(93, 64, 55, 0.1);
+}
+
+.dropdown-toggle .arrow {
+    font-weight: 900;
+    font-size: 0.8rem;
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-toggle.is-active .arrow {
+    transform: rotate(90deg);
+}
+
+.product-dropdown {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    padding: 0;
+    list-style: none;
+    background-color: rgba(255, 255, 255, 0.5); 
+}
+
+/* Category Titles */
+.dropdown-category-title {
+    padding: 15px 15px 5px 15px;
+    color: var(--color-text-subtle);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.product-dropdown li a {
+    display: block;
+    padding: 10px 15px 10px 25px; 
+    color: var(--primary-color);
+    font-size: 1rem;
+    text-decoration: none;
+    border-left: 3px solid transparent;
+    transition: all 0.2s;
+}
+
+.product-dropdown li a:hover {
+    color: var(--accent-color);
+    border-left-color: var(--accent-color);
+    background-color: rgba(93, 64, 55, 0.05);
+}
+
+.product-dropdown li.last-category a {
+    padding: 15px 15px 20px 25px;
+    border-bottom: 1px solid rgba(93, 64, 55, 0.1);
+    color: var(--accent-color);
+}
+
+/* --- Block 2: HIGH-IMPACT FEATURE (Tile Design) --- */
+.block-title {
+    color: var(--primary-color); 
+    font-size: 0.9rem; 
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px; 
+    margin-top: 30px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.feature-link {
+    display: flex;
+    align-items: center;
+    padding: 20px; 
+    background-color: var(--primary-color); 
+    border-radius: 10px; 
+    text-decoration: none;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s;
+}
+
+.feature-link:hover {
+    transform: translateY(-2px); 
+    background-color: #6D5146;
+}
+
+.feature-link .icon {
+    font-size: 2.2rem; 
+    color: var(--accent-color); 
+    margin-right: 15px;
+    line-height: 1;
+}
+
+.feature-link .text-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.feature-link .text-main {
+    color: var(--secondary-color);
+    font-weight: 700;
+    font-size: 1.1rem; 
+}
+
+.feature-link .text-sub {
+    color: var(--accent-color);
+    font-weight: 400;
+    font-size: 0.85rem;
+    line-height: 1.3;
+}
+
+
+/* --- Block 3: UTILITY & SOCIAL FOOTER --- */
+.utility-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; 
+}
+
+.utility-link {
+    display: block;
+    padding: 12px 0;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(93, 64, 55, 0.05);
+    transition: color 0.2s;
+}
+
+.utility-link i {
+    margin-right: 10px;
+    color: var(--accent-color);
+}
+
+.utility-link:hover {
+    color: var(--accent-color);
+}
+
+.social-footer {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.social-links a {
+    color: var(--primary-color);
+    font-size: 2.2rem; 
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const toggle = document.getElementById('products-toggle');
+    const list = document.getElementById('products-list');
+    
+    toggle.addEventListener('click', function() {
+        toggle.classList.toggle('is-active');
+
+        if (list.style.maxHeight && list.style.maxHeight !== "0px") {
+            list.style.maxHeight = null;
+        } else {
+            // Set max-height high enough to accommodate all items, including padding
+            list.style.maxHeight = list.scrollHeight + "px";
+        }
+    });
+});
+</script>
+
+
+     <a class="navbar-logo" href="./index.html">
+    <img src="./images/datalogo.jpg" 
+         alt="Wood Business Logo" 
+         class="main-nav-logo">
+</a>
+
+        <nav class="navbar-links">
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./gallery.html">Gallery</a></li>
+                <li><a href="./arrival.html">New Arrivals</a></li>
+                <li class="dropdown">
+                    <a href="#">Our Products <span class="arrow">▼</span></a>
+                    <ul class="dropdown-content">
+                        <li><a href="./index.html#sapele">Sapele Wood</a></li>
+                        <li><a href="./index.html#barma">Barma Teak</a></li>
+                        <li><a href="./index.html#african">Africa Teak</a></li>
+                        <li><a href="./index.html#ash">Ash Wood</a></li>
+                        <li class="divider"></li>
+                        <li><a href="./gallery.html">Explore Gallery</a></li>
+                    </ul>
+                </li>
+                <li><a href="./contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+
+        
+    </div>
+
+  
+
+</header>
+<script>
+    // Simple JavaScript for mobile menu toggling
+    const hamburger = document.querySelector('.hamburger-menu');
+    const mobileMenu = document.querySelector('.mobile-menu-links');
+    const mainNav = document.querySelector('.luxury-navbar');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('is-active');
+        mobileMenu.classList.toggle('is-open');
+        mainNav.classList.toggle('mobile-menu-active');
+    });
+</script>
+
+
+<!-- nagivation  bottom navbar -->
+<div class="mobile-nav-wrapper">
+    <nav class="mobile-bottom-nav">
+        <div class="nav-container">
+            
+            <a href="./arrival.html" class="nav-item"> 
+                <i class="fas fa-truck-loading nav-icon"></i>
+                <span class="nav-text">Arrivals</span> </a>
+
+            <a href="./gallery.html" class="nav-item">
+                <i class="fas fa-images nav-icon"></i>
+                <span class="nav-text">Gallery</span>
+            </a>
+            
+            <a href="./index.html" class="nav-item active-nav">
+                <div class="icon-bubble"> 
+                    <i class="fas fa-home active-icon"></i> 
+                </div>
+                <span class="nav-text active-text">Home</span>
+            </a>
+            
+          
+          
+
         </div>
     </nav>
+</div>
+</section>
+
+
+
 
     <section class="hero">
         <div class="container hero-grid">
             <div class="hero-text reveal">
-                <span class="hero-label">Official Importers & Suppliers</span>
-                <h1>Building the <br><span style="color:var(--accent)">Future</span> with Timber.</h1>
-                <p>Leading the market in high-grade Malaysian Timber and Advanced PVC Roofing solutions across Pakistan for over two decades.</p>
-                <button class="action-btn" onclick="toggleStory()">LEARN OUR STORY</button>
+                <span class="hero-label">Global Supply Chain</span>
+                <h1>Industrial Quality <br><span style="color:var(--brand-accent)">By Design.</span></h1>
+                <p>Pakistan's premier importer of certified Malaysian Timber and high-performance ASA-PVC Roofing solutions for modern infrastructure.</p>
+                <button class="action-btn" onclick="toggleStory()">Corporate Profile</button>
             </div>
             <div class="hero-visual reveal">
-                <img src="./images/datamartgoddownandr.jfif" alt="Warehouse View" class="hero-main-img">
+                <img src="./images/datamartgoddownandr.jfif" alt="Operational Center" class="hero-main-img">
                 <div class="stat-overlay">
-                    <h2>25+</h2>
-                    <p style="font-weight: 800; font-size: 0.7rem; color: #777;">YEARS OF LEGACY</p>
+                    <h2>47</h2>
+                    <p>YEARS OF LEGACY</p>
                 </div>
             </div>
         </div>
@@ -146,190 +667,571 @@
     <section class="pillars">
         <div class="container pillar-grid">
             <div class="pillar-card reveal">
-                <i class="fa-solid fa-earth-asia"></i>
-                <h3>Global Imports</h3>
-                <p>We directly source the finest logs from sustainable forests in Malaysia and Brazil, ensuring peak durability.</p>
+                <i class="fa-solid fa-ship"></i>
+                <h3>Direct Imports</h3>
+                <p>Sourcing premium logs directly from sustainable concessions in Southeast Asia and Brazil.</p>
             </div>
             <div class="pillar-card reveal">
-                <i class="fa-solid fa-microchip"></i>
-                <h3>Advanced Tech</h3>
-                <p>Our ASA-coated PVC sheets are engineered with 3-layer insulation technology for maximum heat reflection.</p>
+                <i class="fa-solid fa-shield-halved"></i>
+                <h3>Heat Shield Tech</h3>
+                <p>Advanced 3-layer ASA-PVC sheets providing up to 71% thermal reflection for local climates.</p>
             </div>
             <div class="pillar-card reveal">
-                <i class="fa-solid fa-truck-fast"></i>
-                <h3>Nationwide Supply</h3>
-                <p>With three massive distribution hubs, we guarantee on-time delivery for industrial and residential projects.</p>
+                <i class="fa-solid fa-warehouse"></i>
+                <h3>Massive Inventory</h3>
+                <p>Ready-to-dispatch stock across 3 major distribution hubs for industrial bulk orders.</p>
             </div>
         </div>
     </section>
 
     <section class="story-section">
-        <div class="container">
-            <div class="section-intro reveal">
-                <h2>The Corporate Journey</h2>
-                <p>Explore the technical precision and historical milestones of Pakistan's trusted timber partner.</p>
-                <button class="action-btn" id="toggleBtn" onclick="toggleStory()">VIEW COMPLETE PROFILE</button>
+    <div class="container">
+        <!-- Intro -->
+        <div class="section-intro reveal">
+            <h2>The Enterprise Record</h2>
+            <p class="intro-line">
+                A vertically integrated supply network delivering certified materials at industrial scale,
+                backed by decades of operational discipline and regional market leadership.
+            </p>
+            <button class="action-btn" id="toggleBtn" onclick="toggleStory()">View Full Portfolio</button>
+        </div>
+
+        <!-- Expandable Content -->
+        <div class="content-vault" id="storyVault">
+
+            <!-- Journey -->
+            <div class="detail-block reveal">
+                <div class="text-content">
+                    <span class="tag">Corporate Journey</span>
+                    <h3>Built on Scale, Proven by Time</h3>
+                    <p>
+                        Founded in 1979, we transitioned from a single trade outlet into a structured
+                        industrial supply organization. Today, our operations support large-volume
+                        construction, manufacturing, and commercial projects across Pakistan.
+                    </p>
+                </div>
             </div>
 
-            <div class="content-vault" id="storyVault">
-                
-                <div class="detail-block reveal">
-                    <div class="text-content">
-                        <span class="tag">The Legacy</span>
-                        <h3>Founded on Trust</h3>
-                        <p>Starting as a small warehouse in 1998, Data Timber Mart has evolved into a powerhouse. Our growth is fueled by a simple philosophy: <strong>Quality without compromise.</strong> We were the first to introduce Shorea Leprosula Miq. wood species to the local furniture market, setting a new benchmark for structural strength.</p>
-                    </div>
-                    <div class="img-content">
-                        [Historical Timeline Image]
-                    </div>
-                </div>
+            <!-- Supply Chain -->
+            <div class="detail-block alt reveal">
+                <div class="text-content">
+                    <span class="tag">Global Sourcing</span>
+                    <h3>International Procurement Network</h3>
+                    <p>
+                        Our raw materials are directly sourced from certified suppliers across
+                        <strong>Malaysia, Indonesia, Thailand, and China</strong>, ensuring consistent
+                        grade control, bulk availability, and uninterrupted supply cycles.
+                    </p>
 
-                <div class="detail-block alt reveal">
-                    <div class="text-content">
-                        <span class="tag">Engineering</span>
-                        <h3>Superior Roofing Solutions</h3>
-                        <p>Our PVC Roofing is not just a sheet; it's a thermal barrier. Designed for the extreme heat of Pakistan, these sheets provide 10x more cooling than traditional iron roofing.</p>
-                        <div class="spec-wrap">
-                            <div class="spec-row"><span>Material Density</span> <span class="spec-val">1.2 g/cm³</span></div>
-                            <div class="spec-row"><span>Heat Shield Capacity</span> <span class="spec-val">Up to 71%</span></div>
-                            <div class="spec-row"><span>Noise Barrier</span> <span class="spec-val">-15 Decibels</span></div>
-                            <div class="spec-row"><span>Structural Life</span> <span class="spec-val">25+ Years</span></div>
+                    <div class="spec-wrap">
+                        <div class="spec-row">
+                            <span class="spec-label">Annual Import Volume</span>
+                            <span class="spec-val">12,000+ Tons</span>
                         </div>
-                    </div>
-                    <div class="img-content">
-                         [PVC Engineering Diagram]
-                    </div>
-                </div>
-
-                <div class="timeline reveal">
-                    <h3 style="text-align: center; font-family: 'Playfair Display'; font-size: 2.5rem; margin-bottom: 50px;">Strategic Reach</h3>
-                    <div class="timeline-grid">
-                        <div class="time-box">
-                            <h4>Hub 01</h4>
-                            <p>Karachi Timber Market (HQ)</p>
+                        <div class="spec-row">
+                            <span class="spec-label">Supplier Certifications</span>
+                            <span class="spec-val">ISO / FSC Verified</span>
                         </div>
-                        <div class="time-box">
-                            <h4>Hub 02</h4>
-                            <p>SITE Industrial Zone</p>
-                        </div>
-                        <div class="time-box">
-                            <h4>Hub 03</h4>
-                            <p>Northern Bypass Warehouse</p>
-                        </div>
-                        <div class="time-box">
-                            <h4>Hub 04</h4>
-                            <p>Inland Distribution Center</p>
+                        <div class="spec-row">
+                            <span class="spec-label">Inbound Ports</span>
+                            <span class="spec-val">Karachi & Port Qasim</span>
                         </div>
                     </div>
                 </div>
-
-                <div class="pillar-grid reveal" style="padding: 100px 0;">
-                    <div class="pillar-card" style="background: white; border-radius: 20px;">
-                        <h4>Ethical Sourcing</h4>
-                        <p>Every log we import is FSC certified, meaning we support global reforestation efforts.</p>
-                    </div>
-                    <div class="pillar-card" style="background: white; border-radius: 20px;">
-                        <h4>Quality Control</h4>
-                        <p>3-point inspection on every board: Grain density, Moisture content, and Structural integrity.</p>
-                    </div>
-                    <div class="pillar-card" style="background: white; border-radius: 20px;">
-                        <h4>Return Policy</h4>
-                        <p>100% money-back guarantee on any manufacturing defects within 7 days of delivery.</p>
-                    </div>
-                </div>
-
             </div>
-            </div>
-    </section>
 
-    <section class="faq">
-        <div class="container">
-            <h2 style="text-align:center; font-family:'Playfair Display'; font-size: 3rem; margin-bottom: 60px;">Technical Questions</h2>
-            <div class="faq-list">
-                <div class="faq-item reveal" onclick="toggleFaq(this)">
-                    <div class="faq-q">Can your PVC sheets bear heavy loads? <i class="fa-solid fa-plus"></i></div>
-                    <div class="faq-a">Absolutely. Our 12mm Twin Wall sheets can bear up to 150kg per square meter, making them safe for maintenance walking.</div>
+            <!-- Infrastructure -->
+            <div class="detail-block reveal">
+                <div class="text-content">
+                    <span class="tag">Physical Infrastructure</span>
+                    <h3>Warehousing & Retail Footprint</h3>
+                    <p>
+                        Our distribution model is supported by strategically located warehouses and
+                        high-volume retail outlets designed for fast dispatch and bulk handling.
+                    </p>
+
+                    <div class="spec-wrap">
+                        <div class="spec-row">
+                            <span class="spec-label">Main Showroom</span>
+                            <span class="spec-val">Karachi Timber Market</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Warehouses</span>
+                            <span class="spec-val">3 Operational Units</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Covered Storage</span>
+                            <span class="spec-val">85,000+ Sq. Ft.</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="faq-item reveal" onclick="toggleFaq(this)">
-                    <div class="faq-q">Why is Shorea Wood better for furniture? <i class="fa-solid fa-plus"></i></div>
-                    <div class="faq-a">Shorea has a natural high resin content which makes it extremely resistant to termites and water damage compared to local wood.</div>
+            </div>
+
+            <!-- Industrial Capability -->
+            <div class="detail-block alt reveal">
+                <div class="text-content">
+                    <span class="tag">Technical Capability</span>
+                    <h3>Industrial-Grade Performance</h3>
+                    <p>
+                        Our PVC and polymer solutions are engineered for harsh operating conditions,
+                        maintaining structural stability under sustained heat, load, and exposure.
+                    </p>
+
+                    <div class="spec-wrap">
+                        <div class="spec-row">
+                            <span class="spec-label">Heat Resistance</span>
+                            <span class="spec-val">50°C+ Continuous</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Service Life</span>
+                            <span class="spec-val">25+ Years</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Surface Protection</span>
+                            <span class="spec-val">Dual ASA UV Layer</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="faq-item reveal" onclick="toggleFaq(this)">
-                    <div class="faq-q">Do you offer home delivery for retail buyers? <i class="fa-solid fa-plus"></i></div>
-                    <div class="faq-a">Yes, we have our own fleet of trucks to deliver any quantity, from single boards to industrial bulk loads, across the city.</div>
+            </div>
+
+            <!-- Locations -->
+            <div class="timeline-grid reveal">
+                <div class="time-box">
+                    <h4>Head Office</h4>
+                    <p>Data Timber Mart</p>
                 </div>
+                <div class="time-box">
+                    <h4>Branch No 1</h4>
+                    <p>Data One ENTERPRISSES</p>
+                </div>
+                <div class="time-box">
+                    <h4>Branch No 2 </h4>
+                    <p>Data Timber Mart</p>
+                </div>
+                <div class="time-box">
+                    <h4>Inventory Hub</h4>
+                    <p>God Down</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+ <!-- FAQ SECTION -->
+<section class="faq">
+    <div class="container">
+        <h2 class="faq-title">Technical & Operational FAQs</h2>
+
+        <div class="faq-item reveal" onclick="toggleFaq(this)">
+            <div class="faq-q">
+                Is nationwide delivery available for bulk and project orders?
+                <i class="fa-solid fa-plus"></i>
+            </div>
+            <div class="faq-a">
+                Yes. We operate a dedicated logistics network capable of handling
+                high-volume and project-based deliveries across major cities and
+                industrial zones throughout Pakistan.
             </div>
         </div>
-    </section>
+
+        <div class="faq-item reveal" onclick="toggleFaq(this)">
+            <div class="faq-q">
+                Why is ASA-PVC preferred over traditional iron sheets?
+              
+            </div>
+            <div class="faq-a">
+                ASA-PVC offers corrosion resistance, superior thermal insulation,
+                lighter structural load, and zero maintenance requirements—making it
+                a long-term cost-efficient alternative to iron roofing.
+            </div>
+        </div>
+
+        <div class="faq-item reveal" onclick="toggleFaq(this)">
+            <div class="faq-q">
+                Are your materials suitable for high-temperature environments?
+              
+            </div>
+            <div class="faq-a">
+                Our PVC and polymer products are engineered to perform reliably in
+                continuous temperatures exceeding 50°C without deformation or loss
+                of structural integrity.
+            </div>
+        </div>
+
+        <div class="faq-item reveal" onclick="toggleFaq(this)">
+            <div class="faq-q">
+                Do you support large-scale industrial or commercial projects?
+                
+            </div>
+            <div class="faq-a">
+                Yes. We regularly supply factories, warehouses, commercial buildings,
+                and infrastructure projects with consistent material quality and
+                assured supply timelines.
+            </div>
+        </div>
+
+        <div class="faq-item reveal" onclick="toggleFaq(this)">
+            <div class="faq-q">
+                What quality assurance standards do you follow?
+             
+            </div>
+            <div class="faq-a">
+                All materials undergo batch-level inspection and are sourced from
+                verified manufacturers complying with international quality and
+                durability benchmarks.
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ CSS -->
+<style>
+.faq {
+    padding: 80px 0;
+    background: #fff;
+}
+
+.faq-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 2.6rem);
+    margin-bottom: 40px;
+    color: #111;
+    text-align: center;
+}
+
+.faq-item {
+    max-width: 900px;
+    margin: 0 auto;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.faq-q {
+    padding: 22px 10px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.95rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #111;
+}
+
+.faq-q i {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.faq-a {
+    padding: 0 10px 20px;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: #555;
+    display: none;
+}
+
+/* ACTIVE STATE */
+.faq-item.active .faq-a {
+    display: block;
+}
+
+.faq-item.active .faq-q i {
+    transform: rotate(45deg); /* + becomes × */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .faq-q {
+        font-size: 0.9rem;
+    }
+}
+</style>
+
+<!-- FAQ JS -->
+<script>
+function toggleFaq(item) {
+    document.querySelectorAll('.faq-item').forEach(faq => {
+        if (faq !== item) {
+            faq.classList.remove('active');
+        }
+    });
+    item.classList.toggle('active');
+}
+</script>
+
+
 
     <section class="dev-section">
-        <div class="container">
-            <div class="dev-wrapper reveal">
-                <div class="dev-left">
-                    <span style="color:var(--accent); font-weight: 800; font-size: 0.8rem; letter-spacing: 2px;">DIGITAL ARCHITECT</span>
-                    <h2>Developed by M. Muzammil</h2>
-                    <p>Muzammil is a high-performance web engineer who designs scalable digital experiences for industrial leaders. He built this identity to bridge the gap between legacy business and modern tech.</p>
-                </div>
-                <div class="dev-right">
-                    <a href="mailto:muzzamilzubair456@gmail.com" class="btn-dev">Contact Engineer</a>
-                </div>
+        <div class="container dev-wrapper">
+            <div class="dev-left reveal">
+                <h2>Engineered by M. Muzammil</h2>
+                <p>Digital architect specializing in high-performance web systems for industrial leaders.</p>
+            </div>
+            <div class="dev-right reveal">
+                <a href="mailto:muzzamilzubair456@gmail.com" class="btn-dev">Contact Engineer</a>
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 DATA TIMBER MART. ALL RIGHTS RESERVED. | DESIGNED BY MUZAMMIL</p>
-        </div>
-    </footer>
+    
 
     <script>
-        // VAULT TOGGLE LOGIC
         function toggleStory() {
             const vault = document.getElementById('storyVault');
             const btn = document.getElementById('toggleBtn');
-            
-            if (vault.classList.contains('active')) {
-                vault.classList.remove('active');
-                btn.innerText = 'VIEW COMPLETE PROFILE';
-                window.scrollTo({ top: document.querySelector('.story-section').offsetTop - 100, behavior: 'smooth' });
-            } else {
-                vault.classList.add('active');
-                btn.innerText = 'HIDE PROFILE';
-                setTimeout(() => {
-                    vault.querySelector('.detail-block').scrollIntoView({ behavior: 'smooth' });
-                }, 300);
-            }
+            vault.classList.toggle('active');
+            btn.innerText = vault.classList.contains('active') ? 'Close Profile' : 'View Full Portfolio';
         }
 
-        // FAQ TOGGLE LOGIC
         function toggleFaq(el) {
             const body = el.querySelector('.faq-a');
             const icon = el.querySelector('i');
-            
-            if (body.style.display === 'block') {
-                body.style.display = 'none';
-                icon.className = 'fa-solid fa-plus';
-            } else {
-                body.style.display = 'block';
-                icon.className = 'fa-solid fa-minus';
-            }
+            const isVisible = body.style.display === 'block';
+            body.style.display = isVisible ? 'none' : 'block';
+            icon.className = isVisible ? 'fa-solid fa-plus' : 'fa-solid fa-minus';
         }
 
-        // SCROLL REVEAL LOGIC
         function reveal() {
             const reveals = document.querySelectorAll(".reveal");
             reveals.forEach(el => {
                 const windowHeight = window.innerHeight;
                 const elementTop = el.getBoundingClientRect().top;
-                if (elementTop < windowHeight - 100) {
-                    el.classList.add("active");
-                }
+                if (elementTop < windowHeight - 50) { el.classList.add("active"); }
             });
         }
         window.addEventListener("scroll", reveal);
         window.addEventListener("load", reveal);
     </script>
 
+<footer class="site-footer">
+    <div class="footer-container">
+        
+        <div class="footer-column company-info">
+            <h3 class="footer-logo">Data Timber Mart</h3>
+            <p class="company-tagline">Providing quality hardwood and custom cuts since 1979. Excellence in every grain.</p>
+           <!-- Contact Form -->
+<div class="newsletter-signup">
+  <h4 class="newsletter-title">Stay Updated</h4>
+  <form id="contact-form">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" placeholder="Your Message" required></textarea>
+    <input type="hidden" name="title" value="Contact Us">
+    <button type="submit" class="subscribe-btn">Submit</button>
+  </form>
+  <div id="toast" style="display:none; padding:10px; background:green; color:white; margin-top:10px; border-radius:5px;">Email Sent Successfully!</div>
+</div>
+</script>
+<!-- Add EmailJS SDK -->
+<script>
+  // Initialize EmailJS
+  emailjs.init("service_t2kac2l"); // Replace YOUR_USER_ID with EmailJS user ID
+
+  const form = document.getElementById('contact-form');
+  const toast = document.getElementById('toast');
+
+  form.addEventListener('submit', function(event){
+    event.preventDefault(); // Prevent default form submission
+
+    emailjs.sendForm('service_t2kac2l', 'ContactFormTemplate', this)
+      .then(function(){
+        // Success
+        toast.style.display = "block";
+        toast.innerText = "Thank you! Your message has been sent successfully.";
+        form.reset(); // Clear form
+
+        setTimeout(()=>{ toast.style.display="none"; }, 5000); // Hide after 5 sec
+      }, function(error){
+        // Error
+        toast.style.display = "block";
+        toast.style.background = "red";
+        toast.innerText = "Oops! Something went wrong. Try again.";
+        setTimeout(()=>{ toast.style.display="none"; }, 5000);
+        console.log('FAILED...', error);
+      });
+  });
+</script>
+
+        </div>
+
+        <div class="footer-column links-wrapper">
+            
+            <div class="accordion-item">
+                <div class="accordion-header" id="quick-links-toggle">
+                    Quick Links <i class="fas fa-chevron-down accordion-arrow"></i>
+                </div>
+                <ul class="accordion-content footer-links" id="quick-links-list">
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="#aboutus">About Us</a></li>
+                    <li><a href="./gallery.html">All Products</a></li>
+                    <li><a href="./arrival.html">New Arrivals</a></li>
+                </ul>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header" id="services-toggle">
+                    Our Services <i class="fas fa-chevron-down accordion-arrow"></i>
+                </div>
+                <ul class="accordion-content footer-links" id="services-list">
+                    <li><a href="./services.html#cutting">Custom Cutting</a></li>
+                    <li><a href="./services.html#delivery">Local Delivery</a></li>
+                    <li><a href="./services.html#consultation">Expert Consultation</a></li>
+                </ul>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header" id="info-toggle">
+                    Helpful Info <i class="fas fa-chevron-down accordion-arrow"></i>
+                </div>
+                <ul class="accordion-content footer-links" id="info-list">
+                    <li><a href="./privacy.html">FAQs & Support</a></li>
+                    <li><a href="./privacy.html">Terms & Conditions</a></li>
+                    <li><a href="./privacy.html">Privacy Policy</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-column contact-social">
+            <h4 class="footer-heading">Get in Touch</h4>
+            <address class="contact-details">
+                <p><i class="fas fa-map-marker-alt"></i> Siddique wahab road Old haji camp Karachi, Pakistan.</p>
+                <p><i class="fas fa-phone"></i>+92 2132728053</p>
+                <p><i class="fas fa-envelope"></i> dataoneenterprises1986@gmail.com</p>
+            </address>
+
+            <div class="social-links-footer">
+                <h4 class="footer-heading">Follow Us</h4>
+                <div class="social-icons">
+                     <a href="https://www.facebook.com/arif.data.90" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+               
+                <a href="https://wa.me/+923002844789" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+              </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2024 DataOne Timber Mart. All rights reserved.</p>
+    </div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const toggles = document.querySelectorAll('.accordion-header');
+    
+    toggles.forEach(toggle => {
+        toggle.addEventListener('click', function() {
+            const content = document.getElementById(this.id.replace('-toggle', '-list'));
+            
+            // Close all other open accordions
+            toggles.forEach(otherToggle => {
+                if (otherToggle !== this && otherToggle.classList.contains('is-active')) {
+                    otherToggle.classList.remove('is-active');
+                    const otherContent = document.getElementById(otherToggle.id.replace('-toggle', '-list'));
+                    otherContent.style.maxHeight = null;
+                }
+            });
+
+            // Toggle current accordion
+            this.classList.toggle('is-active');
+            if (content.style.maxHeight) {
+                // Close it
+                content.style.maxHeight = null;
+            } else {
+                // Open it
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
+    });
+});
+
+<a href="https://wa.me/+923002844789" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+    <span class="tooltip-text">Chat with us</span>
+</a>
+
+<style>
+    /* WhatsApp Button Styling */
+    .whatsapp-float {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        width: 50px; /* Small size */
+        height: 50px;
+        background-color: #25d366;
+        color: #fff;
+        border-radius: 50px;
+        text-align: center;
+        font-size: 28px;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        
+        /* Animation trigger */
+        animation: pulse-green 2s infinite;
+    }
+
+    /* Pulse Animation */
+    @keyframes pulse-green {
+        0% {
+            transform: scale(0.95);
+            box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+        }
+        70% {
+            transform: scale(1);
+            box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+        }
+        100% {
+            transform: scale(0.95);
+            box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+        }
+    }
+
+    .whatsapp-float:hover {
+        background-color: #128c7e;
+        transform: translateY(-5px);
+        color: white;
+    }
+
+    /* Tooltip styling (Optional) */
+    .tooltip-text {
+        visibility: hidden;
+        width: 100px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px;
+        position: absolute;
+        z-index: 1;
+        right: 120%; 
+        font-size: 12px;
+        font-family: sans-serif;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .whatsapp-float:hover .tooltip-text {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    /* Mobile scaling */
+    @media screen and (max-width: 768px) {
+        .whatsapp-float {
+            width: 45px;
+            height: 45px;
+            font-size: 24px;
+            bottom: 90px;
+            right: 20px;
+        }
+    }
+</style>
 </body>
 </html>

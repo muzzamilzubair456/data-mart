@@ -1310,7 +1310,7 @@ if(reduce.matches){
         
         <div class="footer-column company-info">
             <h3 class="footer-logo">Data Timber Mart</h3>
-            <p class="company-tagline">Providing quality hardwood and custom cuts since 1986. Excellence in every grain.</p>
+            <p class="company-tagline">Providing quality hardwood and custom cuts since 1979. Excellence in every grain.</p>
             
             <div class="newsletter-signup">
                 <h4 class="newsletter-title">Stay Updated</h4>
@@ -1370,10 +1370,10 @@ if(reduce.matches){
             <div class="social-links-footer">
                 <h4 class="footer-heading">Follow Us</h4>
                 <div class="social-icons">
-                    <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                </div>
+                    <a href="https://www.facebook.com/arif.data.90" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+               
+                <a href="https://wa.me/+923002844789" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                   </div>
             </div>
         </div>
 
@@ -1413,6 +1413,93 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+
+<a href="https://wa.me/+923002844789" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+    <span class="tooltip-text">Chat with us</span>
+</a>
+
+<style>
+    /* WhatsApp Button Styling */
+    .whatsapp-float {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        width: 50px; /* Small size */
+        height: 50px;
+        background-color: #25d366;
+        color: #fff;
+        border-radius: 50px;
+        text-align: center;
+        font-size: 28px;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        
+        /* Animation trigger */
+        animation: pulse-green 2s infinite;
+    }
+
+    /* Pulse Animation */
+    @keyframes pulse-green {
+        0% {
+            transform: scale(0.95);
+            box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+        }
+        70% {
+            transform: scale(1);
+            box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+        }
+        100% {
+            transform: scale(0.95);
+            box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+        }
+    }
+
+    .whatsapp-float:hover {
+        background-color: #128c7e;
+        transform: translateY(-5px);
+        color: white;
+    }
+
+    /* Tooltip styling (Optional) */
+    .tooltip-text {
+        visibility: hidden;
+        width: 100px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px;
+        position: absolute;
+        z-index: 1;
+        right: 120%; 
+        font-size: 12px;
+        font-family: sans-serif;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .whatsapp-float:hover .tooltip-text {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    /* Mobile scaling */
+    @media screen and (max-width: 768px) {
+        .whatsapp-float {
+            width: 45px;
+            height: 45px;
+            font-size: 24px;
+            bottom: 90px;
+            right: 20px;
+        }
+    }
+</style>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
