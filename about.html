@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Timber Mart | Industrial Excellence</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
     <style>
         :root {
             --brand-primary: #0f172a;
@@ -241,8 +244,6 @@
             .action-btn { width: auto; }
         }
     </style>
-</head>
-<body>
 <header class="luxury-navbar">
     <div class="navbar-container">
 
@@ -1012,20 +1013,19 @@ function toggleFaq(item) {
             <h3 class="footer-logo">Data Timber Mart</h3>
             <p class="company-tagline">Providing quality hardwood and custom cuts since 1979. Excellence in every grain.</p>
            <!-- Contact Form -->
-<div class="newsletter-signup">
-  <h4 class="newsletter-title">Stay Updated</h4>
-  <form id="contact-form">
-    <input type="text" id="name" name="name" placeholder="Your Name" required><br><br>
-    <input type="email" id="email" name="email" placeholder="Your Email" required><br><br>
-    <textarea id="message" name="message" placeholder="Your Message" required></textarea><br><br>
+<form id="contact-form">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" placeholder="Your Message" required></textarea>
     <button type="submit" id="btn" class="subscribe-btn">Submit</button>
   </form>
-  <div id="toast" style="display:none; padding:10px; margin-top:10px; border-radius:5px; color:white;"></div>
+
+  <div id="toast"></div>
 </div>
 
 <script>
   (function() {
-    // Dashboard -> Account -> API Keys se Public Key yahan copy karein
+    // Aapki Public Key
     emailjs.init("se8HBJ5MrvZpwtsrU"); 
   })();
 
@@ -1034,29 +1034,29 @@ function toggleFaq(item) {
   const btn = document.getElementById('btn');
 
   form.addEventListener('submit', function(event) {
+    // Sab se zaroori line: Ye page refresh aur 405 error ko rokiti hai
     event.preventDefault(); 
 
     btn.innerText = 'Sending...';
     btn.disabled = true;
 
-    // Hum sirf Main Template (Contact Us) bhejenge, 
-    // Auto-reply dashboard se link hone ki wajah se khud chala jayega.
+    // Service ID aur Template ID
     emailjs.sendForm('service_t2kac2l', 'template_vsaa1rk', this)
       .then(function() {
         toast.style.display = "block";
         toast.style.background = "green";
-        toast.innerText = "Message Sent! Check your email.";
-        form.reset();
+        toast.innerText = "Success! Email sent. Please check your inbox.";
+        form.reset(); // Form khali kar dein
         btn.innerText = 'Submit';
         btn.disabled = false;
-        setTimeout(() => { toast.style.display = "none"; }, 5000);
+        setTimeout(() => { toast.style.display = "none"; }, 6000);
       }, function(error) {
         toast.style.display = "block";
         toast.style.background = "red";
-        toast.innerText = "Error occurred. Check console.";
+        toast.innerText = "Error: Email send nahi ho saka.";
         btn.innerText = 'Submit';
         btn.disabled = false;
-        console.log('Error:', error);
+        console.error('FAILED...', error);
       });
   });
 </script>
