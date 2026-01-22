@@ -1217,27 +1217,62 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 
-
-
-
-
-
 <footer class="site-footer">
     <div class="footer-container">
-        
         <div class="footer-column company-info">
             <h3 class="footer-logo">Data Timber Mart</h3>
-            <p class="company-tagline">Providing quality hardwood and custom cuts since 1979. Excellence in every grain.</p>
+            <p class="company-tagline">Providing quality hardwood since 1979. Excellence in every grain.</p>
             
             <div class="newsletter-signup">
                 <h4 class="newsletter-title">Stay Updated</h4>
-                <form action="#" method="POST" class="signup-form">
-                    <input type="email" placeholder="Enter your email" required>
-                    <button type="submit" class="subscribe-btn">Subscribe</button>
+                <form id="contact-form" class="signup-form">
+                    <input type="email" name="email" id="user_email" placeholder="Enter your email" class="modern-input" required>
+                    <button type="submit" id="btn" class="subscribe-btn">Send Email</button>
                 </form>
+                <div id="toast"></div>
             </div>
         </div>
+        
+        </div>
 
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init("se8HBJ5MrvZpwtsrU"); 
+  })();
+
+  const form = document.getElementById('contact-form');
+  const btn = document.getElementById('btn');
+  const toast = document.getElementById('toast');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    btn.innerText = 'Sending...';
+    btn.disabled = true;
+
+    emailjs.sendForm('service_t2kac2l', 'template_vsaa1rk', this)
+      .then(function() {
+        toast.style.display = "block";
+        toast.style.background = "#27ae60"; 
+        toast.style.color = "white";
+        toast.innerText = "Success! Email Sent.";
+        form.reset();
+        btn.innerText = 'Send Email';
+        btn.disabled = false;
+        setTimeout(() => { toast.style.display = "none"; }, 5000);
+      }, function(error) {
+        toast.style.display = "block";
+        toast.style.background = "#e74c3c"; 
+        toast.style.color = "white";
+        toast.innerText = "Error: Failed to send.";
+        btn.innerText = 'Send Email';
+        btn.disabled = false;
+      });
+  });
+</script>
         <div class="footer-column links-wrapper">
             
             <div class="accordion-item">
@@ -1329,7 +1364,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
-
 
 <a href="https://wa.me/+923002844789" class="whatsapp-float" target="_blank">
     <i class="fab fa-whatsapp"></i>

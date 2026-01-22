@@ -1008,60 +1008,60 @@ function toggleFaq(item) {
 
 <footer class="site-footer">
     <div class="footer-container">
-        
         <div class="footer-column company-info">
             <h3 class="footer-logo">Data Timber Mart</h3>
-            <p class="company-tagline">Providing quality hardwood and custom cuts since 1979. Excellence in every grain.</p>
-           <!-- Contact Form -->
-<form id="contact-form">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <textarea name="message" placeholder="Your Message" required></textarea>
-    <button type="submit" id="btn" class="subscribe-btn">Submit</button>
-  </form>
+            <p class="company-tagline">Providing quality hardwood since 1979. Excellence in every grain.</p>
+            
+            <div class="newsletter-signup">
+                <h4 class="newsletter-title">Stay Updated</h4>
+                <form id="contact-form" class="signup-form">
+                    <input type="email" name="email" id="user_email" placeholder="Enter your email" class="modern-input" required>
+                    <button type="submit" id="btn" class="subscribe-btn">Send Email</button>
+                </form>
+                <div id="toast"></div>
+            </div>
+        </div>
+        
+        </div>
 
-  <div id="toast"></div>
-</div>
 
+
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script>
   (function() {
-    // Aapki Public Key
     emailjs.init("se8HBJ5MrvZpwtsrU"); 
   })();
 
   const form = document.getElementById('contact-form');
-  const toast = document.getElementById('toast');
   const btn = document.getElementById('btn');
+  const toast = document.getElementById('toast');
 
   form.addEventListener('submit', function(event) {
-    // Sab se zaroori line: Ye page refresh aur 405 error ko rokiti hai
-    event.preventDefault(); 
-
+    event.preventDefault();
     btn.innerText = 'Sending...';
     btn.disabled = true;
 
-    // Service ID aur Template ID
     emailjs.sendForm('service_t2kac2l', 'template_vsaa1rk', this)
       .then(function() {
         toast.style.display = "block";
-        toast.style.background = "green";
-        toast.innerText = "Success! Email sent. Please check your inbox.";
-        form.reset(); // Form khali kar dein
-        btn.innerText = 'Submit';
+        toast.style.background = "#27ae60"; 
+        toast.style.color = "white";
+        toast.innerText = "Success! Email Sent.";
+        form.reset();
+        btn.innerText = 'Send Email';
         btn.disabled = false;
-        setTimeout(() => { toast.style.display = "none"; }, 6000);
+        setTimeout(() => { toast.style.display = "none"; }, 5000);
       }, function(error) {
         toast.style.display = "block";
-        toast.style.background = "red";
-        toast.innerText = "Error: Email send nahi ho saka.";
-        btn.innerText = 'Submit';
+        toast.style.background = "#e74c3c"; 
+        toast.style.color = "white";
+        toast.innerText = "Error: Failed to send.";
+        btn.innerText = 'Send Email';
         btn.disabled = false;
-        console.error('FAILED...', error);
       });
   });
 </script>
-        </div>
-
         <div class="footer-column links-wrapper">
             
             <div class="accordion-item">
@@ -1112,9 +1112,8 @@ function toggleFaq(item) {
                 <h4 class="footer-heading">Follow Us</h4>
                 <div class="social-icons">
                      <a href="https://www.facebook.com/arif.data.90" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-               
-                <a href="https://wa.me/+923002844789" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-              </div>
+                 <a href="https://wa.me/+923002844789" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
             </div>
         </div>
 
